@@ -16,4 +16,4 @@ The most actively used XML formats are:
  
  Please see the wiki for more information.
 
-http://www.primaresearch.org/tools#modal-Aletheia-0
+![Page Content](http://www.primaresearch.org/tools#modal-Aletheia-0)
