@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/dewarping/2014-08-26"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dw="http://schema.primaresearch.org/PAGE/gts/dewarping/2014-08-26">
+
+    <element name="DwGts" type="dw:DwGtsType">
+    	<annotation>
+    		<documentation>Dewarping - Ground Truth and Storage</documentation>
+    	</annotation></element>
+    
+    <complexType name="DwGtsType">
+    	<sequence>
+    		<element name="Metadata" type="dw:MetadataType">
+    			<annotation>
+    				<documentation>Metadata for this dewarping grid document</documentation>
+    			</annotation></element>
+            <element name="DocumentImage" type="dw:DocumentImageType" minOccurs="1" maxOccurs="2">
+            	<annotation>
+            		<documentation>Filename of document page image (typically warped image; colour, grey scale or bitonal)</documentation>
+            	</annotation></element>
+            <element name="Grid" type="dw:GridType" maxOccurs="unbounded" minOccurs="1">
+    			<annotation>
+    				<documentation>Grid for geometric correction of a certain region
+on the page (multiple grids allowed).
+This element can be omitted if the image does
+not need to be corrected (but has been checked
+during the ground-truthing workflow).
+    				</documentation>
+    			</annotation>
+            </element>
+        </sequence>
+    	<attribute name="dwGtsId" type="ID" use="optional"></attribute>
+    </complexType>
+
+    <complexType name="MetadataType">
+		<sequence>
+			<element name="Creator" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="Created" type="dateTime"></element>
+			<element name="LastChange" type="dateTime"></element>
+			<element name="Comments" type="string" minOccurs="0"
+				maxOccurs="1">
+			</element>
+			<element name="GridDetectionParameters" type="dw:GridDetectionParametersType" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+    </complexType>
+
+	<complexType name="GridType">
+		<sequence>
+			<element name="Column" type="dw:ColumnType" minOccurs="2"
+				maxOccurs="unbounded">
+			</element>
+            <element name="Row" type="dw:RowType" minOccurs="2" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="GridDetectionParametersType">
+		<attribute name="textLineDetectionMethod" type="string" use="optional">
+			<annotation>
+				<documentation>Name of text line detection method (if text line detection was used).</documentation>
+			</annotation></attribute>
+	</complexType>
+
+	<complexType name="ColumnType">
+		<attribute name="index" type="int" use="required">
+			<annotation>
+				<documentation>Column index</documentation>
+			</annotation></attribute>
+		<attribute name="refLinePos" type="int" use="optional">
+			<annotation>
+				<documentation>X-position of vertical reference line for this grid column</documentation>
+			</annotation></attribute>
+	</complexType>
+
+	<complexType name="RowType">
+		<attribute name="index" type="int" use="required">
+			<annotation>
+				<documentation>Row index</documentation>
+			</annotation></attribute>
+		<attribute name="refLinePos" type="int" use="optional">
+			<annotation>
+				<documentation>Y-position of horizontal reference line for this grid row</documentation>
+			</annotation></attribute>
+		<attribute name="points" type="dw:pointsType">
+			<annotation>
+				<documentation>Grid points for this row (sorted by x; smallest to largest). Format "x1,y1 x2,y2 ..." (positive Integers)</documentation>
+			</annotation></attribute>
+	</complexType>
+
+	<simpleType name="pointsType">
+		<restriction base="string">
+			<pattern value="([0-9]+,[0-9]+ )+([0-9]+,[0-9]+)"></pattern>
+		</restriction>
+	</simpleType>
+
+	<complexType name="DocumentImageType">
+		<attribute name="filename" type="string" use="required"></attribute>
+		<attribute name="bilevel" type="boolean" use="optional">
+			<annotation>
+				<documentation>Hint that the referenced image is a bilevel image (bitonal/black-and-white)</documentation>
+			</annotation></attribute>
+	</complexType>
+</schema>
