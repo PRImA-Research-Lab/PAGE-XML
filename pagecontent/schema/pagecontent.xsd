@@ -116,6 +116,11 @@
 		<attribute name="imageFilename" type="string" use="required"></attribute>
 		<attribute name="imageWidth" type="int" use="required"></attribute>
 		<attribute name="imageHeight" type="int" use="required"></attribute>
+		<attribute name="imageXResolution" type="int" use="required"></attribute>
+	        <attribute name="imageYResolution" type="int" use="required"></attribute>
+	        <attribute name="imageCompression" type="string" use="required"></attribute>
+	        <attribute name="imagePhotometricInterpretation" type="string" use="required"></attribute>
+	        <attribute name="imageResolutionUnit" type="string" use="required"></attribute>
 		<attribute name="custom" type="string">
 			<annotation>
 				<documentation>For generic use</documentation>
