@@ -15,5 +15,7 @@ The most actively used XML formats are:
  http://www.primaresearch.org/schema/PAGE/gts/dewarping/2014-08-26/dewarping.xsd
  
  Please see the wiki for more information.
+ 
+ Note: The master branch contains the proposed changes for the next release. 
 
 ![Page Content](http://www.primaresearch.org/www/media/tools/Aletheia.png)
