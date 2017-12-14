@@ -120,7 +120,12 @@
 	        <attribute name="imageYResolution" type="int" use="optional"></attribute>
 	        <attribute name="imageCompression" type="string" use="optional"></attribute>
 	        <attribute name="imagePhotometricInterpretation" type="string" use="optional"></attribute>
-	        <attribute name="imageResolutionUnit" type="string" use="optional"></attribute>
+	        <attribute name="imageResolutionUnit" type="string" use="optional">
+	        <annotation>
+	        <documentation>Indication of the resolution units. These can be, for example, pixels (px) centimeters (cm), inches (inches). The information should refer to a standardized unit of measurement.</documentation>
+	        </annotation>
+	        
+</attribute>
 		<attribute name="custom" type="string">
 			<annotation>
 				<documentation>For generic use</documentation>
