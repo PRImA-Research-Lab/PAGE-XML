@@ -120,52 +120,52 @@
            </documentation>
         </annotation>
         </attribute>
-		<attribute name="imageWidth" type="int" use="required">
-		<annotation>
-		<documentation>The imageWidth attribute specifies the width of an image.</documentation>
-		</annotation>
-		</attribute>
-		<attribute name="imageHeight" type="int" use="required">
-		<annotation>
-		<documentation>The imageHeight attribute specifies the height of an image.</documentation>
-		</annotation>
-		</attribute>
-		<attribute name="imageXResolution" type="int" use="optional">
-		<annotation>
-		<documentation>The X resolution displays the image resolution of the width.</documentation>
-        </annotation>
-		</attribute>
-	    <attribute name="imageYResolution" type="int" use="optional">
+	<attribute name="imageWidth" type="int" use="required">
 	    <annotation>
-	    <documentation>The Y resolution displays the image resolution of the height.</documentation>
+		<documentation>The imageWidth attribute specifies the width of an image.</documentation>
+	    </annotation>
+	</attribute>
+	<attribute name="imageHeight" type="int" use="required">
+	    <annotation>
+		<documentation>The imageHeight attribute specifies the height of an image.</documentation>
+	    </annotation>
+	</attribute>
+	<attribute name="imageXResolution" type="int" use="optional">
+	    <annotation>
+		<documentation>The X resolution displays the image resolution of the width.</documentation>
+            </annotation>
+	</attribute>
+	<attribute name="imageYResolution" type="int" use="optional">
+	    <annotation>
+	    	<documentation>The Y resolution displays the image resolution of the height.</documentation>
 	    </annotation>
         </attribute>
-	    <attribute name="imageCompression" type="string" use="optional">
+	<attribute name="imageCompression" type="string" use="optional">
 	    <annotation>
-          <documentation>Indication of the type of image compression or whether 
-               the image has been compressed.
-          </documentation>
+          	<documentation>Indication of the type of image compression or whether 
+               			the image has been compressed.
+          	</documentation>
         </annotation>
         </attribute>
-	    <attribute name="imagePhotometricInterpretation" type="string" use="optional">
+	<attribute name="imagePhotometricInterpretation" type="string" use="optional">
 	    <annotation>
-         <documentation>Specification of the color space or color model that's using.</documentation>
-        </annotation>
+              	<documentation>Specification of the color space or color model that's using.</documentation>
+            </annotation>
         </attribute>
-	    <attribute name="imageResolutionUnit" type="string" use="optional">
-	      <annotation>
-	        <documentation>Indication of the resolution unit. 
-             These can be, for example, pixels (px) centimeters (cm), inches (inches). 
-             The information should refer to a standardized unit of measurement.
-            </documentation>
-	      </annotation>
+	<attribute name="imageResolutionUnit" type="string" use="optional">
+	    <annotation>
+	      	<documentation>Indication of the resolution unit. 
+                             These can be, for example, pixels (px) centimeters (cm), inches (inches). 
+                             The information should refer to a standardized unit of measurement.
+              	</documentation>
+	    </annotation>
         </attribute>
-		<attribute name="custom" type="string">
-			<annotation>
-				<documentation>For generic use</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="type" type="pc:PageTypeSimpleType">
+        <attribute name="custom" type="string">
+	    <annotation>
+		<documentation>For generic use</documentation>
+	    </annotation>
+	</attribute>
+	<attribute name="type" type="pc:PageTypeSimpleType">
             <annotation>
             	<documentation>Page type</documentation>
             </annotation>
