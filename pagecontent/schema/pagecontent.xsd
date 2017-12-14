@@ -113,13 +113,45 @@
 			</choice>
 
 		</sequence>
-		<attribute name="imageFilename" type="string" use="required"></attribute>
-		<attribute name="imageWidth" type="int" use="required"></attribute>
-		<attribute name="imageHeight" type="int" use="required"></attribute>
-		<attribute name="imageXResolution" type="int" use="optional"></attribute>
-	    <attribute name="imageYResolution" type="int" use="optional"></attribute>
-	    <attribute name="imageCompression" type="string" use="optional"></attribute>
-	    <attribute name="imagePhotometricInterpretation" type="string" use="optional"></attribute>
+		<attribute name="imageFilename" type="string" use="required">
+        <annotation>
+           <documentation>
+           The name of the image file with file extension.
+           </documentation>
+        </annotation>
+        </attribute>
+		<attribute name="imageWidth" type="int" use="required">
+		<annotation>
+		<documentation>The imageWidth attribute specifies the width of an image.</documentation>
+		</annotation>
+		</attribute>
+		<attribute name="imageHeight" type="int" use="required">
+		<annotation>
+		<documentation>The imageHeight attribute specifies the height of an image.</documentation>
+		</annotation>
+		</attribute>
+		<attribute name="imageXResolution" type="int" use="optional">
+		<annotation>
+		<documentation>The X resolution displays the image resolution of the width.</documentation>
+        </annotation>
+		</attribute>
+	    <attribute name="imageYResolution" type="int" use="optional">
+	    <annotation>
+	    <documentation>The Y resolution displays the image resolution of the height.</documentation>
+	    </annotation>
+        </attribute>
+	    <attribute name="imageCompression" type="string" use="optional">
+	    <annotation>
+          <documentation>Indication of the type of image compression or whether 
+               the image has been compressed.
+          </documentation>
+        </annotation>
+        </attribute>
+	    <attribute name="imagePhotometricInterpretation" type="string" use="optional">
+	    <annotation>
+         <documentation>Specification of the color space or color model that's using.</documentation>
+        </annotation>
+        </attribute>
 	    <attribute name="imageResolutionUnit" type="string" use="optional">
 	      <annotation>
 	        <documentation>Indication of the resolution unit. 
