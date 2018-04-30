@@ -1941,8 +1941,18 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     
     <complexType name="BaselineType">
     	<attribute name="points" type="pc:PointsType" use="required"></attribute>
+		<attribute name="conf" use="optional">
+            <annotation>
+            	<documentation>Confidence value (between 0 and 1)</documentation>
+            </annotation>
+            <simpleType>
+            	<restriction base="float">
+            		<minInclusive value="0"></minInclusive>
+            		<maxInclusive value="1"></maxInclusive>
+            	</restriction>
+            </simpleType>
+		</attribute>
     </complexType>
-
 
     <simpleType name="PointsType">
         <annotation>
