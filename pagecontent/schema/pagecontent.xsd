@@ -1997,7 +1997,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     		<element name="SourceRegionRef" type="pc:RegionRefType" minOccurs="1" maxOccurs="1"></element>
     		<element name="TargetRegionRef" type="pc:RegionRefType" minOccurs="1" maxOccurs="1"></element>
     	</sequence>
-    	<attribute name="type" use="required">
+    	<attribute name="type" use="optional">
     		<simpleType>
     			<restriction base="string">
     				<enumeration value="link"></enumeration>
