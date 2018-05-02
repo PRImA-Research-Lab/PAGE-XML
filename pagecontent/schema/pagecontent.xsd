@@ -947,6 +947,13 @@ Range: -179.999,180</documentation>
         <annotation>
         	<documentation>Points with x,y coordinates.</documentation>
         </annotation>
+		<attribute name="index" type="int" use="required">
+			<annotation>
+				<documentation>
+					The grid row index
+				</documentation>
+			</annotation>
+		</attribute>
         <attribute name="points" type="pc:PointsType" use="required"></attribute>
 	</complexType>
 	
@@ -1502,7 +1509,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     
     <simpleType name="LanguageSimpleType">
         <annotation>
-        	<documentation>iso15924 2016-07-14</documentation>
+        	<documentation> ISO 639.x 2016-07-14</documentation>
         </annotation>
         <restriction base="string">
 <enumeration value="Abkhaz"></enumeration>
@@ -1697,6 +1704,10 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     </simpleType>
     
     <simpleType name="ScriptSimpleType">
+        <annotation>
+        	<documentation> iso15924 2016-07-14</documentation>
+        </annotation>
+    
     	<restriction base="string">
 <enumeration value="Adlm - Adlam"></enumeration>
 <enumeration value="Afak - Afaka"></enumeration>
@@ -1984,7 +1995,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     			(where something is fragmented for instance).
 
     			Examples for 'link': caption - image floating -
-    			paragraph paragraph - paragraph (when a pragraph is
+    			paragraph paragraph - paragraph (when a paragraph is
     			split across columns and the last word of the first
     			paragraph DOES NOT continue in the second paragraph)
     			drop-cap - paragraph (when the drop-cap is a whole word)
