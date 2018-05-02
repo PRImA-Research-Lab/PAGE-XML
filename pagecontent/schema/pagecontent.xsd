@@ -314,6 +314,18 @@
 				<documentation>Inner-block order of text lines (in addition to “readingDirection” which is the inner-text line order of words and characters) (lower-level definitions override the page-level definition)</documentation>
 			</annotation>
 		</attribute>
+		<attribute name="conf" use="optional">
+            <annotation>
+            	<documentation>Confidence value for whole page (between 0 and 1)</documentation>
+            </annotation>
+            <simpleType>
+            	<restriction base="float">
+            		<minInclusive value="0"></minInclusive>
+            		<maxInclusive value="1"></maxInclusive>
+            	</restriction>
+            </simpleType>
+		</attribute>
+		
 	</complexType>
 	<complexType name="TextRegionType">
 		<annotation>
