@@ -221,12 +221,12 @@
 	    <documentation>Specifies the height of the image.</documentation>
 	    </annotation>
 	</attribute>
-	<attribute name="imageXResolution" type="int" use="optional">
+	<attribute name="imageXResolution" type="float" use="optional">
 	    <annotation>
 	    <documentation>Specifies the image resolution in width.</documentation>
             </annotation>
 	</attribute>
-	<attribute name="imageYResolution" type="int" use="optional">
+	<attribute name="imageYResolution" type="float" use="optional">
 	    <annotation>
 	    <documentation>Specifies the image resolution in height.</documentation>
 	    </annotation>
