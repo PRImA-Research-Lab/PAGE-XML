@@ -1,3 +1,7 @@
+2018-07-01
+
+*	AlternativeImage can be used on all regions, lines, words and glyphs.
+
 2015-09-01
 
 *	Bug fix: The constraint for the confidence value of OCRed text was not 
