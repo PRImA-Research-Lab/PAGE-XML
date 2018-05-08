@@ -450,6 +450,16 @@ Range: -179.999,180</documentation>
 	</complexType>
 	<complexType name="TextLineType">
 		<sequence>
+			<element name="AlternativeImage"
+				type="pc:AlternativeImageType" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Alternative text line images (e.g.
+						black-and-white)
+					</documentation>
+				</annotation>
+			</element>
 			<element name="Coords" type="pc:CoordsType"></element>
 			<element name="Baseline" type="pc:BaselineType"
 				minOccurs="0">
@@ -536,6 +546,16 @@ Range: -179.999,180</documentation>
 	</complexType>
 	<complexType name="WordType">
 		<sequence>
+			<element name="AlternativeImage"
+				type="pc:AlternativeImageType" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Alternative word images (e.g.
+						black-and-white)
+					</documentation>
+				</annotation>
+			</element>
 			<element name="Coords" type="pc:CoordsType"></element>
 			<element name="Glyph" type="pc:GlyphType" minOccurs="0"
 				maxOccurs="unbounded">
@@ -603,6 +623,16 @@ Range: -179.999,180</documentation>
 	</complexType>
 	<complexType name="GlyphType">
 		<sequence>
+			<element name="AlternativeImage"
+				type="pc:AlternativeImageType" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Alternative glyph images (e.g.
+						black-and-white)
+					</documentation>
+				</annotation>
+			</element>
 			<element name="Coords" type="pc:CoordsType"></element>
 			<element name="Graphemes" type="pc:GraphemesType"
 				minOccurs="0" maxOccurs="1">
@@ -2129,6 +2159,16 @@ It does not contain pagenumber (if not part of running title), marginals, signat
 
     <complexType name="RegionType" abstract="true">
     	<sequence>
+			<element name="AlternativeImage"
+				type="pc:AlternativeImageType" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Alternative region images (e.g.
+						black-and-white)
+					</documentation>
+				</annotation>
+			</element>
     		<element name="Coords" type="pc:CoordsType"></element>
     		<element name="UserDefined" type="pc:UserDefinedType"
     			minOccurs="0" maxOccurs="1">
