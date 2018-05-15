@@ -19,3 +19,5 @@ The most actively used XML formats are:
  Note: The master branch contains the proposed changes for the next release. 
 
 ![Page Content](http://www.primaresearch.org/www/media/tools/Aletheia.png)
+
+Proposed media type for page content: "application/vnd.prima.page+xml"
