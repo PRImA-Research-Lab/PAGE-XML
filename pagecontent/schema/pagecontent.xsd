@@ -84,10 +84,14 @@
 	</complexType>
 	<complexType name="LabelsType">
 		<sequence>
-			<element name="Label" type="pc:LabelType" minOccurs="0" maxOccurs="unbounded">
+			<element name="Label" type="pc:LabelType" minOccurs="0"
+				maxOccurs="unbounded">
 				<annotation>
-					<documentation>A semantic label / tag</documentation>
-				</annotation></element>
+					<documentation>
+						A semantic label / tag
+					</documentation>
+				</annotation>
+			</element>
 		</sequence>
 		<attribute name="externalRef" type="string" use="optional">
 			<annotation>
@@ -103,8 +107,12 @@
 				</documentation>
 			</annotation>
 		</attribute>
-		<attribute name="comments" type="string" use="optional">
-		</attribute>
+        <attribute name="subject" type="string" use="optional">
+			<annotation>
+				<documentation>E.g. subject of an RDF triple</documentation>
+			</annotation></attribute>
+        <attribute name="comments" type="string" use="optional">
+		</attribute>
 	</complexType>
 	<complexType name="LabelType">
         <annotation>
@@ -113,14 +121,14 @@
         <attribute name="value" type="string" use="required">
 			<annotation>
 				<documentation>
-					The label / tag (e.g. 'person')
+					The label / tag (e.g. 'person'). Can be used as object of an RDF triple.
 				</documentation>
 			</annotation>
-		</attribute>
+        </attribute>
 		<attribute name="type" type="string" use="optional">
 			<annotation>
 				<documentation>
-					Additional information on the label (e.g. 'YYYY-mm-dd' for a date label)
+					Additional information on the label (e.g. 'YYYY-mm-dd' for a date label). Can be used as predicate of an RDF triple.
 				</documentation>
 			</annotation>
 		</attribute>
