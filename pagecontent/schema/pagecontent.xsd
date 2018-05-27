@@ -93,24 +93,24 @@
 				</annotation>
 			</element>
 		</sequence>
-		<attribute name="externalRef" type="string" use="optional">
+		<attribute name="externalModel" type="string" use="optional">
 			<annotation>
 				<documentation>
-					Reference to external model / ontology
+					Reference to external model / ontology / schema
 				</documentation>
 			</annotation>
-		</attribute>
-		<attribute name="prefix" type="string" use="optional">
+		</attribute>
+        <attribute name="externalId" type="string" use="optional">
+			<annotation>
+				<documentation>E.g. an RDF resource identifier (to be used as subject or object of an RDF triple)</documentation>
+			</annotation></attribute>
+        <attribute name="prefix" type="string" use="optional">
 			<annotation>
 				<documentation>
 					Prefix for all labels (e.g. first part of an URI)
 				</documentation>
 			</annotation>
 		</attribute>
-        <attribute name="subject" type="string" use="optional">
-			<annotation>
-				<documentation>E.g. subject of an RDF triple</documentation>
-			</annotation></attribute>
         <attribute name="comments" type="string" use="optional">
 		</attribute>
 	</complexType>
@@ -121,7 +121,7 @@
         <attribute name="value" type="string" use="required">
 			<annotation>
 				<documentation>
-					The label / tag (e.g. 'person'). Can be used as object of an RDF triple.
+					The label / tag (e.g. 'person'). Can be an RDF resource identifier (e.g. object of an RDF triple).
 				</documentation>
 			</annotation>
         </attribute>
