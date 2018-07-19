@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15/pagecontent.xsd" pcGtsId="pc-aletheiaexamplepage">
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2018-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2018-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2018-07-15/pagecontent.xsd" pcGtsId="pc-aletheiaexamplepage">
 	<Metadata>
 	<Creator>PRImA Research Lab</Creator>
 	<Created>2015-07-17T15:27:13</Created>
-	<LastChange>2017-07-14T10:03:33</LastChange>
+	<LastChange>2018-07-19T07:29:57</LastChange>
 	<Comments>Example Page</Comments></Metadata>
 	<Page imageFilename="aletheiaexamplepage.jpg" imageWidth="3508" imageHeight="4961">
 	<AlternativeImage filename="aletheiaexamplepage_b.tif" comments="B/W"/>
@@ -11,12 +11,12 @@
 	<Coords points="25,25 25,4895 3483,4895 3483,25"/></Border>
 	<ReadingOrder>
 	<UnorderedGroup id="ro357564684568544579089">
-	<OrderedGroup id="g63">
+	<OrderedGroup id="g0">
 	<RegionRefIndexed regionRef="r1" index="0"/>
 	<RegionRefIndexed regionRef="r3" index="1"/>
 	<RegionRefIndexed regionRef="r4" index="2"/>
 	<RegionRefIndexed regionRef="r5" index="3"/></OrderedGroup>
-	<OrderedGroup id="g64">
+	<OrderedGroup id="g1">
 	<RegionRefIndexed regionRef="r44" index="0"/>
 	<RegionRefIndexed regionRef="r45" index="1"/>
 	<RegionRefIndexed regionRef="r36" index="2"/>
@@ -30,7 +30,7 @@
 	<RegionRefIndexed regionRef="r30" index="10"/>
 	<RegionRefIndexed regionRef="r31" index="11"/>
 	<RegionRefIndexed regionRef="r32" index="12"/></OrderedGroup>
-	<OrderedGroup id="g65">
+	<OrderedGroup id="g2">
 	<RegionRefIndexed regionRef="r46" index="0"/>
 	<RegionRefIndexed regionRef="r58" index="1"/>
 	<RegionRefIndexed regionRef="r62" index="2"/>

@@ -209,6 +209,9 @@
 				<element name="UnknownRegion"
 					type="pc:UnknownRegionType">
 				</element>
+				<element name="CustomRegion"
+					type="pc:CustomRegionType">
+				</element>
 			</choice>
 
 		</sequence>
@@ -1220,6 +1223,25 @@ Range: -179.999,180
 			<extension base="pc:RegionType"></extension>
 		</complexContent>
 	</complexType>
+	<complexType name="CustomRegionType">
+		<annotation>
+			<documentation>
+				Regions containing content that is not covered by the default types (text, graphic, image, line drawing, chart, table, separator, maths, map, music, chem, advert, noise, unknown)
+			</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="pc:RegionType">
+				<attribute name="type" use="optional"
+					type="string">
+					<annotation>
+						<documentation>
+							Information on the type of content represented by this region
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
 
 	<complexType name="PrintSpaceType">
         <annotation>
@@ -2193,6 +2215,9 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     			<element name="NoiseRegion" type="pc:NoiseRegionType"></element>
     			<element name="UnknownRegion"
     				type="pc:UnknownRegionType">
+    			</element>
+    			<element name="CustomRegion"
+    				type="pc:CustomRegionType">
     			</element>
     		</choice>
     	</sequence>

@@ -1,7 +1,3 @@
-2018-07-01
-
-*	AlternativeImage can be used on all regions, lines, words and glyphs.
-
 2015-09-01
 
 *	Bug fix: The constraint for the confidence value of OCRed text was not 
@@ -190,18 +186,33 @@
 
 
 
+2018-07-15
 
+*	Added MapRegion and CustomRegion
 
+*	New confidence attribute ("conf") for Page, Coords (polygons), BaseLine, ReadingOrder, and AlternativeImage (value 0..1, confidence of algorithm that produced the object)
 
+*	New "header" boolean attribute for TableCellRole (is the cell a column or row header?)
 
+*	New "index" int attribute for TextLine (Position (order number) of the text line within its parent text region)
 
+*	New "imageXResolution", "imageYResolution", "imageResolutionUnit" attributes for Page
 
+*	New element "MetadataItem" for Metadata (for extended metadata)
+	- "type" string attribute (optional, one of: author, imageProperties, processingStep, other)
+	- "name" string attribute (optional)
+	- "value" string attribute (required)
 
+*	New "Grid" element for TableRegion (visible or virtual table grid / separators)
+	- "GridPoints" sub element (one row in the points matrix)
 
+*	Changed RelationType: Instead of 2 RegionRef sub elements there is now SourceRegionRef and TargetRegionRef. Added "id" attribute (required)
 
+*	Added feature for semantic labels / tags for: MetadataItem, Page, regions, textlines, words, glyphs, reading order groups, Relation
+*	- Labels element - groups labels from the same model
+*	- Label element - the actual label
 
-
-
+*	Added "AlternativeImage" as optional child element to Region, TextLine, Word, and Glyph. External image for the respective object.
 
 
 
