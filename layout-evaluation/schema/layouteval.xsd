@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<schema targetNamespace="http://schema.primaresearch.org/PAGE/eval/layout/2013-07-15" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ev="http://schema.primaresearch.org/PAGE/eval/layout/2013-07-15">
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/eval/layout/2018-07-15" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ev="http://schema.primaresearch.org/PAGE/eval/layout/2018-07-15">
   <element name="Eval" type="ev:EvalType">
     <annotation>
       <documentation>Evaluation - Metadata, Profile and Results</documentation>
@@ -844,8 +844,10 @@
   		<enumeration value="advert"></enumeration>
   		<enumeration value="chem"></enumeration>
   		<enumeration value="music"></enumeration>
+  		<enumeration value="map"></enumeration>
   		<enumeration value="noise"></enumeration>
   		<enumeration value="unknown"></enumeration>
+  		<enumeration value="custom"></enumeration>
   	</restriction>
   </simpleType>
 
@@ -872,8 +874,10 @@
   		<enumeration value="advert"></enumeration>
   		<enumeration value="chem"></enumeration>
   		<enumeration value="music"></enumeration>
+  		<enumeration value="map"></enumeration>
   		<enumeration value="noise"></enumeration>
   		<enumeration value="unknown"></enumeration>
+  		<enumeration value="custom"></enumeration>
   	</restriction>
   </simpleType>
 
