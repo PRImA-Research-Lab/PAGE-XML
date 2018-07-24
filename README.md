@@ -10,7 +10,7 @@ The most actively used XML formats are:
  - PAGE XML for document image dewarping (dewarping grids)
  
  All formats are defined by an XML schema, hosted officially on primaresearch.org:
- http://www.primaresearch.org/schema/PAGE/gts/pagecontent/2017-07-15/pagecontent.xsd
+ http://www.primaresearch.org/schema/PAGE/gts/pagecontent/2018-07-15/pagecontent.xsd
  http://www.primaresearch.org/schema/PAGE/eval/layout/2013-07-15/layouteval.xsd
  http://www.primaresearch.org/schema/PAGE/gts/dewarping/2014-08-26/dewarping.xsd
  
