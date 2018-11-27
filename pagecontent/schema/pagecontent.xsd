@@ -2155,6 +2155,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     	<attribute name="bold" type="boolean"></attribute>
     	<attribute name="italic" type="boolean"></attribute>
     	<attribute name="underlined" type="boolean"></attribute>
+        <attribute name="doubleUnderlined" type="boolean"></attribute>
     	<attribute name="subscript" type="boolean"></attribute>
     	<attribute name="superscript" type="boolean"></attribute>
     	<attribute name="strikethrough" type="boolean"></attribute>
