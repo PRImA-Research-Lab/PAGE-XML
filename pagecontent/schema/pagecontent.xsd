@@ -38,7 +38,7 @@
 			</element>
             <element name="UserDefined" type="pc:UserDefinedType"
 				minOccurs="0" maxOccurs="1">
-			</element>
+			</element>
             <element name="MetadataItem" type="pc:MetadataItemType" minOccurs="0" maxOccurs="unbounded"></element>
         </sequence>
 		<attribute name="externalRef" type="string" use="optional">
@@ -99,7 +99,7 @@
 					Reference to external model / ontology / schema
 				</documentation>
 			</annotation>
-		</attribute>
+		</attribute>
         <attribute name="externalId" type="string" use="optional">
 			<annotation>
 				<documentation>E.g. an RDF resource identifier (to be used as subject or object of an RDF triple)</documentation>
@@ -112,7 +112,7 @@
 			</annotation>
 		</attribute>
         <attribute name="comments" type="string" use="optional">
-		</attribute>
+		</attribute>
 	</complexType>
 	<complexType name="LabelType">
         <annotation>
