@@ -172,6 +172,9 @@
 			<element name="Relations" type="pc:RelationsType"
 				minOccurs="0">
 			</element>
+			<element name="TextStyle" type="pc:TextStyleType"
+				minOccurs="0" maxOccurs="1">
+			</element>
             <element name="UserDefined" type="pc:UserDefinedType" minOccurs="0" maxOccurs="1"></element>
             <element name="Labels" type="pc:LabelsType" minOccurs="0" maxOccurs="unbounded">
 				<annotation>
