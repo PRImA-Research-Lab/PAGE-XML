@@ -202,6 +202,7 @@
 	- "type" string attribute (optional, one of: author, imageProperties, processingStep, other)
 	- "name" string attribute (optional)
 	- "value" string attribute (required)
+	- "date" dateTime (e.g. 2002-05-30T09:00:00)
 
 *	New "Grid" element for TableRegion (visible or virtual table grid / separators)
 	- "GridPoints" sub element (one row in the points matrix)
@@ -216,4 +217,9 @@
 
 
 
+2019-07-15
+
+*	Added TextStyle to Page element (default text style for whole page)
+
+*	Added underlineStyle attribute to TextStyleType (valid values: singleLine, doubleLine, other)
 
