@@ -310,15 +310,15 @@
 			type="pc:ReadingDirectionSimpleType" use="optional">
 			<annotation>
 				<documentation>
-					The direction in which text within lines should be
-					read (order of words and characters) (lower-level definitions override the page-level definition)
+					The direction in which text in a region should be
+					read (within lines) (lower-level definitions override the page-level definition)
 				</documentation>
 			</annotation>
 		</attribute>
 		<attribute name="textLineOrder"
 			type="pc:TextLineOrderSimpleType" use="optional">
 			<annotation>
-				<documentation>The order of text lines within a block (in addition to “readingDirection” which is the inner-text line order of words and characters) (lower-level definitions override the page-level definition)</documentation>
+				<documentation>Inner-block order of text lines (in addition to “readingDirection” which is the inner-text line order of words and characters) (lower-level definitions override the page-level definition)</documentation>
 			</annotation>
 		</attribute>
 		<attribute name="conf" type="pc:ConfSimpleType" use="optional">
@@ -374,14 +374,16 @@ Range: -179.999,180</documentation>
 			<attribute name="readingDirection"
 				type="pc:ReadingDirectionSimpleType" use="optional">
 				<annotation>
-					<documentation>The direction in which text within lines should be read (order of words and characters), in addition to “textLineOrder”
+					<documentation>
+						The direction in which text in a region should be
+						read (within lines)
 					</documentation>
 				</annotation>
 			</attribute>
 			<attribute name="textLineOrder"
 				type="pc:TextLineOrderSimpleType" use="optional">
 				<annotation>
-					<documentation>The order of text lines within a block (in addition to “readingDirection” which is the inner-text line order of words and characters)</documentation>
+					<documentation>Inner-block order of text lines (in addition to “readingDirection” which is the inner-text line order of words and characters)</documentation>
 				</annotation>
 			</attribute>
 			<attribute name="readingOrientation" type="float"
