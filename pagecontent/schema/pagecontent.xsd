@@ -2123,12 +2123,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     	</attribute>
     	<attribute name="xHeight" type="integer" use="optional">
     		<annotation>
-    			<documentation>
-    				The x-height or corpus size refers to the distance
-    				between the baseline and the mean line of lower-case
-    				letters in a typeface. The unit is assumed to be
-    				pixels.
-    			</documentation>
+    			<documentation>The x-height or corpus size refers to the distance between the baseline and the mean line of lower-case letters in a typeface. The unit is assumed to be pixels.</documentation>
     		</annotation>
     	</attribute>
     	<attribute name="kerning" type="int">
@@ -2142,10 +2137,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     	<attribute name="textColour" type="pc:ColourSimpleType"></attribute>
     	<attribute name="textColourRgb" type="integer">
     		<annotation>
-    			<documentation>
-    				Text colour in RGB encoded format (red value) + (256
-    				x green value) + (65536 x blue value)
-    			</documentation>
+    			<documentation>Text colour in RGB encoded format (red value) + (256 x green value) + (65536 x blue value)</documentation>
     		</annotation>
     	</attribute>
     	<attribute name="bgColour" type="pc:ColourSimpleType">
@@ -2155,10 +2147,7 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     	</attribute>
     	<attribute name="bgColourRgb" type="integer">
     		<annotation>
-    			<documentation>
-    				Background colour in RGB encoded format (red value)
-    				+ (256 x green value) + (65536 x blue value)
-    			</documentation>
+    			<documentation>Background colour in RGB encoded format (red value) + (256 x green value) + (65536 x blue value)</documentation>
     		</annotation>
     	</attribute>
     	<attribute name="reverseVideo" type="boolean">
@@ -2172,15 +2161,11 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     	<attribute name="bold" type="boolean"></attribute>
     	<attribute name="italic" type="boolean"></attribute>
     	<attribute name="underlined" type="boolean"></attribute>
-    	<attribute name="underlineStyle" type="pc:underlineStyleType" use="optional">
-    		<annotation>
-    			<documentation>Line style details if "underlined" is TRUE</documentation>
-    		</annotation></attribute>
     	<attribute name="subscript" type="boolean"></attribute>
     	<attribute name="superscript" type="boolean"></attribute>
     	<attribute name="strikethrough" type="boolean"></attribute>
-    	<attribute name="smallCaps" type="boolean"></attribute>
-    	<attribute name="letterSpaced" type="boolean"></attribute>
+        <attribute name="smallCaps" type="boolean"></attribute>
+        <attribute name="letterSpaced" type="boolean"></attribute>
     </complexType>
 
     <complexType name="RegionType" abstract="true">
@@ -2514,12 +2499,4 @@ It does not contain pagenumber (if not part of running title), marginals, signat
     			</annotation></element>
         </sequence>
     </complexType>
-
-    <simpleType name="underlineStyleType">
-    	<restriction base="string">
-    		<enumeration value="singleLine"></enumeration>
-    		<enumeration value="doubleLine"></enumeration>
-    		<enumeration value="other"></enumeration>
-    	</restriction>
-    </simpleType>
 </schema>
