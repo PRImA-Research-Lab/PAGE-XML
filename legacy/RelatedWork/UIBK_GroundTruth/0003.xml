@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IGT:Impact xmlns:IGT="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd">
+<IGT:Identifier>
+<IGT:Type>filename</IGT:Type>
+<IGT:Id>dpo_35_0003</IGT:Id>
+</IGT:Identifier>
+<IGT:Layout>
+<IGT:Page>
+<IGT:TextBlock number="1" x="412" y="217" h="97" w="1072">
+<IGT:Headline>
+<IGT:TextStyle bold="true">KORT BEGRIP</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="2" x="805" y="422" h="85" w="292">
+<IGT:Headline>
+<IGT:TextStyle bold="true">DER</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="3" x="347" y="617" h="102" w="1220">
+<IGT:Headline>
+<IGT:TextStyle bold="true">WAERELD-HISTORIE</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="4" x="485" y="832" h="87" w="915">
+<IGT:Headline>
+<IGT:TextStyle bold="true">VOOR DE JEUGD,</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="5" x="805" y="1020" h="92" w="290">
+<IGT:Headline>
+<IGT:TextStyle bold="true">DOOR</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="6" x="487" y="1205" h="107" w="927">
+<IGT:Headline>
+<IGT:TextStyle bold="true">J. F. MARTINET,</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="7" x="555" y="1390" h="80" w="797">
+<IGT:Headline>
+<IGT:TextStyle bold="true">PREDIKANT TE ZUTPHEN, &amp;c.</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="8" x="592" y="1570" h="72" w="675">
+<IGT:Headline>
+<IGT:TextStyle bold="true">MET KAARTEN.</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="9" x="525" y="2122" h="72" w="850">
+<IGT:Headline>
+<IGT:TextStyle bold="true">TE AMSTERDAM, B IJ</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="10" x="412" y="2200" h="90" w="1055">
+<IGT:Headline>
+<IGT:TextStyle bold="true">JOHANNES ALLART.</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+<IGT:TextBlock number="11" x="682" y="2310" h="77" w="510">
+<IGT:Headline>
+<IGT:TextStyle bold="true">MDCCLXXXIX.</IGT:TextStyle>
+</IGT:Headline>
+</IGT:TextBlock>
+</IGT:Page>
+</IGT:Layout>
+</IGT:Impact>

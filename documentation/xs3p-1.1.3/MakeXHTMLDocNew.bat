@@ -1,0 +1,3 @@
+java -classpath "E:\Users\spl\Documents\IMPACT\XSD for IMPACT Objects, GT and Evaluation\Testing\xalan-j_2_7_0\xalan.jar";"E:\Users\spl\Documents\IMPACT\XSD for IMPACT Objects, GT and Evaluation\Testing\xalan-j_2_7_0\xalan-j_2_7_0\xml-apis.jar";"E:\Users\spl\Documents\IMPACT\XSD for IMPACT Objects, GT and Evaluation\Testing\xalan-j_2_7_0\xalan-j_2_7_0\xercesImpl.jar";"E:\Users\spl\Documents\IMPACT\XSD for IMPACT Objects, GT and Evaluation\Testing\xalan-j_2_7_0\xalan-j_2_7_0\serializer.jar" org.apache.xalan.xslt.Process -IN "C:\Users\spl\Documents\PAGE\XML-Schema\PAGE\gts\pagecontent.xsd" -XSL xs3pPC.xsl -OUT ..\pagecontentDoc.html
+
+pause

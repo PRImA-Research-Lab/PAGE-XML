@@ -1,0 +1,4 @@
+# Generated examples
+examples/xsltproc-results/*
+examples/msxsl-results/*
+examples/xalanj-results/*

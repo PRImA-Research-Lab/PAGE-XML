@@ -1,0 +1,253 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.abbyy.com/FineReader_xml/FineReader6-schema-v1.xml"
+		xmlns:tns="http://www.abbyy.com/FineReader_xml/FineReader6-schema-v1.xml"
+		elementFormDefault="qualified">
+ <xs:annotation>
+  <xs:documentation xml:lang="en">Schema for representing OCR results exported from FineReader 6.0. Copyright 2001-2002 ABBYY, Inc.
+  </xs:documentation>
+ </xs:annotation>
+
+ <xs:element name="document">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="page" minOccurs="0" maxOccurs="unbounded">
+     <xs:annotation>
+      <xs:documentation xml:lang="en">Recognized page
+      </xs:documentation>
+     </xs:annotation>
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="block" minOccurs="0" maxOccurs="unbounded" type="tns:BlockType">
+        <xs:annotation>
+         <xs:documentation xml:lang="en">Recognized block
+         </xs:documentation>
+        </xs:annotation>
+	   </xs:element>
+      </xs:sequence>
+      <xs:attribute name="width" type="xs:integer" use="required"/>
+      <xs:attribute name="height" type="xs:integer" use="required"/>
+      <xs:attribute name="resolution" type="xs:integer" use="required"/>
+	  <xs:attribute name="originalCoords" type="xs:boolean" use="optional" default="false">
+       <xs:annotation>
+        <xs:documentation xml:lang="en">If true, all coordinates are relative to original image before opening, otherwise they are relative to the opened (deskewed) image</xs:documentation>
+       </xs:annotation>
+	  </xs:attribute>
+     </xs:complexType>
+	</xs:element>
+   </xs:sequence>
+   <xs:attribute name="version" type="xs:string" use="required"/>
+   <xs:attribute name="producer" type="xs:string" use="required"/>
+   <xs:attribute name="pagesCount" type="xs:integer" use="optional" default="1"/>
+   <xs:attribute name="mainLanguage" type="xs:string" use="optional"/>
+   <xs:attribute name="languages" type="xs:string" use="optional"/>
+  </xs:complexType>
+ </xs:element>
+
+
+ <xs:complexType name="BlockType">
+  <xs:sequence>
+   <xs:element name="region" minOccurs="1" maxOccurs="1">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Block region, the set of rectangles
+     </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+	 <xs:sequence>
+	  <xs:element name="rect" minOccurs="1" maxOccurs="unbounded">
+	   <xs:complexType>
+        <xs:attribute name="l" type="xs:integer" use="required"/>
+        <xs:attribute name="t" type="xs:integer" use="required"/>
+        <xs:attribute name="r" type="xs:integer" use="required"/>
+        <xs:attribute name="b" type="xs:integer" use="required"/>
+	   </xs:complexType>
+	  </xs:element>
+	 </xs:sequence>
+	</xs:complexType>
+   </xs:element>
+   <xs:element name="text" minOccurs="0" maxOccurs="1" type="tns:TextType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Recognized block text, presents if blockType attribute is Text</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="row" minOccurs="0" maxOccurs="unbounded" type="tns:TableRowType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">The set of table rows, presents if blockType attribute is Table</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="blockType" use="required">
+   <xs:simpleType>
+    <xs:restriction base="xs:string">
+     <xs:enumeration value="Text"/>
+     <xs:enumeration value="Table"/>
+     <xs:enumeration value="Picture"/>
+     <xs:enumeration value="Barcode"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="l" type="xs:integer" use="required"/>
+  <xs:attribute name="t" type="xs:integer" use="required"/>
+  <xs:attribute name="r" type="xs:integer" use="required"/>
+  <xs:attribute name="b" type="xs:integer" use="required"/>
+ </xs:complexType>
+
+
+
+ <xs:complexType name="TextType">
+  <xs:sequence>
+   <xs:element name="par" minOccurs="0" maxOccurs="unbounded" type="tns:ParagraphType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Text paragraph</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="orientation" use="optional" default="Normal">
+    <xs:simpleType>
+     <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal"/>
+      <xs:enumeration value="RotatedClockwise"/>
+      <xs:enumeration value="RotatedUpsidedown"/>
+      <xs:enumeration value="RotatedCounterclockwise"/>
+     </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="backgroundColor" type="xs:integer" use="optional" default="16777215"/>
+  <xs:attribute name="mirrored" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="inverted" type="xs:boolean" use="optional" default="false"/>
+ </xs:complexType>
+
+
+ <xs:complexType name="TableRowType">
+  <xs:sequence>
+   <xs:element name="cell" minOccurs="0" maxOccurs="unbounded">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Table cell</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="text" minOccurs="0" maxOccurs="unbounded" type="tns:TextType">
+       <xs:annotation>
+        <xs:documentation xml:lang="en">Cell text</xs:documentation>
+       </xs:annotation>
+	  </xs:element>
+     </xs:sequence>
+     <xs:attribute name="colSpan" type="xs:integer" use="optional" default="1"/>
+     <xs:attribute name="rowSpan" type="xs:integer" use="optional" default="1"/>
+	 <xs:attribute name="align" use="optional" default="Top">
+      <xs:simpleType>
+       <xs:restriction base="xs:string">
+        <xs:enumeration value="Top"/>
+        <xs:enumeration value="Center"/>
+        <xs:enumeration value="Bottom"/>
+       </xs:restriction>
+      </xs:simpleType>
+	 </xs:attribute>
+	 <xs:attribute name="picture" type="xs:boolean" use="optional" default="false"/>
+     <xs:attribute name="leftBorder" use="optional" type="tns:TableCellBorderType" default="Black"/>
+     <xs:attribute name="topBorder" use="optional" type="tns:TableCellBorderType" default="Black"/>
+     <xs:attribute name="rightBorder" use="optional" type="tns:TableCellBorderType" default="Black"/>
+     <xs:attribute name="bottomBorder" use="optional" type="tns:TableCellBorderType" default="Black"/>
+     <xs:attribute name="width" type="xs:integer" use="required"/>
+     <xs:attribute name="height" type="xs:integer" use="required"/>
+    </xs:complexType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+
+ <xs:complexType name="ParagraphType">
+  <xs:sequence>
+   <xs:element name="line" minOccurs="0" maxOccurs="unbounded" type="tns:LineType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Text paragraph line</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="dropCapCharsCount" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="dropCap-l" type="xs:integer" use="optional"/>
+  <xs:attribute name="dropCap-t" type="xs:integer" use="optional"/>
+  <xs:attribute name="dropCap-r" type="xs:integer" use="optional"/>
+  <xs:attribute name="dropCap-b" type="xs:integer" use="optional"/>
+  <xs:attribute name="align" use="optional" default="Left">
+    <xs:simpleType>
+     <xs:restriction base="xs:string">
+      <xs:enumeration value="Left"/>
+      <xs:enumeration value="Center"/>
+      <xs:enumeration value="Right"/>
+      <xs:enumeration value="Justified"/>
+     </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="leftIndent" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="rightIndent" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="startIndent" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="lineSpacing" type="xs:integer" use="optional" default="0"/>
+ </xs:complexType>
+
+ <xs:complexType name="LineType">
+  <xs:sequence>
+   <xs:element name="formatting" minOccurs="0" maxOccurs="unbounded" type="tns:FormattingType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Group of characters with uniform formatting</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="baseline" type="xs:integer" use="required"/>
+  <xs:attribute name="l" type="xs:integer" use="required"/>
+  <xs:attribute name="t" type="xs:integer" use="required"/>
+  <xs:attribute name="r" type="xs:integer" use="required"/>
+  <xs:attribute name="b" type="xs:integer" use="required"/>
+ </xs:complexType>
+
+ <xs:complexType name="FormattingType" mixed="true">
+  <xs:sequence>
+   <xs:element name="charParams" minOccurs="0" maxOccurs="unbounded" type="tns:CharParamsType">
+    <xs:annotation>
+     <xs:documentation xml:lang="en">Attributes of single character</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="lang" type="xs:string" use="required"/>
+  <xs:attribute name="ff" type="xs:string" use="optional"/>
+  <xs:attribute name="fs" type="xs:float" use="optional"/>
+  <xs:attribute name="bold" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="italic" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="subscript" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="superscript" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="smallcaps" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="underline" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="strikeout" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="color" type="xs:integer" use="optional" default="0"/>
+  <xs:attribute name="scaling" type="xs:integer" use="optional" default="1000"/>
+  <xs:attribute name="spacing" type="xs:integer" use="optional" default="0"/>
+ </xs:complexType>
+
+ <xs:complexType name="CharParamsType" mixed="true">
+  <xs:attribute name="l" type="xs:integer" use="required"/>
+  <xs:attribute name="t" type="xs:integer" use="required"/>
+  <xs:attribute name="r" type="xs:integer" use="required"/>
+  <xs:attribute name="b" type="xs:integer" use="required"/>
+  <xs:attribute name="suspicious" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="proofed" type="xs:boolean" use="optional" default="false"/>
+  <xs:attribute name="wordStart" type="xs:boolean" use="optional"/>
+  <xs:attribute name="wordFromDictionary" type="xs:boolean" use="optional"/>
+  <xs:attribute name="wordNormal" type="xs:boolean" use="optional"/>
+  <xs:attribute name="wordNumeric" type="xs:boolean" use="optional"/>
+  <xs:attribute name="wordIdentifier" type="xs:boolean" use="optional"/>
+  <xs:attribute name="charConfidence" type="xs:integer" use="optional"/>
+  <xs:attribute name="serifProbability" type="xs:integer" use="optional"/>
+  <xs:attribute name="wordPenalty" type="xs:integer" use="optional"/>
+  <xs:attribute name="meanStrokeWidth" type="xs:integer" use="optional"/>
+ </xs:complexType>
+
+ <xs:simpleType name="TableCellBorderType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="Absent"/>
+   <xs:enumeration value="Unknown"/>
+   <xs:enumeration value="White"/>
+   <xs:enumeration value="Black"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+
+</xs:schema>

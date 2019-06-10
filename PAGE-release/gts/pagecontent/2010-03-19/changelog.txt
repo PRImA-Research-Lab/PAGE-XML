@@ -1,0 +1,21 @@
+2010-03-19
+*	Reading order has been simplified: Now there has to be exactly one child for
+	the <ReadingOrder> element denoting the nature of the contained objects 
+	(<OrderedGroup> or <UnorderedGroup>). <RegionRef> elements are only allowed
+	inside a group (and not on <ReadingOrder> level anymore). To convert old files
+	to the new format it is always possible to introduce an <UnorderedGroup>
+	element as child of <ReadingOrder> and place the existing structure in there.
+*	Possible attribute values added in TextTypeSimpleType:
+	signature-mark
+	catch-word
+	marginalia
+	footnote
+	footnote-continued
+	TOC-entry
+
+2010-01-12
+*	The number of regions is now 0..unbounded (before it was 1..unbounded)
+	This change was necessary to allow instances only containing border or
+	print space data
+*	In order to reflect this change, the namespace has been updated to
+	http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-01-12

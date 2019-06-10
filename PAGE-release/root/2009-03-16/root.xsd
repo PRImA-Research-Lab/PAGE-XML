@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/root/2009-03-16"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:root="http://schema.primaresearch.org/PAGE/root/2009-03-16">
+
+    <element name="PAGE" type="root:PageType">
+    	<annotation>
+    		<documentation>Root structure for linking ground truth and storage instances</documentation>
+    	</annotation></element>
+    
+    <complexType name="PageType">
+    	<sequence>
+    		<element name="Gts" type="root:GtsType" maxOccurs="unbounded"
+    			minOccurs="0">
+    			<annotation>
+    				<documentation>A ground truth or storage instance as defined in the particular gts schema e.g. pagecontent.</documentation>
+    			</annotation>
+    		</element>
+    	</sequence>
+    	<attribute name="pageId" type="ID" use="required"></attribute>
+    </complexType>
+
+    <complexType name="GtsType">
+        <sequence>
+        	<element name="Name" type="string">
+        		<annotation>
+        			<documentation>Name of the gts instance (e.g. PRImA Page Content).</documentation>
+        		</annotation>
+        	</element>
+        	<element name="Namespace" type="anyURI">
+        		<annotation>
+        			<documentation>Namespace of the linked gts resource (to keep track of the used format and version).
+E.g. http://schema.primaresearch.org/PAGE/gts/deskew/2009-03-16/
+The actual XML-Schema should be available at this URI but it is also possible to rely on a locally stored copy for processing the respective XML instances (parsing etc.).</documentation>
+        		</annotation>
+        	</element>
+        	<element name="Dependencies"
+        		type="root:DependenciesListType">
+        		<annotation>
+        			<documentation>This element may contain a list of pointers to other gtsId instances if the current gts depends on them. (Has this gts instance been ascertained based on the original, results of further processing steps or other ground truth sets?)
+
+        			</documentation>
+        		</annotation>
+        	</element>
+            <element name="Added" type="dateTime">
+            	<annotation>
+            		<documentation>Date and time when this gts instance has been added to the record.</documentation>
+            	</annotation></element>
+            <element name="Comments" type="string">
+        		<annotation>
+        			<documentation>Any comments</documentation>
+        		</annotation>
+            </element>
+        	<element name="Data" type="root:LinkedResourcesType">
+        		<annotation>
+        			<documentation>This element points to an XML-instance containing the actual gts data.</documentation>
+        		</annotation>
+        	</element>
+        </sequence>
+        <attribute name="gtsId" type="ID" use="required">
+    		<annotation>
+    			<documentation>ID for exactly this gts instance, as it has been ascertained for this page, according to the given dependencies.
+Corresponding files (e.g. an enhanced image or an XML file describing ground truth data) should be given the same name apart from an individual suffix.</documentation>
+    		</annotation></attribute>
+    </complexType>
+    
+    
+        <complexType name="LinkedResourcesType">
+        <sequence>
+
+    		<element name="Local" type="root:LocalType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="Online" type="root:OnlineType" maxOccurs="1" minOccurs="0"></element>
+
+    	</sequence>
+    	
+    </complexType>
+    
+        <complexType name="DependencyPointerType">
+    	<attribute name="id" type="IDREF" use="required"></attribute>
+    </complexType>
+    
+        <complexType name="DependenciesListType">
+    	<sequence>
+    		<element name="Dependency" type="root:DependencyPointerType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+        <complexType name="LocalType">
+    	<sequence>
+    		<element name="Folder" type="string"></element>
+    		<element name="FileName" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="OnlineType">
+    	<sequence>
+    		<element name="Url" type="anyURI"></element>
+    	</sequence>
+    </complexType>
+    
+</schema>

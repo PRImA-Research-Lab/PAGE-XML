@@ -1,0 +1,1710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19 http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19/pagecontent.xsd" pcGtsId="pc-RegionTypesID">
+	<Metadata>
+	<Creator>PRImA Research Group
+&amp;
+BLA</Creator>
+	<Created>2010-02-02T12:28:49</Created>
+	<LastChange>2011-06-17T11:13:47</LastChange>
+	<Comments>AAA
+&amp;
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).</Comments></Metadata>
+	<Page imageFilename="RegionTypes.tif" imageWidth="700" imageHeight="800">
+	<Border>
+	<Coords>
+	<Point x="14" y="9"/>
+	<Point x="218" y="7"/>
+	<Point x="253" y="3"/>
+	<Point x="293" y="10"/>
+	<Point x="354" y="6"/>
+	<Point x="443" y="6"/>
+	<Point x="664" y="9"/>
+	<Point x="691" y="3"/>
+	<Point x="691" y="189"/>
+	<Point x="679" y="229"/>
+	<Point x="692" y="481"/>
+	<Point x="680" y="664"/>
+	<Point x="692" y="787"/>
+	<Point x="603" y="792"/>
+	<Point x="530" y="787"/>
+	<Point x="332" y="795"/>
+	<Point x="185" y="786"/>
+	<Point x="69" y="793"/>
+	<Point x="3" y="785"/>
+	<Point x="10" y="358"/>
+	<Point x="13" y="119"/></Coords></Border>
+	<PrintSpace>
+	<Coords>
+	<Point x="21" y="13"/>
+	<Point x="21" y="781"/>
+	<Point x="671" y="781"/>
+	<Point x="671" y="13"/></Coords></PrintSpace>
+	<ReadingOrder>
+	<OrderedGroup id="ro357564684568544579089">
+	<RegionRefIndexed regionRef="r3" index="0"/>
+	<RegionRefIndexed regionRef="r84" index="1"/></OrderedGroup></ReadingOrder>
+	<TextRegion id="r3" readingDirection="left-to-right" type="paragraph" textColour="black" primaryLanguage="English" primaryScript="Latin" bgColour="white">
+	<Coords>
+	<Point x="32" y="100"/>
+	<Point x="34" y="100"/>
+	<Point x="34" y="32"/>
+	<Point x="32" y="32"/>
+	<Point x="32" y="31"/>
+	<Point x="95" y="31"/>
+	<Point x="95" y="36"/>
+	<Point x="142" y="36"/>
+	<Point x="142" y="31"/>
+	<Point x="184" y="31"/>
+	<Point x="184" y="36"/>
+	<Point x="233" y="36"/>
+	<Point x="233" y="31"/>
+	<Point x="236" y="31"/>
+	<Point x="236" y="36"/>
+	<Point x="278" y="36"/>
+	<Point x="278" y="86"/>
+	<Point x="275" y="86"/>
+	<Point x="275" y="82"/>
+	<Point x="148" y="82"/>
+	<Point x="148" y="132"/>
+	<Point x="163" y="132"/>
+	<Point x="163" y="145"/>
+	<Point x="169" y="145"/>
+	<Point x="169" y="146"/>
+	<Point x="130" y="146"/>
+	<Point x="130" y="151"/>
+	<Point x="86" y="151"/>
+	<Point x="86" y="146"/>
+	<Point x="32" y="146"/></Coords>
+	<TextLine id="r5">
+	<Coords>
+	<Point x="32" y="31"/>
+	<Point x="95" y="31"/>
+	<Point x="95" y="36"/>
+	<Point x="142" y="36"/>
+	<Point x="142" y="31"/>
+	<Point x="184" y="31"/>
+	<Point x="184" y="36"/>
+	<Point x="233" y="36"/>
+	<Point x="233" y="31"/>
+	<Point x="236" y="31"/>
+	<Point x="236" y="36"/>
+	<Point x="264" y="36"/>
+	<Point x="264" y="37"/>
+	<Point x="265" y="37"/>
+	<Point x="265" y="39"/>
+	<Point x="266" y="39"/>
+	<Point x="266" y="49"/>
+	<Point x="273" y="49"/>
+	<Point x="273" y="50"/>
+	<Point x="230" y="50"/>
+	<Point x="230" y="51"/>
+	<Point x="229" y="51"/>
+	<Point x="229" y="53"/>
+	<Point x="228" y="53"/>
+	<Point x="228" y="54"/>
+	<Point x="226" y="54"/>
+	<Point x="226" y="55"/>
+	<Point x="220" y="55"/>
+	<Point x="220" y="54"/>
+	<Point x="219" y="54"/>
+	<Point x="219" y="53"/>
+	<Point x="218" y="53"/>
+	<Point x="218" y="50"/>
+	<Point x="38" y="50"/>
+	<Point x="38" y="32"/>
+	<Point x="32" y="32"/></Coords>
+	<Word id="r15">
+	<Coords>
+	<Point x="32" y="31"/>
+	<Point x="67" y="31"/>
+	<Point x="67" y="36"/>
+	<Point x="78" y="36"/>
+	<Point x="78" y="37"/>
+	<Point x="80" y="37"/>
+	<Point x="80" y="39"/>
+	<Point x="81" y="39"/>
+	<Point x="81" y="45"/>
+	<Point x="82" y="45"/>
+	<Point x="82" y="47"/>
+	<Point x="81" y="47"/>
+	<Point x="81" y="48"/>
+	<Point x="80" y="48"/>
+	<Point x="80" y="49"/>
+	<Point x="79" y="49"/>
+	<Point x="79" y="50"/>
+	<Point x="38" y="50"/>
+	<Point x="38" y="32"/>
+	<Point x="32" y="32"/></Coords>
+	<Glyph id="r115" ligature="true">
+	<Coords>
+	<Point x="32" y="31"/>
+	<Point x="47" y="31"/>
+	<Point x="47" y="32"/>
+	<Point x="41" y="32"/>
+	<Point x="41" y="50"/>
+	<Point x="38" y="50"/>
+	<Point x="38" y="32"/>
+	<Point x="32" y="32"/></Coords>
+	<TextEquiv>
+	<PlainText>T</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r116">
+	<Coords>
+	<Point x="49" y="31"/>
+	<Point x="52" y="31"/>
+	<Point x="52" y="36"/>
+	<Point x="59" y="36"/>
+	<Point x="59" y="37"/>
+	<Point x="60" y="37"/>
+	<Point x="60" y="39"/>
+	<Point x="61" y="39"/>
+	<Point x="61" y="50"/>
+	<Point x="49" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>h</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r117">
+	<Coords>
+	<Point x="64" y="31"/>
+	<Point x="67" y="31"/>
+	<Point x="67" y="50"/>
+	<Point x="64" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r118">
+	<Coords>
+	<Point x="72" y="36"/>
+	<Point x="78" y="36"/>
+	<Point x="78" y="37"/>
+	<Point x="80" y="37"/>
+	<Point x="80" y="39"/>
+	<Point x="81" y="39"/>
+	<Point x="81" y="45"/>
+	<Point x="82" y="45"/>
+	<Point x="82" y="47"/>
+	<Point x="81" y="47"/>
+	<Point x="81" y="48"/>
+	<Point x="80" y="48"/>
+	<Point x="80" y="49"/>
+	<Point x="79" y="49"/>
+	<Point x="79" y="50"/>
+	<Point x="72" y="50"/>
+	<Point x="72" y="49"/>
+	<Point x="71" y="49"/>
+	<Point x="71" y="48"/>
+	<Point x="70" y="48"/>
+	<Point x="70" y="46"/>
+	<Point x="69" y="46"/>
+	<Point x="70" y="46"/>
+	<Point x="70" y="38"/>
+	<Point x="71" y="38"/>
+	<Point x="71" y="37"/>
+	<Point x="72" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>This</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r17">
+	<Coords>
+	<Point x="92" y="31"/>
+	<Point x="95" y="31"/>
+	<Point x="95" y="36"/>
+	<Point x="106" y="36"/>
+	<Point x="106" y="37"/>
+	<Point x="108" y="37"/>
+	<Point x="108" y="39"/>
+	<Point x="109" y="39"/>
+	<Point x="109" y="45"/>
+	<Point x="110" y="45"/>
+	<Point x="110" y="47"/>
+	<Point x="109" y="47"/>
+	<Point x="109" y="48"/>
+	<Point x="108" y="48"/>
+	<Point x="108" y="49"/>
+	<Point x="107" y="49"/>
+	<Point x="107" y="50"/>
+	<Point x="92" y="50"/></Coords>
+	<Glyph id="r119">
+	<Coords>
+	<Point x="92" y="31"/>
+	<Point x="95" y="31"/>
+	<Point x="95" y="50"/>
+	<Point x="92" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r120">
+	<Coords>
+	<Point x="100" y="36"/>
+	<Point x="106" y="36"/>
+	<Point x="106" y="37"/>
+	<Point x="108" y="37"/>
+	<Point x="108" y="39"/>
+	<Point x="109" y="39"/>
+	<Point x="109" y="45"/>
+	<Point x="110" y="45"/>
+	<Point x="110" y="47"/>
+	<Point x="109" y="47"/>
+	<Point x="109" y="48"/>
+	<Point x="108" y="48"/>
+	<Point x="108" y="49"/>
+	<Point x="107" y="49"/>
+	<Point x="107" y="50"/>
+	<Point x="100" y="50"/>
+	<Point x="100" y="49"/>
+	<Point x="99" y="49"/>
+	<Point x="99" y="48"/>
+	<Point x="98" y="48"/>
+	<Point x="98" y="46"/>
+	<Point x="97" y="46"/>
+	<Point x="98" y="46"/>
+	<Point x="98" y="38"/>
+	<Point x="99" y="38"/>
+	<Point x="99" y="37"/>
+	<Point x="100" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>is</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r20">
+	<Coords>
+	<Point x="123" y="36"/>
+	<Point x="130" y="36"/>
+	<Point x="130" y="37"/>
+	<Point x="131" y="37"/>
+	<Point x="131" y="38"/>
+	<Point x="132" y="38"/>
+	<Point x="132" y="50"/>
+	<Point x="122" y="50"/>
+	<Point x="122" y="49"/>
+	<Point x="120" y="49"/>
+	<Point x="120" y="47"/>
+	<Point x="119" y="47"/>
+	<Point x="119" y="45"/>
+	<Point x="120" y="45"/>
+	<Point x="120" y="38"/>
+	<Point x="121" y="38"/>
+	<Point x="121" y="37"/>
+	<Point x="123" y="37"/></Coords>
+	<Glyph id="r121">
+	<Coords>
+	<Point x="123" y="36"/>
+	<Point x="130" y="36"/>
+	<Point x="130" y="37"/>
+	<Point x="131" y="37"/>
+	<Point x="131" y="38"/>
+	<Point x="132" y="38"/>
+	<Point x="132" y="50"/>
+	<Point x="122" y="50"/>
+	<Point x="122" y="49"/>
+	<Point x="120" y="49"/>
+	<Point x="120" y="47"/>
+	<Point x="119" y="47"/>
+	<Point x="119" y="45"/>
+	<Point x="120" y="45"/>
+	<Point x="120" y="38"/>
+	<Point x="121" y="38"/>
+	<Point x="121" y="37"/>
+	<Point x="123" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r21">
+	<Coords>
+	<Point x="146" y="31"/>
+	<Point x="182" y="31"/>
+	<Point x="182" y="36"/>
+	<Point x="184" y="36"/>
+	<Point x="184" y="50"/>
+	<Point x="145" y="50"/>
+	<Point x="145" y="49"/>
+	<Point x="144" y="49"/>
+	<Point x="144" y="37"/>
+	<Point x="142" y="37"/>
+	<Point x="142" y="36"/>
+	<Point x="144" y="36"/>
+	<Point x="144" y="32"/>
+	<Point x="146" y="32"/></Coords>
+	<Glyph id="r122">
+	<Coords>
+	<Point x="146" y="31"/>
+	<Point x="147" y="31"/>
+	<Point x="147" y="36"/>
+	<Point x="149" y="36"/>
+	<Point x="149" y="50"/>
+	<Point x="145" y="50"/>
+	<Point x="145" y="49"/>
+	<Point x="144" y="49"/>
+	<Point x="144" y="37"/>
+	<Point x="142" y="37"/>
+	<Point x="142" y="36"/>
+	<Point x="144" y="36"/>
+	<Point x="144" y="32"/>
+	<Point x="146" y="32"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r123">
+	<Coords>
+	<Point x="154" y="36"/>
+	<Point x="160" y="36"/>
+	<Point x="160" y="37"/>
+	<Point x="162" y="37"/>
+	<Point x="162" y="39"/>
+	<Point x="163" y="39"/>
+	<Point x="163" y="41"/>
+	<Point x="164" y="41"/>
+	<Point x="164" y="43"/>
+	<Point x="163" y="43"/>
+	<Point x="163" y="48"/>
+	<Point x="162" y="48"/>
+	<Point x="162" y="49"/>
+	<Point x="160" y="49"/>
+	<Point x="160" y="50"/>
+	<Point x="154" y="50"/>
+	<Point x="154" y="49"/>
+	<Point x="153" y="49"/>
+	<Point x="153" y="48"/>
+	<Point x="152" y="48"/>
+	<Point x="152" y="47"/>
+	<Point x="151" y="47"/>
+	<Point x="151" y="45"/>
+	<Point x="150" y="45"/>
+	<Point x="150" y="41"/>
+	<Point x="151" y="41"/>
+	<Point x="151" y="39"/>
+	<Point x="152" y="39"/>
+	<Point x="152" y="38"/>
+	<Point x="153" y="38"/>
+	<Point x="153" y="37"/>
+	<Point x="154" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r127">
+	<Coords>
+	<Point x="181" y="31"/>
+	<Point x="182" y="31"/>
+	<Point x="182" y="36"/>
+	<Point x="184" y="36"/>
+	<Point x="184" y="50"/>
+	<Point x="180" y="50"/>
+	<Point x="180" y="49"/>
+	<Point x="179" y="49"/>
+	<Point x="179" y="37"/>
+	<Point x="177" y="37"/>
+	<Point x="177" y="36"/>
+	<Point x="179" y="36"/>
+	<Point x="179" y="32"/>
+	<Point x="181" y="32"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r128">
+	<Coords>
+	<Point x="165" y="36"/>
+	<Point x="176" y="36"/>
+	<Point x="176" y="50"/>
+	<Point x="165" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>x</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>text</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r22">
+	<Coords>
+	<Point x="233" y="31"/>
+	<Point x="236" y="31"/>
+	<Point x="236" y="36"/>
+	<Point x="264" y="36"/>
+	<Point x="264" y="37"/>
+	<Point x="265" y="37"/>
+	<Point x="265" y="39"/>
+	<Point x="266" y="39"/>
+	<Point x="266" y="49"/>
+	<Point x="273" y="49"/>
+	<Point x="273" y="50"/>
+	<Point x="230" y="50"/>
+	<Point x="230" y="51"/>
+	<Point x="229" y="51"/>
+	<Point x="229" y="53"/>
+	<Point x="228" y="53"/>
+	<Point x="228" y="54"/>
+	<Point x="226" y="54"/>
+	<Point x="226" y="55"/>
+	<Point x="220" y="55"/>
+	<Point x="220" y="54"/>
+	<Point x="219" y="54"/>
+	<Point x="219" y="53"/>
+	<Point x="218" y="53"/>
+	<Point x="218" y="50"/>
+	<Point x="194" y="50"/>
+	<Point x="194" y="36"/>
+	<Point x="233" y="36"/></Coords>
+	<Glyph id="r129">
+	<Coords>
+	<Point x="194" y="36"/>
+	<Point x="202" y="36"/>
+	<Point x="202" y="37"/>
+	<Point x="201" y="37"/>
+	<Point x="201" y="38"/>
+	<Point x="198" y="38"/>
+	<Point x="198" y="39"/>
+	<Point x="197" y="39"/>
+	<Point x="197" y="50"/>
+	<Point x="194" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>r</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r131">
+	<Coords>
+	<Point x="206" y="36"/>
+	<Point x="212" y="36"/>
+	<Point x="212" y="37"/>
+	<Point x="214" y="37"/>
+	<Point x="214" y="39"/>
+	<Point x="215" y="39"/>
+	<Point x="215" y="41"/>
+	<Point x="216" y="41"/>
+	<Point x="216" y="43"/>
+	<Point x="215" y="43"/>
+	<Point x="215" y="48"/>
+	<Point x="214" y="48"/>
+	<Point x="214" y="49"/>
+	<Point x="212" y="49"/>
+	<Point x="212" y="50"/>
+	<Point x="206" y="50"/>
+	<Point x="206" y="49"/>
+	<Point x="205" y="49"/>
+	<Point x="205" y="48"/>
+	<Point x="204" y="48"/>
+	<Point x="204" y="47"/>
+	<Point x="203" y="47"/>
+	<Point x="203" y="45"/>
+	<Point x="202" y="45"/>
+	<Point x="202" y="41"/>
+	<Point x="203" y="41"/>
+	<Point x="203" y="39"/>
+	<Point x="204" y="39"/>
+	<Point x="204" y="38"/>
+	<Point x="205" y="38"/>
+	<Point x="205" y="37"/>
+	<Point x="206" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r132">
+	<Coords>
+	<Point x="221" y="36"/>
+	<Point x="230" y="36"/>
+	<Point x="230" y="51"/>
+	<Point x="229" y="51"/>
+	<Point x="229" y="53"/>
+	<Point x="228" y="53"/>
+	<Point x="228" y="54"/>
+	<Point x="226" y="54"/>
+	<Point x="226" y="55"/>
+	<Point x="220" y="55"/>
+	<Point x="220" y="54"/>
+	<Point x="219" y="54"/>
+	<Point x="219" y="53"/>
+	<Point x="218" y="53"/>
+	<Point x="218" y="46"/>
+	<Point x="217" y="46"/>
+	<Point x="217" y="40"/>
+	<Point x="219" y="40"/>
+	<Point x="219" y="37"/>
+	<Point x="221" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>g</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r133">
+	<Coords>
+	<Point x="233" y="31"/>
+	<Point x="236" y="31"/>
+	<Point x="236" y="50"/>
+	<Point x="233" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r172">
+	<Coords>
+	<Point x="242" y="36"/>
+	<Point x="248" y="36"/>
+	<Point x="248" y="37"/>
+	<Point x="249" y="37"/>
+	<Point x="249" y="38"/>
+	<Point x="250" y="38"/>
+	<Point x="250" y="39"/>
+	<Point x="251" y="39"/>
+	<Point x="251" y="41"/>
+	<Point x="252" y="41"/>
+	<Point x="252" y="45"/>
+	<Point x="251" y="45"/>
+	<Point x="251" y="47"/>
+	<Point x="250" y="47"/>
+	<Point x="250" y="48"/>
+	<Point x="249" y="48"/>
+	<Point x="249" y="49"/>
+	<Point x="248" y="49"/>
+	<Point x="248" y="50"/>
+	<Point x="242" y="50"/>
+	<Point x="242" y="49"/>
+	<Point x="241" y="49"/>
+	<Point x="241" y="48"/>
+	<Point x="240" y="48"/>
+	<Point x="240" y="47"/>
+	<Point x="239" y="47"/>
+	<Point x="239" y="45"/>
+	<Point x="238" y="45"/>
+	<Point x="238" y="41"/>
+	<Point x="239" y="41"/>
+	<Point x="239" y="39"/>
+	<Point x="240" y="39"/>
+	<Point x="240" y="38"/>
+	<Point x="241" y="38"/>
+	<Point x="241" y="37"/>
+	<Point x="242" y="37"/></Coords>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r175">
+	<Coords>
+	<Point x="254" y="36"/>
+	<Point x="264" y="36"/>
+	<Point x="264" y="37"/>
+	<Point x="265" y="37"/>
+	<Point x="265" y="39"/>
+	<Point x="266" y="39"/>
+	<Point x="266" y="50"/>
+	<Point x="254" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r176">
+	<Coords>
+	<Point x="270" y="49"/>
+	<Point x="273" y="49"/>
+	<Point x="273" y="50"/>
+	<Point x="270" y="50"/></Coords>
+	<TextEquiv>
+	<PlainText>.</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>region.</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>This is a text region.</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r7">
+	<Coords>
+	<Point x="34" y="63"/>
+	<Point x="227" y="63"/>
+	<Point x="227" y="68"/>
+	<Point x="268" y="68"/>
+	<Point x="268" y="69"/>
+	<Point x="270" y="69"/>
+	<Point x="270" y="71"/>
+	<Point x="271" y="71"/>
+	<Point x="271" y="77"/>
+	<Point x="272" y="77"/>
+	<Point x="272" y="79"/>
+	<Point x="271" y="79"/>
+	<Point x="271" y="81"/>
+	<Point x="278" y="81"/>
+	<Point x="278" y="85"/>
+	<Point x="277" y="85"/>
+	<Point x="277" y="86"/>
+	<Point x="275" y="86"/>
+	<Point x="275" y="82"/>
+	<Point x="34" y="82"/></Coords>
+	<Word id="r23">
+	<Coords>
+	<Point x="34" y="63"/>
+	<Point x="45" y="63"/>
+	<Point x="45" y="68"/>
+	<Point x="47" y="68"/>
+	<Point x="47" y="82"/>
+	<Point x="34" y="82"/></Coords>
+	<Glyph id="r136">
+	<Coords>
+	<Point x="34" y="63"/>
+	<Point x="37" y="63"/>
+	<Point x="37" y="82"/>
+	<Point x="34" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>I</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r137">
+	<Coords>
+	<Point x="44" y="63"/>
+	<Point x="45" y="63"/>
+	<Point x="45" y="68"/>
+	<Point x="47" y="68"/>
+	<Point x="47" y="82"/>
+	<Point x="43" y="82"/>
+	<Point x="43" y="81"/>
+	<Point x="42" y="81"/>
+	<Point x="42" y="69"/>
+	<Point x="40" y="69"/>
+	<Point x="40" y="68"/>
+	<Point x="42" y="68"/>
+	<Point x="42" y="64"/>
+	<Point x="44" y="64"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>It</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r25">
+	<Coords>
+	<Point x="104" y="63"/>
+	<Point x="127" y="63"/>
+	<Point x="127" y="68"/>
+	<Point x="153" y="68"/>
+	<Point x="153" y="69"/>
+	<Point x="155" y="69"/>
+	<Point x="155" y="71"/>
+	<Point x="156" y="71"/>
+	<Point x="156" y="77"/>
+	<Point x="157" y="77"/>
+	<Point x="157" y="79"/>
+	<Point x="156" y="79"/>
+	<Point x="156" y="80"/>
+	<Point x="155" y="80"/>
+	<Point x="155" y="81"/>
+	<Point x="154" y="81"/>
+	<Point x="154" y="82"/>
+	<Point x="60" y="82"/>
+	<Point x="60" y="81"/>
+	<Point x="58" y="81"/>
+	<Point x="58" y="79"/>
+	<Point x="57" y="79"/>
+	<Point x="57" y="76"/>
+	<Point x="56" y="76"/>
+	<Point x="56" y="74"/>
+	<Point x="57" y="74"/>
+	<Point x="57" y="71"/>
+	<Point x="58" y="71"/>
+	<Point x="58" y="69"/>
+	<Point x="60" y="69"/>
+	<Point x="60" y="68"/>
+	<Point x="102" y="68"/>
+	<Point x="102" y="64"/>
+	<Point x="104" y="64"/></Coords>
+	<Glyph id="r138">
+	<Coords>
+	<Point x="60" y="68"/>
+	<Point x="65" y="68"/>
+	<Point x="65" y="69"/>
+	<Point x="67" y="69"/>
+	<Point x="67" y="71"/>
+	<Point x="68" y="71"/>
+	<Point x="68" y="79"/>
+	<Point x="67" y="79"/>
+	<Point x="67" y="81"/>
+	<Point x="65" y="81"/>
+	<Point x="65" y="82"/>
+	<Point x="60" y="82"/>
+	<Point x="60" y="81"/>
+	<Point x="58" y="81"/>
+	<Point x="58" y="79"/>
+	<Point x="57" y="79"/>
+	<Point x="57" y="76"/>
+	<Point x="56" y="76"/>
+	<Point x="56" y="74"/>
+	<Point x="57" y="74"/>
+	<Point x="57" y="71"/>
+	<Point x="58" y="71"/>
+	<Point x="58" y="69"/>
+	<Point x="60" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>c</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r139">
+	<Coords>
+	<Point x="74" y="68"/>
+	<Point x="80" y="68"/>
+	<Point x="80" y="69"/>
+	<Point x="81" y="69"/>
+	<Point x="81" y="70"/>
+	<Point x="82" y="70"/>
+	<Point x="82" y="71"/>
+	<Point x="83" y="71"/>
+	<Point x="83" y="73"/>
+	<Point x="84" y="73"/>
+	<Point x="84" y="77"/>
+	<Point x="83" y="77"/>
+	<Point x="83" y="79"/>
+	<Point x="82" y="79"/>
+	<Point x="82" y="80"/>
+	<Point x="81" y="80"/>
+	<Point x="81" y="81"/>
+	<Point x="80" y="81"/>
+	<Point x="80" y="82"/>
+	<Point x="74" y="82"/>
+	<Point x="74" y="81"/>
+	<Point x="73" y="81"/>
+	<Point x="73" y="80"/>
+	<Point x="72" y="80"/>
+	<Point x="72" y="79"/>
+	<Point x="71" y="79"/>
+	<Point x="71" y="77"/>
+	<Point x="70" y="77"/>
+	<Point x="70" y="73"/>
+	<Point x="71" y="73"/>
+	<Point x="71" y="71"/>
+	<Point x="72" y="71"/>
+	<Point x="72" y="70"/>
+	<Point x="73" y="70"/>
+	<Point x="73" y="69"/>
+	<Point x="74" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r140">
+	<Coords>
+	<Point x="86" y="68"/>
+	<Point x="96" y="68"/>
+	<Point x="96" y="69"/>
+	<Point x="97" y="69"/>
+	<Point x="97" y="71"/>
+	<Point x="98" y="71"/>
+	<Point x="98" y="82"/>
+	<Point x="86" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r141">
+	<Coords>
+	<Point x="104" y="63"/>
+	<Point x="105" y="63"/>
+	<Point x="105" y="68"/>
+	<Point x="107" y="68"/>
+	<Point x="107" y="82"/>
+	<Point x="103" y="82"/>
+	<Point x="103" y="81"/>
+	<Point x="102" y="81"/>
+	<Point x="102" y="69"/>
+	<Point x="100" y="69"/>
+	<Point x="100" y="68"/>
+	<Point x="102" y="68"/>
+	<Point x="102" y="64"/>
+	<Point x="104" y="64"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r142">
+	<Coords>
+	<Point x="112" y="68"/>
+	<Point x="119" y="68"/>
+	<Point x="119" y="69"/>
+	<Point x="120" y="69"/>
+	<Point x="120" y="70"/>
+	<Point x="121" y="70"/>
+	<Point x="121" y="82"/>
+	<Point x="111" y="82"/>
+	<Point x="111" y="81"/>
+	<Point x="109" y="81"/>
+	<Point x="109" y="79"/>
+	<Point x="108" y="79"/>
+	<Point x="108" y="77"/>
+	<Point x="109" y="77"/>
+	<Point x="109" y="70"/>
+	<Point x="110" y="70"/>
+	<Point x="110" y="69"/>
+	<Point x="112" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r143">
+	<Coords>
+	<Point x="124" y="63"/>
+	<Point x="127" y="63"/>
+	<Point x="127" y="82"/>
+	<Point x="124" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r144">
+	<Coords>
+	<Point x="130" y="68"/>
+	<Point x="140" y="68"/>
+	<Point x="140" y="69"/>
+	<Point x="141" y="69"/>
+	<Point x="141" y="71"/>
+	<Point x="142" y="71"/>
+	<Point x="142" y="82"/>
+	<Point x="130" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r145">
+	<Coords>
+	<Point x="147" y="68"/>
+	<Point x="153" y="68"/>
+	<Point x="153" y="69"/>
+	<Point x="155" y="69"/>
+	<Point x="155" y="71"/>
+	<Point x="156" y="71"/>
+	<Point x="156" y="77"/>
+	<Point x="157" y="77"/>
+	<Point x="157" y="79"/>
+	<Point x="156" y="79"/>
+	<Point x="156" y="80"/>
+	<Point x="155" y="80"/>
+	<Point x="155" y="81"/>
+	<Point x="154" y="81"/>
+	<Point x="154" y="82"/>
+	<Point x="147" y="82"/>
+	<Point x="147" y="81"/>
+	<Point x="146" y="81"/>
+	<Point x="146" y="80"/>
+	<Point x="145" y="80"/>
+	<Point x="145" y="78"/>
+	<Point x="144" y="78"/>
+	<Point x="145" y="78"/>
+	<Point x="145" y="70"/>
+	<Point x="146" y="70"/>
+	<Point x="146" y="69"/>
+	<Point x="147" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>contains</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r27">
+	<Coords>
+	<Point x="170" y="63"/>
+	<Point x="206" y="63"/>
+	<Point x="206" y="68"/>
+	<Point x="208" y="68"/>
+	<Point x="208" y="82"/>
+	<Point x="169" y="82"/>
+	<Point x="169" y="81"/>
+	<Point x="168" y="81"/>
+	<Point x="168" y="69"/>
+	<Point x="166" y="69"/>
+	<Point x="166" y="68"/>
+	<Point x="168" y="68"/>
+	<Point x="168" y="64"/>
+	<Point x="170" y="64"/></Coords>
+	<Glyph id="r146">
+	<Coords>
+	<Point x="170" y="63"/>
+	<Point x="171" y="63"/>
+	<Point x="171" y="68"/>
+	<Point x="173" y="68"/>
+	<Point x="173" y="82"/>
+	<Point x="169" y="82"/>
+	<Point x="169" y="81"/>
+	<Point x="168" y="81"/>
+	<Point x="168" y="69"/>
+	<Point x="166" y="69"/>
+	<Point x="166" y="68"/>
+	<Point x="168" y="68"/>
+	<Point x="168" y="64"/>
+	<Point x="170" y="64"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r147">
+	<Coords>
+	<Point x="178" y="68"/>
+	<Point x="184" y="68"/>
+	<Point x="184" y="69"/>
+	<Point x="186" y="69"/>
+	<Point x="186" y="71"/>
+	<Point x="187" y="71"/>
+	<Point x="187" y="73"/>
+	<Point x="188" y="73"/>
+	<Point x="188" y="75"/>
+	<Point x="187" y="75"/>
+	<Point x="187" y="80"/>
+	<Point x="186" y="80"/>
+	<Point x="186" y="81"/>
+	<Point x="184" y="81"/>
+	<Point x="184" y="82"/>
+	<Point x="178" y="82"/>
+	<Point x="178" y="81"/>
+	<Point x="177" y="81"/>
+	<Point x="177" y="80"/>
+	<Point x="176" y="80"/>
+	<Point x="176" y="79"/>
+	<Point x="175" y="79"/>
+	<Point x="175" y="77"/>
+	<Point x="174" y="77"/>
+	<Point x="174" y="73"/>
+	<Point x="175" y="73"/>
+	<Point x="175" y="71"/>
+	<Point x="176" y="71"/>
+	<Point x="176" y="70"/>
+	<Point x="177" y="70"/>
+	<Point x="177" y="69"/>
+	<Point x="178" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r149">
+	<Coords>
+	<Point x="205" y="63"/>
+	<Point x="206" y="63"/>
+	<Point x="206" y="68"/>
+	<Point x="208" y="68"/>
+	<Point x="208" y="82"/>
+	<Point x="204" y="82"/>
+	<Point x="204" y="81"/>
+	<Point x="203" y="81"/>
+	<Point x="203" y="69"/>
+	<Point x="201" y="69"/>
+	<Point x="201" y="68"/>
+	<Point x="203" y="68"/>
+	<Point x="203" y="64"/>
+	<Point x="205" y="64"/></Coords>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r150">
+	<Coords>
+	<Point x="189" y="68"/>
+	<Point x="199" y="68"/>
+	<Point x="199" y="81"/>
+	<Point x="200" y="81"/>
+	<Point x="200" y="82"/>
+	<Point x="189" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>x</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>text</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r28">
+	<Coords>
+	<Point x="218" y="63"/>
+	<Point x="227" y="63"/>
+	<Point x="227" y="68"/>
+	<Point x="268" y="68"/>
+	<Point x="268" y="69"/>
+	<Point x="270" y="69"/>
+	<Point x="270" y="71"/>
+	<Point x="271" y="71"/>
+	<Point x="271" y="77"/>
+	<Point x="272" y="77"/>
+	<Point x="272" y="79"/>
+	<Point x="271" y="79"/>
+	<Point x="271" y="81"/>
+	<Point x="278" y="81"/>
+	<Point x="278" y="85"/>
+	<Point x="277" y="85"/>
+	<Point x="277" y="86"/>
+	<Point x="275" y="86"/>
+	<Point x="275" y="82"/>
+	<Point x="218" y="82"/></Coords>
+	<Glyph id="r151">
+	<Coords>
+	<Point x="218" y="63"/>
+	<Point x="221" y="63"/>
+	<Point x="221" y="82"/>
+	<Point x="218" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>l</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r152">
+	<Coords>
+	<Point x="224" y="63"/>
+	<Point x="227" y="63"/>
+	<Point x="227" y="82"/>
+	<Point x="224" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r155">
+	<Coords>
+	<Point x="248" y="68"/>
+	<Point x="254" y="68"/>
+	<Point x="254" y="69"/>
+	<Point x="256" y="69"/>
+	<Point x="256" y="71"/>
+	<Point x="257" y="71"/>
+	<Point x="257" y="73"/>
+	<Point x="258" y="73"/>
+	<Point x="258" y="75"/>
+	<Point x="257" y="75"/>
+	<Point x="257" y="80"/>
+	<Point x="256" y="80"/>
+	<Point x="256" y="81"/>
+	<Point x="254" y="81"/>
+	<Point x="254" y="82"/>
+	<Point x="248" y="82"/>
+	<Point x="248" y="81"/>
+	<Point x="247" y="81"/>
+	<Point x="247" y="80"/>
+	<Point x="246" y="80"/>
+	<Point x="246" y="79"/>
+	<Point x="245" y="79"/>
+	<Point x="245" y="77"/>
+	<Point x="244" y="77"/>
+	<Point x="244" y="73"/>
+	<Point x="245" y="73"/>
+	<Point x="245" y="71"/>
+	<Point x="246" y="71"/>
+	<Point x="246" y="70"/>
+	<Point x="247" y="70"/>
+	<Point x="247" y="69"/>
+	<Point x="248" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r156">
+	<Coords>
+	<Point x="262" y="68"/>
+	<Point x="268" y="68"/>
+	<Point x="268" y="69"/>
+	<Point x="270" y="69"/>
+	<Point x="270" y="71"/>
+	<Point x="271" y="71"/>
+	<Point x="271" y="77"/>
+	<Point x="272" y="77"/>
+	<Point x="272" y="79"/>
+	<Point x="271" y="79"/>
+	<Point x="271" y="80"/>
+	<Point x="270" y="80"/>
+	<Point x="270" y="81"/>
+	<Point x="269" y="81"/>
+	<Point x="269" y="82"/>
+	<Point x="262" y="82"/>
+	<Point x="262" y="81"/>
+	<Point x="261" y="81"/>
+	<Point x="261" y="80"/>
+	<Point x="260" y="80"/>
+	<Point x="260" y="78"/>
+	<Point x="259" y="78"/>
+	<Point x="260" y="78"/>
+	<Point x="260" y="70"/>
+	<Point x="261" y="70"/>
+	<Point x="261" y="69"/>
+	<Point x="262" y="69"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r157">
+	<Coords>
+	<Point x="275" y="81"/>
+	<Point x="278" y="81"/>
+	<Point x="278" y="85"/>
+	<Point x="277" y="85"/>
+	<Point x="277" y="86"/>
+	<Point x="275" y="86"/></Coords>
+	<TextEquiv>
+	<PlainText>,</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r173">
+	<Coords>
+	<Point x="230" y="68"/>
+	<Point x="240" y="68"/>
+	<Point x="240" y="69"/>
+	<Point x="241" y="69"/>
+	<Point x="241" y="71"/>
+	<Point x="242" y="71"/>
+	<Point x="242" y="82"/>
+	<Point x="230" y="82"/></Coords>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>lines,</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>It contains text lines,</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r9">
+	<Coords>
+	<Point x="85" y="95"/>
+	<Point x="88" y="95"/>
+	<Point x="88" y="100"/>
+	<Point x="99" y="100"/>
+	<Point x="99" y="101"/>
+	<Point x="101" y="101"/>
+	<Point x="101" y="103"/>
+	<Point x="102" y="103"/>
+	<Point x="102" y="109"/>
+	<Point x="103" y="109"/>
+	<Point x="103" y="111"/>
+	<Point x="102" y="111"/>
+	<Point x="102" y="112"/>
+	<Point x="101" y="112"/>
+	<Point x="101" y="113"/>
+	<Point x="100" y="113"/>
+	<Point x="100" y="114"/>
+	<Point x="35" y="114"/>
+	<Point x="35" y="110"/>
+	<Point x="34" y="110"/>
+	<Point x="34" y="107"/>
+	<Point x="33" y="107"/>
+	<Point x="33" y="103"/>
+	<Point x="32" y="103"/>
+	<Point x="32" y="100"/>
+	<Point x="85" y="100"/></Coords>
+	<Word id="r13">
+	<Coords>
+	<Point x="85" y="95"/>
+	<Point x="88" y="95"/>
+	<Point x="88" y="100"/>
+	<Point x="99" y="100"/>
+	<Point x="99" y="101"/>
+	<Point x="101" y="101"/>
+	<Point x="101" y="103"/>
+	<Point x="102" y="103"/>
+	<Point x="102" y="109"/>
+	<Point x="103" y="109"/>
+	<Point x="103" y="111"/>
+	<Point x="102" y="111"/>
+	<Point x="102" y="112"/>
+	<Point x="101" y="112"/>
+	<Point x="101" y="113"/>
+	<Point x="100" y="113"/>
+	<Point x="100" y="114"/>
+	<Point x="35" y="114"/>
+	<Point x="35" y="110"/>
+	<Point x="34" y="110"/>
+	<Point x="34" y="107"/>
+	<Point x="33" y="107"/>
+	<Point x="33" y="103"/>
+	<Point x="32" y="103"/>
+	<Point x="32" y="100"/>
+	<Point x="85" y="100"/></Coords>
+	<Glyph id="r158">
+	<Coords>
+	<Point x="32" y="100"/>
+	<Point x="50" y="100"/>
+	<Point x="50" y="103"/>
+	<Point x="49" y="103"/>
+	<Point x="49" y="106"/>
+	<Point x="48" y="106"/>
+	<Point x="48" y="110"/>
+	<Point x="47" y="110"/>
+	<Point x="47" y="113"/>
+	<Point x="46" y="113"/>
+	<Point x="46" y="114"/>
+	<Point x="35" y="114"/>
+	<Point x="35" y="110"/>
+	<Point x="34" y="110"/>
+	<Point x="34" y="107"/>
+	<Point x="33" y="107"/>
+	<Point x="33" y="103"/>
+	<Point x="32" y="103"/></Coords>
+	<TextEquiv>
+	<PlainText>w</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r159">
+	<Coords>
+	<Point x="55" y="100"/>
+	<Point x="61" y="100"/>
+	<Point x="61" y="101"/>
+	<Point x="62" y="101"/>
+	<Point x="62" y="102"/>
+	<Point x="63" y="102"/>
+	<Point x="63" y="103"/>
+	<Point x="64" y="103"/>
+	<Point x="64" y="105"/>
+	<Point x="65" y="105"/>
+	<Point x="65" y="109"/>
+	<Point x="64" y="109"/>
+	<Point x="64" y="111"/>
+	<Point x="63" y="111"/>
+	<Point x="63" y="112"/>
+	<Point x="62" y="112"/>
+	<Point x="62" y="113"/>
+	<Point x="61" y="113"/>
+	<Point x="61" y="114"/>
+	<Point x="55" y="114"/>
+	<Point x="55" y="113"/>
+	<Point x="54" y="113"/>
+	<Point x="54" y="112"/>
+	<Point x="53" y="112"/>
+	<Point x="53" y="111"/>
+	<Point x="52" y="111"/>
+	<Point x="52" y="109"/>
+	<Point x="51" y="109"/>
+	<Point x="51" y="105"/>
+	<Point x="52" y="105"/>
+	<Point x="52" y="103"/>
+	<Point x="53" y="103"/>
+	<Point x="53" y="102"/>
+	<Point x="54" y="102"/>
+	<Point x="54" y="101"/>
+	<Point x="55" y="101"/></Coords>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r160">
+	<Coords>
+	<Point x="67" y="100"/>
+	<Point x="75" y="100"/>
+	<Point x="75" y="101"/>
+	<Point x="74" y="101"/>
+	<Point x="74" y="102"/>
+	<Point x="71" y="102"/>
+	<Point x="71" y="103"/>
+	<Point x="70" y="103"/>
+	<Point x="70" y="114"/>
+	<Point x="67" y="114"/></Coords>
+	<TextEquiv>
+	<PlainText>r</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r161">
+	<Coords>
+	<Point x="85" y="95"/>
+	<Point x="88" y="95"/>
+	<Point x="88" y="114"/>
+	<Point x="79" y="114"/>
+	<Point x="79" y="113"/>
+	<Point x="77" y="113"/>
+	<Point x="77" y="111"/>
+	<Point x="76" y="111"/>
+	<Point x="76" y="109"/>
+	<Point x="75" y="109"/>
+	<Point x="75" y="105"/>
+	<Point x="76" y="105"/>
+	<Point x="76" y="103"/>
+	<Point x="77" y="103"/>
+	<Point x="77" y="101"/>
+	<Point x="79" y="101"/>
+	<Point x="79" y="100"/>
+	<Point x="85" y="100"/></Coords>
+	<TextEquiv>
+	<PlainText>d</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r162">
+	<Coords>
+	<Point x="93" y="100"/>
+	<Point x="99" y="100"/>
+	<Point x="99" y="101"/>
+	<Point x="101" y="101"/>
+	<Point x="101" y="103"/>
+	<Point x="102" y="103"/>
+	<Point x="102" y="109"/>
+	<Point x="103" y="109"/>
+	<Point x="103" y="111"/>
+	<Point x="102" y="111"/>
+	<Point x="102" y="112"/>
+	<Point x="101" y="112"/>
+	<Point x="101" y="113"/>
+	<Point x="100" y="113"/>
+	<Point x="100" y="114"/>
+	<Point x="93" y="114"/>
+	<Point x="93" y="113"/>
+	<Point x="92" y="113"/>
+	<Point x="92" y="112"/>
+	<Point x="91" y="112"/>
+	<Point x="91" y="110"/>
+	<Point x="90" y="110"/>
+	<Point x="91" y="110"/>
+	<Point x="91" y="102"/>
+	<Point x="92" y="102"/>
+	<Point x="92" y="101"/>
+	<Point x="93" y="101"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>words</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>words</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r10">
+	<Coords>
+	<Point x="72" y="127"/>
+	<Point x="139" y="127"/>
+	<Point x="139" y="132"/>
+	<Point x="159" y="132"/>
+	<Point x="159" y="133"/>
+	<Point x="161" y="133"/>
+	<Point x="161" y="135"/>
+	<Point x="162" y="135"/>
+	<Point x="162" y="141"/>
+	<Point x="163" y="141"/>
+	<Point x="163" y="143"/>
+	<Point x="162" y="143"/>
+	<Point x="162" y="145"/>
+	<Point x="169" y="145"/>
+	<Point x="169" y="146"/>
+	<Point x="124" y="146"/>
+	<Point x="124" y="151"/>
+	<Point x="88" y="151"/>
+	<Point x="88" y="150"/>
+	<Point x="87" y="150"/>
+	<Point x="87" y="149"/>
+	<Point x="86" y="149"/>
+	<Point x="86" y="146"/>
+	<Point x="35" y="146"/>
+	<Point x="35" y="145"/>
+	<Point x="33" y="145"/>
+	<Point x="33" y="143"/>
+	<Point x="32" y="143"/>
+	<Point x="32" y="141"/>
+	<Point x="33" y="141"/>
+	<Point x="33" y="134"/>
+	<Point x="34" y="134"/>
+	<Point x="34" y="133"/>
+	<Point x="36" y="133"/>
+	<Point x="36" y="132"/>
+	<Point x="72" y="132"/></Coords>
+	<Word id="r29">
+	<Coords>
+	<Point x="72" y="127"/>
+	<Point x="75" y="127"/>
+	<Point x="75" y="146"/>
+	<Point x="35" y="146"/>
+	<Point x="35" y="145"/>
+	<Point x="33" y="145"/>
+	<Point x="33" y="143"/>
+	<Point x="32" y="143"/>
+	<Point x="32" y="141"/>
+	<Point x="33" y="141"/>
+	<Point x="33" y="134"/>
+	<Point x="34" y="134"/>
+	<Point x="34" y="133"/>
+	<Point x="36" y="133"/>
+	<Point x="36" y="132"/>
+	<Point x="72" y="132"/></Coords>
+	<Glyph id="r163">
+	<Coords>
+	<Point x="36" y="132"/>
+	<Point x="43" y="132"/>
+	<Point x="43" y="133"/>
+	<Point x="44" y="133"/>
+	<Point x="44" y="134"/>
+	<Point x="45" y="134"/>
+	<Point x="45" y="146"/>
+	<Point x="35" y="146"/>
+	<Point x="35" y="145"/>
+	<Point x="33" y="145"/>
+	<Point x="33" y="143"/>
+	<Point x="32" y="143"/>
+	<Point x="32" y="141"/>
+	<Point x="33" y="141"/>
+	<Point x="33" y="134"/>
+	<Point x="34" y="134"/>
+	<Point x="34" y="133"/>
+	<Point x="36" y="133"/></Coords>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r164">
+	<Coords>
+	<Point x="48" y="132"/>
+	<Point x="58" y="132"/>
+	<Point x="58" y="133"/>
+	<Point x="59" y="133"/>
+	<Point x="59" y="135"/>
+	<Point x="60" y="135"/>
+	<Point x="60" y="146"/>
+	<Point x="48" y="146"/></Coords>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r165">
+	<Coords>
+	<Point x="72" y="127"/>
+	<Point x="75" y="127"/>
+	<Point x="75" y="146"/>
+	<Point x="66" y="146"/>
+	<Point x="66" y="145"/>
+	<Point x="64" y="145"/>
+	<Point x="64" y="143"/>
+	<Point x="63" y="143"/>
+	<Point x="63" y="141"/>
+	<Point x="62" y="141"/>
+	<Point x="62" y="137"/>
+	<Point x="63" y="137"/>
+	<Point x="63" y="135"/>
+	<Point x="64" y="135"/>
+	<Point x="64" y="133"/>
+	<Point x="66" y="133"/>
+	<Point x="66" y="132"/>
+	<Point x="72" y="132"/></Coords>
+	<TextEquiv>
+	<PlainText>d</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>and</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r30">
+	<Coords>
+	<Point x="101" y="127"/>
+	<Point x="139" y="127"/>
+	<Point x="139" y="132"/>
+	<Point x="159" y="132"/>
+	<Point x="159" y="133"/>
+	<Point x="161" y="133"/>
+	<Point x="161" y="135"/>
+	<Point x="162" y="135"/>
+	<Point x="162" y="141"/>
+	<Point x="163" y="141"/>
+	<Point x="163" y="143"/>
+	<Point x="162" y="143"/>
+	<Point x="162" y="145"/>
+	<Point x="169" y="145"/>
+	<Point x="169" y="146"/>
+	<Point x="124" y="146"/>
+	<Point x="124" y="151"/>
+	<Point x="88" y="151"/>
+	<Point x="88" y="150"/>
+	<Point x="87" y="150"/>
+	<Point x="87" y="149"/>
+	<Point x="86" y="149"/>
+	<Point x="86" y="141"/>
+	<Point x="85" y="141"/>
+	<Point x="85" y="137"/>
+	<Point x="86" y="137"/>
+	<Point x="86" y="135"/>
+	<Point x="87" y="135"/>
+	<Point x="87" y="133"/>
+	<Point x="89" y="133"/>
+	<Point x="89" y="132"/>
+	<Point x="101" y="132"/></Coords>
+	<Glyph id="r166">
+	<Coords>
+	<Point x="89" y="132"/>
+	<Point x="98" y="132"/>
+	<Point x="98" y="147"/>
+	<Point x="97" y="147"/>
+	<Point x="97" y="149"/>
+	<Point x="96" y="149"/>
+	<Point x="96" y="150"/>
+	<Point x="94" y="150"/>
+	<Point x="94" y="151"/>
+	<Point x="88" y="151"/>
+	<Point x="88" y="150"/>
+	<Point x="87" y="150"/>
+	<Point x="87" y="149"/>
+	<Point x="86" y="149"/>
+	<Point x="86" y="141"/>
+	<Point x="85" y="141"/>
+	<Point x="85" y="137"/>
+	<Point x="86" y="137"/>
+	<Point x="86" y="135"/>
+	<Point x="87" y="135"/>
+	<Point x="87" y="133"/>
+	<Point x="89" y="133"/></Coords>
+	<TextEquiv>
+	<PlainText>g</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r167">
+	<Coords>
+	<Point x="101" y="127"/>
+	<Point x="104" y="127"/>
+	<Point x="104" y="146"/>
+	<Point x="101" y="146"/></Coords>
+	<TextEquiv>
+	<PlainText>l</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r168">
+	<Coords>
+	<Point x="106" y="132"/>
+	<Point x="119" y="132"/>
+	<Point x="119" y="134"/>
+	<Point x="118" y="134"/>
+	<Point x="118" y="136"/>
+	<Point x="117" y="136"/>
+	<Point x="117" y="139"/>
+	<Point x="116" y="139"/>
+	<Point x="116" y="141"/>
+	<Point x="115" y="141"/>
+	<Point x="115" y="144"/>
+	<Point x="114" y="144"/>
+	<Point x="114" y="147"/>
+	<Point x="113" y="147"/>
+	<Point x="113" y="149"/>
+	<Point x="112" y="149"/>
+	<Point x="112" y="150"/>
+	<Point x="111" y="150"/>
+	<Point x="111" y="151"/>
+	<Point x="107" y="151"/>
+	<Point x="107" y="133"/>
+	<Point x="106" y="133"/></Coords>
+	<TextEquiv>
+	<PlainText>y</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r169">
+	<Coords>
+	<Point x="121" y="132"/>
+	<Point x="130" y="132"/>
+	<Point x="130" y="133"/>
+	<Point x="132" y="133"/>
+	<Point x="132" y="134"/>
+	<Point x="133" y="134"/>
+	<Point x="133" y="136"/>
+	<Point x="134" y="136"/>
+	<Point x="134" y="141"/>
+	<Point x="133" y="141"/>
+	<Point x="133" y="144"/>
+	<Point x="132" y="144"/>
+	<Point x="132" y="145"/>
+	<Point x="130" y="145"/>
+	<Point x="130" y="146"/>
+	<Point x="124" y="146"/>
+	<Point x="124" y="151"/>
+	<Point x="121" y="151"/></Coords>
+	<TextEquiv>
+	<PlainText>p</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r170">
+	<Coords>
+	<Point x="136" y="127"/>
+	<Point x="139" y="127"/>
+	<Point x="139" y="132"/>
+	<Point x="146" y="132"/>
+	<Point x="146" y="133"/>
+	<Point x="147" y="133"/>
+	<Point x="147" y="135"/>
+	<Point x="148" y="135"/>
+	<Point x="148" y="146"/>
+	<Point x="136" y="146"/></Coords>
+	<TextEquiv>
+	<PlainText>h</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r179">
+	<Coords>
+	<Point x="153" y="132"/>
+	<Point x="159" y="132"/>
+	<Point x="159" y="133"/>
+	<Point x="161" y="133"/>
+	<Point x="161" y="135"/>
+	<Point x="162" y="135"/>
+	<Point x="162" y="141"/>
+	<Point x="163" y="141"/>
+	<Point x="163" y="143"/>
+	<Point x="162" y="143"/>
+	<Point x="162" y="144"/>
+	<Point x="161" y="144"/>
+	<Point x="161" y="145"/>
+	<Point x="160" y="145"/>
+	<Point x="160" y="146"/>
+	<Point x="153" y="146"/>
+	<Point x="153" y="145"/>
+	<Point x="152" y="145"/>
+	<Point x="152" y="144"/>
+	<Point x="151" y="144"/>
+	<Point x="151" y="142"/>
+	<Point x="150" y="142"/>
+	<Point x="151" y="142"/>
+	<Point x="151" y="134"/>
+	<Point x="152" y="134"/>
+	<Point x="152" y="133"/>
+	<Point x="153" y="133"/></Coords>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r180">
+	<Coords>
+	<Point x="166" y="145"/>
+	<Point x="169" y="145"/>
+	<Point x="169" y="146"/>
+	<Point x="166" y="146"/></Coords>
+	<TextEquiv>
+	<PlainText>.</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>glyphs.</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>and glyphs.</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextEquiv>
+	<PlainText>This is a text region. It contains text lines, words and glyphs.
+	Enter
+	New line...</PlainText>
+	<Unicode>Line 1
+Line 2
+Tab from here	end
+&gt;&lt; !"#$%&amp;'()*
+EOF</Unicode></TextEquiv></TextRegion>
+	<ImageRegion id="r181">
+	<Coords>
+	<Point x="335" y="28"/>
+	<Point x="531" y="28"/>
+	<Point x="531" y="145"/>
+	<Point x="335" y="145"/></Coords></ImageRegion>
+	<LineDrawingRegion id="r182">
+	<Coords>
+	<Point x="28" y="193"/>
+	<Point x="224" y="193"/>
+	<Point x="224" y="310"/>
+	<Point x="28" y="310"/></Coords></LineDrawingRegion>
+	<GraphicRegion id="r183">
+	<Coords>
+	<Point x="335" y="194"/>
+	<Point x="531" y="194"/>
+	<Point x="531" y="311"/>
+	<Point x="335" y="311"/></Coords></GraphicRegion>
+	<TableRegion id="r184">
+	<Coords>
+	<Point x="27" y="345"/>
+	<Point x="223" y="345"/>
+	<Point x="223" y="462"/>
+	<Point x="27" y="462"/></Coords></TableRegion>
+	<ChartRegion id="r185">
+	<Coords>
+	<Point x="338" y="344"/>
+	<Point x="534" y="344"/>
+	<Point x="534" y="461"/>
+	<Point x="338" y="461"/></Coords></ChartRegion>
+	<SeparatorRegion id="r186">
+	<Coords>
+	<Point x="29" y="506"/>
+	<Point x="225" y="506"/>
+	<Point x="225" y="623"/>
+	<Point x="29" y="623"/></Coords></SeparatorRegion>
+	<MathsRegion id="r187">
+	<Coords>
+	<Point x="339" y="504"/>
+	<Point x="535" y="504"/>
+	<Point x="535" y="621"/>
+	<Point x="339" y="621"/></Coords></MathsRegion>
+	<NoiseRegion id="r188">
+	<Coords>
+	<Point x="31" y="658"/>
+	<Point x="227" y="658"/>
+	<Point x="227" y="775"/>
+	<Point x="31" y="775"/></Coords></NoiseRegion>
+	<UnknownRegion id="r189">
+	<Coords>
+	<Point x="339" y="654"/>
+	<Point x="535" y="654"/>
+	<Point x="535" y="771"/>
+	<Point x="339" y="771"/></Coords></UnknownRegion>
+	<TextRegion id="r84">
+	<Coords>
+	<Point x="588" y="28"/>
+	<Point x="660" y="28"/>
+	<Point x="660" y="771"/>
+	<Point x="588" y="771"/></Coords>
+	<TextEquiv>
+	<PlainText></PlainText>
+	<Unicode>Text
+½æÆàÀãÃäÄçÇ
+☞</Unicode></TextEquiv></TextRegion>
+	<FrameRegion id="r87" bgColour="grey" borderPresent="false">
+	<Coords>
+	<Point x="245" y="188"/>
+	<Point x="245" y="777"/>
+	<Point x="312" y="777"/>
+	<Point x="312" y="188"/></Coords></FrameRegion></Page></PcGts>

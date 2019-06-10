@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com" targetNamespace="http://example.com">
+   <xsd:element name="x">
+      <xsd:simpleType>
+         <xsd:restriction base="X">
+            <xsd:enumeration value="abc"/>
+         </xsd:restriction>
+      </xsd:simpleType>
+   </xsd:element>
+   <xsd:simpleType name="X">
+      <xsd:restriction base="Z">
+         <xsd:enumeration value="abc"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Y">
+      <xsd:restriction base="X">
+         <xsd:enumeration value="abc"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Z">
+      <xsd:restriction base="Y">
+         <xsd:enumeration value="abc"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:complexType name="A">
+      <xsd:complexContent>
+         <xsd:extension base="C">
+            <xsd:sequence>
+               <xsd:element name="a" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="B">
+      <xsd:complexContent>
+         <xsd:extension base="A">
+            <xsd:sequence>
+               <xsd:element name="b" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="C">
+      <xsd:complexContent>
+         <xsd:extension base="B">
+            <xsd:sequence>
+               <xsd:element name="c" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+
+   <xsd:group name="A">
+      <xsd:sequence>
+         <xsd:group ref="C"/>
+         <xsd:element name="a" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:group>
+   <xsd:group name="B">
+      <xsd:sequence>
+         <xsd:group ref="A"/>
+         <xsd:element name="b" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:group>
+   <xsd:group name="C">
+      <xsd:sequence>
+         <xsd:group ref="B"/>
+         <xsd:element name="c" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:group>
+
+   <xsd:attributeGroup name="A">
+      <xsd:attributeGroup ref="C"/>
+      <xsd:attribute name="a" type="xsd:string"/>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="B">
+      <xsd:attributeGroup ref="A"/>
+      <xsd:attribute name="b" type="xsd:string"/>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="C">
+      <xsd:attributeGroup ref="B"/>
+      <xsd:attribute name="c" type="xsd:string"/>
+   </xsd:attributeGroup>
+</xsd:schema>

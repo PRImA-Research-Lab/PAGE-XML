@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="SVGRootID" onload="init()" width="1024" height="810">
+    <style type="text/css"><![CDATA[
+.svgroot { background: #F1F1F1; margin: 0; padding: 0px; font: 0.9em Verdana;}   
+.docInfo_body    { background-color: #F1F1F1; width: 1000px;}
+.docInfo_topBox  { width: 1000px; height: 90px; margin: 0px;  border: 1px solid #7382BD; }
+.docInfo_leftCol       { float: left; width: 350px; height: 90px; padding: 3px; border-right: 1px solid #7382BD; }
+.docInfo_rightCol      { float: left; width: 600px; height: 90px; padding: 3px; }
+
+.docInfo_leftCol_row1  { float: left; width: 350px; padding: 1px; background: #F1F1F1; }
+.docInfo_leftCol_row2  { float: left; width: 350px; padding: 1px; background: #DBDBDB; }
+.docInfo_leftCol_head  { float: left; width: 150px; }
+.docInfo_leftCol_body  { float: left; width: 200px; }
+
+.docInfo_rightCol_head { float: left; width: 640px; }
+.docInfo_rightCol_body { float: left; width: 640px; height: 70px; overflow:auto; }
+
+.regInfo_body   { background-color:#F1F1F1; width: 350px; }
+.regInfo_topBox { width: 340px; height: 700px; margin: 0px; border: 1px solid #7382BD; }
+.regInfo_msg    { float: left; width: 340px; padding: 10px; }
+.regInfo_row1   { float: left; width: 320px; padding: 3px; background: #F1F1F1; }
+.regInfo_row2   { float: left; width: 320px; padding: 3px; background: #DBDBDB; }
+.regInfo_rowHead{ float: left; width: 150px; }
+.regInfo_rowBody{ float: left; width: 100px; }
+
+.TextRegion       { stroke: #0000FF; stroke-width:2; fill: #0000FF; fill-opacity:0.1; }
+.TextLine         { stroke: #00FFFF; stroke-width:2; fill: #00FFFF; fill-opacity:0.0; }
+.Word             { stroke: #FF00FF; stroke-width:2; fill: #FF00FF; fill-opacity:0.0; }
+.Glyph            { stroke: #990000; stroke-width:2; fill: #990000; fill-opacity:0.0; }
+.ImageRegion      { stroke: #00FF00; stroke-width:2; fill: #00FF00; fill-opacity:0.1; }
+.LineDrawingRegion{ stroke: #003300; stroke-width:2; fill: #003300; fill-opacity:0.1; }
+.GraphicRegion    { stroke: #009900; stroke-width:2; fill: #009900; fill-opacity:0.1; }
+.TableRegion      { stroke: #000099; stroke-width:2; fill: #000099; fill-opacity:0.1; }
+.ChartRegion      { stroke: #000033; stroke-width:2; fill: #000033; fill-opacity:0.1; }
+.SeparatorRegion  { stroke: #FF0000; stroke-width:2; fill: #FF0000; fill-opacity:0.1; }
+.MathsRegion      { stroke: #999900; stroke-width:2; fill: #999900; fill-opacity:0.1; }
+.NoiseRegion      { stroke: #990000; stroke-width:2; fill: #990000; fill-opacity:0.1; }
+.FrameRegion      { stroke: #333300; stroke-width:2; fill: #333300; fill-opacity:0.1; }
+
+polygon:HOVER     {                  stroke-width:2;                fill-opacity:0.3; }
+
+.Border           { stroke: coral;   stroke-width:2; fill: none; }
+.Border:HOVER     {                  stroke-width:5; }
+
+.PrintSpace       { stroke: magenta; stroke-width:2; fill: none; }
+.PrintSpace:HOVER {                  stroke-width:5; }
+
+.Black            { stroke: #000000; stroke-width:2; fill: #000000; fill-opacity:1.0; }
+.Black:HOVER      { stroke: #888888;                 fill: #888888; fill-opacity:1.0; }
+
+/*
+.Pan		{ stroke: coral; fill: blue; fill-opacity: 0.2; }
+.Pan:HOVER	{ stroke-width: 3; fill-opacity: 0.0; }
+
+.Zoom 		{ stroke: coral; fill: blue; fill-opacity:0.2; }
+.Zoom:HOVER	{ stroke-width:3; fill-opacity:0.0; }
+*/
+
+.Pan		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Pan:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+
+.Zoom 		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Zoom:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+]]></style>
+    <script type="text/ecmascript"><![CDATA[
+function init() {
+	regionClicked('init');
+}
+
+function panAndZoom(param) {
+	var bgImage = document.getElementById("BgImageID");
+	var docWidth = bgImage.getAttribute("width");
+	var docHeight = bgImage.getAttribute("height");
+	var ContentBox = document.getElementById("ContentBoxID");
+	var ControlBox = document.getElementById("ControlBoxID");
+	var viewBox = ContentBox.getAttribute("viewBox"); 
+	var viewBoxArray = viewBox.split(" ");
+	var newViewBox;
+	var panByFactor = 20;
+	var zoomFactor = 1.3;
+	var panBy = (Math.round(Math.log(docWidth/viewBoxArray[2]) / Math.log(zoomFactor))+1) * -1 * panByFactor;
+	
+	switch(param) {
+	case "resetPan":
+		viewBoxArray[0] = 0;
+		viewBoxArray[1] = 0;
+		break;
+	case "left":
+		viewBoxArray[0] = parseInt(viewBoxArray[0]) - panBy;
+		break;
+	case "right":
+		viewBoxArray[0] = parseInt(viewBoxArray[0]) + panBy;
+		break;
+	case "up":
+		viewBoxArray[1] = parseInt(viewBoxArray[1]) - panBy;
+		break;
+	case "down":
+		viewBoxArray[1] = parseInt(viewBoxArray[1]) + panBy;
+		break;
+	case "resetZoom":
+		viewBoxArray[2] = docWidth;
+		viewBoxArray[3] = docHeight;
+		break;
+	case "in":
+		if (parseInt(viewBoxArray[2]) < 10 || parseInt(viewBoxArray[3]) < 10) {
+			alert("Maximum zoom level reached!");
+		} else {
+			viewBoxArray[2] = Math.round(parseInt(viewBoxArray[2])/zoomFactor);
+			viewBoxArray[3] = Math.round(parseInt(viewBoxArray[3])/zoomFactor);
+		}
+		break;
+	case "out":
+		if (parseInt(viewBoxArray[2]) > (docWidth * 10) || parseInt(viewBoxArray[3]) > (docHeight * 10)) {
+			alert("Maximum zoom level reached!");
+		} else {
+			viewBoxArray[2] = Math.round(parseInt(viewBoxArray[2])*zoomFactor);
+			viewBoxArray[3] = Math.round(parseInt(viewBoxArray[3])*zoomFactor);
+		}
+		break;
+	default:
+		alert("Not defined parameter: " + param);
+	}
+
+	// delete ContentBox temporarily to get around a redraw issue of Chrome (browser) 
+	var parentNode = ContentBox.parentNode;
+	var temp = ContentBox.cloneNode(true)
+	parentNode.removeChild(ContentBox);
+
+	newViewBox = viewBoxArray[0] + " " +
+			viewBoxArray[1] + " " +
+			viewBoxArray[2] + " " +
+			viewBoxArray[3];
+	temp.setAttributeNS(null,"viewBox",newViewBox);
+	parentNode.appendChild(temp);
+
+	// make sure that ControlBox is on top of everything (currently there is no support for z-index in SVG)
+	ControlBox.parentNode.appendChild(ControlBox);
+
+}
+
+function tokenToName(input){
+	switch (input) {
+		case 'Afrikaans':             return 'Afrikaans';             break;
+		case 'Albanian':              return 'Albanian';              break;
+		case 'Amharic':               return 'Amharic';               break;
+		case 'Arabic':                return 'Arabic';                break;
+		case 'bar':                   return 'Bar';                   break;
+		case 'Basque':                return 'Basque';                break;
+		case 'Bengali':               return 'Bengali';               break;
+		case 'bgColour':              return 'Background';            break;
+		case 'bilevel':               return 'Bilevel';               break;
+		case 'black':                 return 'Black';                 break;
+		case 'blue':                  return 'Blue';                  break;
+		case 'borderPresent':         return 'Border';                break;
+		case 'bottom-to-top':         return 'Bottom to top';         break;
+		case 'brown':                 return 'Brown';                 break;
+		case 'Bulgarian':             return 'Bulgarian';             break;
+		case 'Cambodian':             return 'Cambodian';             break;
+		case 'Cantonese':             return 'Cantonese';             break;
+		case 'caption':               return 'Caption';               break;
+		case 'ChartRegion':           return 'Chart';                 break;
+		case 'Chinese':               return 'Chinese';               break;
+		case 'Chinese-simplified':    return 'Chinese (simplified)';  break;
+		case 'Chinese-traditional':   return 'Chinese (traditional)'; break;
+		case 'colour':                return 'Colour';                break;
+		case 'colourDepth':           return 'Colour depth';          break;
+		case 'columns':               return 'Num of columns';        break;
+		case 'credit':                return 'Credit';                break;
+		case 'cyan':                  return 'Cyan';                  break;
+		case 'Cyrillic':              return 'Cyrillic';              break;
+		case 'Czech':                 return 'Czech';                 break;
+		case 'Danish':                return 'Danish';                break;
+		case 'Devangari':             return 'Devangari';             break;
+		case 'drop-capital':          return 'Drop capital';          break;
+		case 'Dutch':                 return 'Dutch';                 break;
+		case 'embText':               return 'Embedded text';         break;
+		case 'English':               return 'English';               break;
+		case 'Estonian':              return 'Estonian';              break;
+		case 'Ethiopic':              return 'Ethiopic';              break;
+		case 'false':                 return 'No';                    break;
+		case 'Finnish':               return 'Finnish';               break;
+		case 'floating':              return 'Floating';              break;
+		case 'fontSize':              return 'Font size';             break;
+		case 'footer':                return 'Footer';                break;
+		case 'FrameRegion':           return 'Frame';                 break;
+		case 'French':                return 'French';                break;
+		case 'Gaelic':                return 'Gaelic';                break;
+		case 'German':                return 'German';                break;
+		case 'GraphicRegion':         return 'Graphic';               break;
+		case 'Greek':                 return 'Greek';                 break;
+		case 'green':                 return 'Green';                 break;
+		case 'grey':                  return 'Grey';                  break;
+		case 'greyscale':             return 'Greyscale';             break;
+		case 'Gujarati':              return 'Gujarati';              break;
+		case 'Gurmukhi':              return 'Gurmukhi';              break;
+		case 'handwritten-annotation':return 'Handwritten annotation';break;
+		case 'header':                return 'Header';                break;
+		case 'heading':               return 'Heading';               break;
+		case 'Hebrew':                return 'Hebrew';                break;
+		case 'Hindi':                 return 'Hindi';                 break;
+		case 'Hungarian':             return 'Hungarian';             break;
+		case 'Icelandic':             return 'Icelandic';             break;
+		case 'id':                    return 'ID';                    break;
+		case 'ImageRegion':           return 'Image';                 break;
+		case 'indented':              return 'Indented';              break;
+		case 'indigo':                return 'Indigo';                break;
+		case 'Italian':               return 'Italian';               break;
+		case 'Japanese':              return 'Japanese';              break;
+		case 'kerning':               return 'Kerning';               break;
+		case 'Korean':                return 'Korean';                break;
+		case 'Latin':                 return 'Latin';                 break;
+		case 'Latvian':               return 'Latvian';               break;
+		case 'leading':               return 'Leading';               break;
+		case 'left-to-right':         return 'Left to right';         break;
+		case 'letterhead':            return 'Letterhead';            break;
+		case 'line':                  return 'Line';                  break;
+		case 'lineColour':            return 'Line colour';           break;
+		case 'LineDrawingRegion':     return 'Line drawing';          break;
+		case 'lineSeparators':        return 'Line separators';       break;
+		case 'logo':                  return 'Logo';                  break;
+		case 'magenta':               return 'Magenta';               break;
+		case 'Malay':                 return 'Malay';                 break;
+		case 'MathsRegion':           return 'Maths';                 break;
+		case 'NoiseRegion':           return 'Noise';                 break;
+		case 'Norwegian':             return 'Norwegian';             break;
+		case 'numColours':            return 'Num of colours';        break;
+		case 'orange':                return 'Orange';                break;
+		case 'orientation':           return 'Orientation';           break;
+		case 'other':                 return 'Other';                 break;
+		case 'page-number':           return 'Page number';           break;
+		case 'paper-grow':            return 'Paper grow';            break;
+		case 'paragraph':             return 'Paragraph';             break;
+		case 'penColour':             return 'Pen colour';            break;
+		case 'pie':                   return 'Pie';                   break;
+		case 'pink':                  return 'Pink';                  break;
+		case 'Polish':                return 'Polish';                break;
+		case 'Portuguese':            return 'Portuguese';            break;
+		case 'primaryLanguage':       return 'Primary language';      break;
+		case 'primaryScript':         return 'Primary script';        break;
+		case 'punch-hole':            return 'Punch hole';            break;
+		case 'Punjabi':               return 'Punjabi';               break;
+		case 'readingDirection':      return 'Reading direction';     break;
+		case 'readingOrientation':    return 'Reading Orientation';   break;
+		case 'red':                   return 'Red';                   break;
+		case 'reverseVideo':          return 'Reverse video';         break;
+		case 'right-to-left':         return 'Right to left';         break;
+		case 'rows':                  return 'Num of rows';           break;
+		case 'Russian':               return 'Russian';               break;
+		case 'scatter':               return 'Scatter';               break;
+		case 'secondaryLanguage':     return 'Secondary language';    break;
+		case 'secondaryScript':       return 'Secondary script';      break;
+		case 'SeparatorRegion':       return 'Separator';             break;
+		case 'signature':             return 'Signature';             break;
+		case 'Spanish':               return 'Spanish';               break;
+		case 'stamp':                 return 'Stamp';                 break;
+		case 'surface':               return 'Surface';               break;
+		case 'Swedish':               return 'Swedish';               break;
+		case 'TableRegion':           return 'Table';                 break;
+		case 'textColour':            return 'Text colour';           break;
+		case 'TextRegion':            return 'Text';                  break;
+		case 'Thai':                  return 'Thai';                  break;
+		case 'top-to-bottom':         return 'Top to bottom';         break;
+		case 'true':                  return 'Yes';                   break;
+		case 'Turkish':               return 'Turkish';               break;
+		case 'turquoise':             return 'Turquoise';             break;
+		case 'type':                  return 'Type';                  break;
+		case 'UnknownRegion':         return 'Unknown';               break;
+		case 'Urdu':                  return 'Urdu';                  break;
+		case 'violet':                return 'Violet';                break;
+		case 'Welsh':                 return 'Welsh';                 break;
+		case 'white':                 return 'White';                 break;
+		case 'yellow':                return 'Yellow';                break;
+		default: return input;
+	}
+}
+
+function regionClicked(evt){
+	if (evt!='init') {
+		var targetShape = evt.target;
+		var targetInfo = targetShape.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","RegionInfo")[0]; 
+		var metadataArray = new Array();
+	}
+	var bgImage = document.getElementById("BgImageID");
+	var docMetadata = document.getElementById("DocMetadataID")
+	var ContentBox = document.getElementById("ContentBoxID");
+	var topInfoBox = document.getElementById("TopInfoBoxID");
+	var leftInfoBox = document.getElementById("LeftInfoBoxID");
+	
+	var xOffset = "350";
+	var yOffset = "100";
+	var topInfoBoxWidth = "1024";
+	var leftInfoBoxHeight = "768";
+
+	/* display RegionInfo */
+	var svgNS = "http://www.w3.org/2000/svg";
+    var xhtmlNS = "http://www.w3.org/1999/xhtml";
+
+    // start with removing the old content then add empty groups
+    topInfoBox.parentNode.removeChild(topInfoBox);
+    var newTopInfoBox = document.createElementNS(svgNS,"g");
+    newTopInfoBox.setAttributeNS(null,"id","TopInfoBoxID");
+    document.getElementById("ContentBoxID").parentNode.appendChild(newTopInfoBox);
+    
+    leftInfoBox.parentNode.removeChild(leftInfoBox);
+    var newLeftInfoBox = document.createElementNS(svgNS,"g");
+    newLeftInfoBox.setAttributeNS(null,"id","LeftInfoBoxID");
+    ContentBox.parentNode.appendChild(newLeftInfoBox);
+
+    // top info box    
+    var newForOb = document.createElementNS(svgNS,"foreignObject");
+    newForOb.setAttributeNS(null,"id","FOID1");
+    //newForOb.setAttributeNS(null,"x",evt.clientX);
+    newForOb.setAttributeNS(null,"x","0");
+    newForOb.setAttributeNS(null,"y","0");
+    newForOb.setAttributeNS(null,"width",topInfoBoxWidth);
+    newForOb.setAttributeNS(null,"height",yOffset);
+    document.getElementById("TopInfoBoxID").appendChild(newForOb);
+
+    var newBody = document.createElementNS(xhtmlNS,"body");
+    newBody.setAttributeNS(null,"id","BodyID");
+    newBody.setAttributeNS(null,"style","background-color:white;" +
+    		"font-family:helvetica,sans-serif;font-size:0.8em;");
+    // get data for top info box
+    var documentId;
+	if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","DocID")[0].firstChild==null) {
+		documentId ="";
+	} else {
+		documentId = docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","DocID")[0].firstChild.nodeValue;
+	}
+    var documentCreator;
+	if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Creator")[0].firstChild==null) {
+		documentCreator ="";
+	} else {
+		documentCreator = docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Creator")[0].firstChild.nodeValue;
+	}
+    var documentCreated;
+	if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Created")[0].firstChild==null) {
+		documentCreated ="";
+	} else {
+		documentCreated = docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Created")[0].firstChild.nodeValue;
+	}
+    var documentLastChange;
+	if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","LastChange")[0].firstChild==null) {
+		documentLastChange ="";
+	} else {
+		documentLastChange = docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","LastChange")[0].firstChild.nodeValue;
+	}
+	var commentText;
+	if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Comments").length==0) {
+		commentText ="<i>N/A</i>";
+	} else if (docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Comments")[0].firstChild==null) {
+		commentText ="<i>There are no comments to display</i>";
+	} else {
+		commentText = docMetadata.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Comments")[0].firstChild.nodeValue;
+	}
+
+	var topInnerHTML = "";
+	topInnerHTML += "\n<div class='docInfo_topBox'>\n";
+		topInnerHTML += "\t<div class='docInfo_leftCol'>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row1'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Document ID</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentId + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row2'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Document Creator</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentCreator + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row1'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Created</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentCreated + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row2'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Last Change</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentLastChange + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+		topInnerHTML += "\t</div>\n";
+		topInnerHTML += "\t<div class='docInfo_rightCol'>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_head'><b>Comments</b></div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_body'>" + commentText + "</div>\n";
+		topInnerHTML += "\t</div>\n";
+	topInnerHTML += "</div>\n"; 
+
+    newBody.innerHTML = topInnerHTML;
+    document.getElementById("FOID1").appendChild(newBody);
+
+    // left info box	
+    var newForOb2 = document.createElementNS(svgNS,"foreignObject");
+    newForOb2.setAttributeNS(null,"id","FOID2");
+    newForOb2.setAttributeNS(null,"x","0");
+    newForOb2.setAttributeNS(null,"y",yOffset);
+    newForOb2.setAttributeNS(null,"width",xOffset);
+    newForOb2.setAttributeNS(null,"height",leftInfoBoxHeight);
+    document.getElementById("LeftInfoBoxID").appendChild(newForOb2);
+
+    var newBody2 = document.createElementNS(xhtmlNS,"body");
+    newBody2.setAttributeNS(null,"id","BodyID");
+    newBody2.setAttributeNS(null,"id","BodyID");
+    newBody2.setAttributeNS(null,"style","background-color:white;" +
+    		"font-family:helvetica,sans-serif;font-size:0.8em;");
+
+    
+    // read RegionInfo into metadataArray (Border and PrintSpace don't have such information)
+    if ((evt!='init')&&(targetShape.getAttribute("class")!='Border')&&(targetShape.getAttribute("class")!='PrintSpace')) {
+    	for (i=0; i<targetInfo.attributes.length; i++){
+    		if (targetInfo.attributes[i].nodeName!="xmlns:pc") {
+    			metadataArray[targetInfo.attributes[i].nodeName]=targetInfo.attributes[i].value;
+    		}
+    	}
+    }
+
+	// get text-equivalent if there is any
+    var regionText;
+    if (targetInfo==null) {
+		regionText ="";
+    } else if (targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Text").length==0) {
+		regionText ="";
+	} else if (targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Text")[0].firstChild==null) {
+		regionText ="<i>Text not available</i>";
+	} else {
+		regionText = targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Text")[0].firstChild.nodeValue;
+	}
+    var regionUnicode;
+    if (targetInfo==null) {
+    	regionUnicode ="";
+    } else if (targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Unicode").length==0) {
+		regionUnicode ="";
+	} else if (targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Unicode")[0].firstChild==null) {
+		regionUnicode ="<i>Unicode not available</i>";
+	} else {
+		regionUnicode = targetInfo.getElementsByTagNameNS("http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19","Unicode")[0].firstChild.nodeValue;
+	}
+
+	var rowClass = "regInfo_row1";
+	var leftInnerHTML = "";
+	if (evt!='init'){
+		leftInnerHTML += "<div class='regInfo_topBox'>";
+			leftInnerHTML += "<div class='regInfo_msg'>";
+				leftInnerHTML += "<div class='regInfo_row1'>";
+					leftInnerHTML += "<div class='regInfo_rowHead'><b>Region Type</b></div>";
+					leftInnerHTML += "<div class='regInfo_rowBody'>" + tokenToName(targetShape.getAttribute("class")) + "</div>";
+				leftInnerHTML += "</div>";
+				for(var i in metadataArray) {
+						if (rowClass == "regInfo_row1") rowClass = "regInfo_row2"; else rowClass = "regInfo_row1";
+						leftInnerHTML += "<div class='" + rowClass + "'>";
+							leftInnerHTML += "<div class='regInfo_rowHead'><b>" + tokenToName(i.substring(3)) + "</b></div>";
+							leftInnerHTML += "<div class='regInfo_rowBody'>" + tokenToName(metadataArray[i]) + "</div>";
+						leftInnerHTML += "</div>";
+				}
+			leftInnerHTML += "</div>";
+			if (regionText!="") {
+				leftInnerHTML += "<div class='regInfo_msg'>";
+					leftInnerHTML += "<div class='regInfo_row2'><b>Text</b></div>";
+					leftInnerHTML += "<div class='regInfo_row1'>" + regionText + "</div>";
+				leftInnerHTML += "</div>";
+			}
+			if (regionUnicode!="") {
+				leftInnerHTML += "<div class='regInfo_msg'>";
+					leftInnerHTML += "<div class='regInfo_row2'><b>Unicode</b></div>";
+					leftInnerHTML += "<div class='regInfo_row1'>" + regionUnicode + "</div>";
+				leftInnerHTML += "</div>";
+			}
+		leftInnerHTML += "</div>";
+	} else {
+		leftInnerHTML = "<div class='regInfo_topBox'><div class='regInfo_msg'><b>Region level metadata will be displayed here when you click on a region.</b></div></div>";
+	}
+    
+    newBody2.innerHTML = leftInnerHTML;
+    document.getElementById("FOID2").appendChild(newBody2);
+}
+]]></script>
+    <metadata id="DocMetadataID">
+        <pc:DocID xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">pc-00000158c</pc:DocID>
+        <pc:Creator xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">PRImA Research</pc:Creator>
+        <pc:Created xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">2009-03-27T12:53:40</pc:Created>
+        <pc:LastChange xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">2010-04-23T15:28:21</pc:LastChange>
+        <pc:Comments xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19"/>
+    </metadata>
+    <g id="TopInfoBoxID"/>
+    <g id="LeftInfoBoxID"/>
+    <svg id="ContentBoxID" x="360" y="110" width="640" height="700" viewBox="0 0 2342 3159">
+        <image id="BgImageID" x="0" y="0" width="2342" height="3159" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="00000158.jpg"/>
+        <polygon class="TextRegion" id="p-r0" onclick="regionClicked(evt)" points="412,121 412,239 131,239 131,121 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r0" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="heading" pc:textColour="white" pc:reverseVideo="true" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="red">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="GraphicRegion" id="p-r1" onclick="regionClicked(evt)" points="1625,2956 1625,2986 1596,2986 1596,2956 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r1" pc:type="other" pc:embText="true" pc:orientation="0.00000" pc:numColours="2"/>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r2" onclick="regionClicked(evt)" points="1086,2121 1086,2178 783,2178 783,2121 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r2" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="caption" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r3" onclick="regionClicked(evt)" points="1095,2206 1095,2299 1126,2299 1126,2325 1054,2325 1054,2377 896,2377 896,2416 884,2416 884,2423 879,2423 879,2424 849,2424 849,2418 788,2418 788,2417 787,2417 787,2416 784,2416 784,2404 783,2404 783,2206 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r3" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="caption" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="ChartRegion" id="p-r4" onclick="regionClicked(evt)" points="1227,2331 1227,2940 1112,2940 1112,2941 957,2941 957,2627 781,2627 781,2571 780,2571 780,2521 1157,2521 1157,2331 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r4" pc:embText="true" pc:orientation="0.00000" pc:numColours="2" pc:type="other" pc:bgColour="white"/>
+            </metadata>
+        </polygon>
+        <polygon class="ImageRegion" id="p-r5" onclick="regionClicked(evt)" points="1326,0 2174,0 2174,1186 1326,1186 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r5" pc:colourDepth="colour" pc:orientation="0.00000" pc:embText="false" pc:bgColour="red"/>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r6" onclick="regionClicked(evt)" points="2202,2295 2202,2985 2179,2985 2179,2295 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r6" pc:orientation="90.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="credit" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r7" onclick="regionClicked(evt)" points="1368,1897 1875,1897 1875,1943 1877,1943 1877,1979 1875,1979 1875,2082 1876,2082 1876,2221 1877,2221 1877,2395 1875,2395 1875,2451 1876,2451 1876,2479 1576,2479 1576,2525 1329,2525 1329,2498 1331,2498 1331,2405 1332,2405 1332,2349 1331,2349 1331,2313 1332,2313 1332,2255 1330,2255 1330,2210 1329,2210 1329,2174 1331,2174 1331,2063 1330,2063 1330,2036 1331,2036 1331,1943 1368,1943 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r7" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r8" onclick="regionClicked(evt)" points="1331,1251 1872,1251 1872,1298 1873,1298 1873,1390 1874,1390 1874,1759 1875,1759 1875,1841 1608,1841 1608,1879 1331,1879 1331,1795 1330,1795 1330,1746 1329,1746 1329,1713 1331,1713 1331,1657 1329,1657 1329,1620 1330,1620 1330,1298 1331,1298 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r8" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r9" onclick="regionClicked(evt)" points="173,2497 680,2497 680,2543 681,2543 681,2587 682,2587 682,2625 680,2625 680,2682 682,2682 682,2717 681,2717 681,2756 679,2756 679,2821 681,2821 681,2959 682,2959 682,2994 137,2994 137,2948 135,2948 135,2913 137,2913 137,2810 136,2810 136,2775 137,2775 137,2672 136,2672 136,2587 137,2587 137,2544 173,2544 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r9" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r10" onclick="regionClicked(evt)" points="172,1851 680,1851 680,1886 679,1886 679,1943 680,1943 680,2081 681,2081 681,2109 680,2109 680,2174 681,2174 681,2302 680,2302 680,2359 681,2359 681,2405 682,2405 682,2440 442,2440 442,2479 136,2479 136,2255 135,2255 135,2215 132,2215 132,2183 136,2183 136,2035 138,2035 138,1979 136,1979 136,1932 135,1932 135,1897 172,1897 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r10" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r11" onclick="regionClicked(evt)" points="1927,1255 2121,1255 2121,1307 2144,1307 2144,1353 2147,1353 2147,1372 2108,1372 2108,1438 2130,1438 2130,1491 2151,1491 2151,1538 2165,1538 2165,1597 2171,1597 2171,1602 1929,1602 1929,1561 1928,1561 1928,1530 1929,1530 1929,1470 1927,1470 1927,1418 1926,1418 1926,1346 1927,1346 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r11" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="caption" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r12" onclick="regionClicked(evt)" points="139,3069 770,3069 770,3104 139,3104 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r12" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="footer" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r13" onclick="regionClicked(evt)" points="134,372 678,372 678,648 679,648 679,679 512,679 512,731 134,731 134,639 132,639 132,603 134,603 134,500 133,500 133,464 134,464 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r13" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r14" onclick="regionClicked(evt)" points="732,372 1277,372 1277,409 1275,409 1275,632 1092,632 1092,686 731,686 731,557 732,557 732,501 731,501 731,419 732,419 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r14" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r15" onclick="regionClicked(evt)" points="171,742 678,742 678,788 679,788 679,824 678,824 678,916 480,916 480,962 479,962 479,1019 480,1019 480,1194 479,1194 479,1250 480,1250 480,1297 679,1297 679,1332 678,1332 678,1389 679,1389 679,1527 681,1527 681,1563 680,1563 680,1609 679,1609 679,1667 683,1667 683,1693 679,1693 679,1758 680,1758 680,1794 464,1794 464,1840 136,1840 136,1656 135,1656 135,1509 133,1509 133,1481 135,1481 135,1378 133,1378 133,1343 135,1343 135,1098 134,1098 134,824 133,824 133,797 171,797 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r15" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:reverseVideo="false" pc:indented="false" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r17" onclick="regionClicked(evt)" points="769,697 1275,697 1275,789 1276,789 1276,871 1275,871 1275,928 1277,928 1277,1010 1276,1010 1276,1066 1277,1066 1277,1195 1276,1195 1276,1333 1275,1333 1275,1435 1277,1435 1277,1555 1147,1555 1147,1610 733,1610 733,1379 732,1379 732,1297 931,1297 931,1021 932,1021 932,963 930,963 930,916 732,916 732,822 731,822 731,751 769,751 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r17" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r18" onclick="regionClicked(evt)" points="771,1620 1277,1620 1277,1943 1278,1943 1278,1975 1276,1975 1276,2025 733,2025 733,1932 732,1932 732,1897 733,1897 733,1794 732,1794 732,1759 733,1759 733,1712 734,1712 734,1675 771,1675 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r18" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r19" onclick="regionClicked(evt)" points="1369,2544 1876,2544 1876,2590 1877,2590 1877,2626 1876,2626 1876,2682 1877,2682 1877,2729 1878,2729 1878,2765 1877,2765 1877,2948 1575,2948 1575,2995 1332,2995 1332,2672 1331,2672 1331,2590 1369,2590 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r19" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r21" onclick="regionClicked(evt)" points="792,1006 792,1048 824,1048 824,1076 778,1076 778,1133 819,1133 819,1175 821,1175 821,1201 587,1201 587,1174 592,1174 592,1132 631,1132 631,1075 585,1075 585,1048 618,1048 618,1006 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r21" pc:orientation="0.00000" pc:readingOrientation="0.00000" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text/>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+    </svg>
+    <svg id="ControlBoxID" x="360" y="110" width="135" height="60">
+        <polygon class="Pan" id="ArrowLeftID" points="0,7 6,0 6,5 14,4 14,10 6,9 6,14" transform="translate(10 23)" onclick="panAndZoom('left')"/>
+        <polygon class="Pan" id="ResetPanningID" points="0,0 8,0 8,8 0,8" transform="translate(27 26)" onclick="panAndZoom('resetPan')"/>
+        <polygon class="Pan" id="ArrowRightID" points="0,4 8,5 8,0 14,7 8,14 8,9 0,10" transform="translate(38 23)" onclick="panAndZoom('right')"/>
+        <polygon class="Pan" id="ArrowDownID" points="0,8 5,8 4,0 10,0 9,8 14,8 7,14" transform="translate(24 37)" onclick="panAndZoom('down')"/>
+        <polygon class="Pan" id="ArrowUpID" points="0,6 7,0 14,6 9,6 10,14 4,14 5,6" transform="translate(24 9)" onclick="panAndZoom('up')"/>
+        <polygon class="Zoom" id="ZoomInID" points="6,6 6,0 12,0 12,6 18,6 18,12 12,12 12,18 6,18 6,12 0,12 0,6" transform="translate(69 21)" onclick="panAndZoom('in')"/>
+        <polygon class="Zoom" id="ResetZoomID" points="0,0 8,0 8,8 0,8" transform="translate(91 26)" onclick="panAndZoom('resetZoom')"/>
+        <polygon class="Zoom" id="ZoomOutID" points="0,0 18,0 18,6 0,6" transform="translate(103 27)" onclick="panAndZoom('out')"/>
+    </svg>
+</svg>

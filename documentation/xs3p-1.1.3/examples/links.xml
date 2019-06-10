@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<links xmlns="http://titanium.dstc.edu.au/xml/xs3p">
+	<schema file-location="address.xsd" docfile-location="address.xsd.html"/>
+	<schema file-location="ipo.xsd" docfile-location="ipo.xsd.html"/>
+	<schema file-location="report.xsd" docfile-location="report.xsd.html"/>
+</links>

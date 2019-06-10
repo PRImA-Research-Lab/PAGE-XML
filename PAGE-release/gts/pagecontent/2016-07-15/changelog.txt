@@ -1,0 +1,162 @@
+2015-09-01
+
+*	Bug fix: The constraint for the confidence value of OCRed text was not 
+	inclusive for 0.0 and 1.0 - it is now inclusive.
+
+2013-07-15 
+
+*	The format of polygons stored in <Coords> has been changed from 
+	<Point> elements to a 'points' attribute. A polygon is now represented by a
+	space separated list of points (x and y are comma separated). A list 
+	requires at least two points (enforced by a regular expression constraint).
+	Example: <Coords points="5,3 8,10 4,5"/>
+
+*	All regions can now have nested sub-regions. Before this was limited to
+	<FrameRegion> elements.
+
+*	Frame regions have been removed from the schema. As a replacement
+	<GraphicRegion type="frame"> can be used.
+
+*	There are three new region types: <AdvertRegion>, <ChemRegion> and
+	<MusicRegion> for advertisements, chemical formulas and musical notations.
+
+*	The <PlainText> child element of <TextEquiv> is now optional.
+
+*	Text recognition confidence has been introduced as new attribute of
+	<TextEquiv>
+
+*	Language can now be specified on text line and word level, in addition to
+	region level. Therefore <TextLine> elements have a new attribute
+	'primaryLanguage' and <Word> elements have a new attribute 'language'.
+	Values set for child elements are interpreted to override values of parent
+	elements.
+
+*	The elements <Layer>, <UnorderedGroup> and <OrderedGroup> have a new attribute
+	'caption'.
+
+*	Text lines can now have a <Baseline> child element. The baseline is a multi-
+	segment line represented by a list of points ('points' attribute with the same
+	format and constraints as polygon points).
+
+*	The <Page> element has a new attribute 'type'.
+
+*	The <Page> element has a new child element <AlternativeImage> (0..*) with
+	attributes 'filename' and 'comments' (to be used for bi-level image etc.).
+
+*	New attributes 'custom' and 'comments' for various elements. The former is
+	intended for machine use (custom types for instance). The latter is intended
+	for human use (context information, remarks etc.).
+
+*	Extended constraint for 'type' attribute of <GraphicRegion> element.
+	Added: 'decoration', 'barcode' and 'frame'.
+
+*	Extended constraint for 'type' attribute of <TextRegion> element.
+	Added: 'endnote' and 'other'.
+
+*	Extended constraint for 'primaryLanguage' and 'secondaryLanguage' attributes 
+	of <TextRegion> element. Now conform to ISO standard.
+
+*	Extended constraint for colour attributes.
+	Added: 'other'.
+
+*	Extended constraint for 'colourDepth' attribute.
+	Added: 'other'.
+	
+*	The elements <TextRegion>, <TextLine>, <Word> and <Glyph> have a new child 
+	element <Textstyle> with attributes 'fontFamily', 'serif', 'monospace', 
+	'fontSize', 'kerning', 'textColour', 'bgColour', 'reverseVideo', 'bold',
+	'italic', 'underlined', 'subscript', 'superscript', 'strikethrough',
+	'smallCaps', 'letterSpaced'. Any attributes of <TextRegion> that appear
+	in this list have been removed (moved to <TextStyle>).
+	Values set for child text objects are interpreted to override values of parent
+	text objects.
+
+*	New attribute 'production' for elements <TextRegion>, <TextLine>, <Word> and 
+	<Glyph>.
+	Values set for child text objects are interpreted to override values of parent
+	text objects.
+
+*	New child element <Relations> for <Page> element to model relations between
+	layout objects (e.g. drop-capital - paragraph, image - caption). Single
+	relations are represented by <Relation> elements with attributes 'type',
+	'custom' and 'comments' as well as two <RegionRef> child elements.
+
+
+2016-07-15
+
+*	New attributes for <Page> element (take priority over region-level values, 
+	if defined):
+	- "primaryLangage"
+	- “secondaryLanguage”
+	- “primaryScript”
+	- “secondaryScript”
+	- “readingDirection”
+	- “textLineOrder” (see below)
+
+*	New attribute "externalRef" for <Metadata> element. Generic string that 
+	can point to an external document / resource
+
+*	Changed constraints for "primaryScript" and "seconddaryScript" (<Page>, 
+	<TextRegion>, ...). 
+	Now based on ISO 15924 http://unicode.org/iso15924/iso15924-codes.html
+	Requires migration from 'Chinese-Traditional' and 'Chinese-Simplified' 
+	to Han (Traditional variant) and Han (Simplified variant)
+
+*	New attribute "textLineOrder" for <Page> and <TextRegion> elements. 
+	Represents the inner-block order of text lines (in addition to “readingDirection” 
+	which is the inner-text line order of words and characters)
+	- String, optional
+	- Constraints: top-to-bottom, bottom-to-top, left-to-right, right-to-left
+
+*	New attribute "xHeight" for <TextStyle>. “The x-height or corpus size 
+	refers to the distance between the baseline and the mean line of 
+	lower-case letters in a typeface” 
+	- Integer, optional, Unit: pixel
+
+*	New attribute "dataType" for <TextEquiv>. Repreents type of text content 
+	(observed or expected).
+	- String, optional
+	- Constraints: xsd:decimal, xsd:float, xsd:integer, xsd:boolean, xsd:date, 
+	  xsd:time, xsd:dateTime,xsd:string,other
+
+*	New attribute "dataTypeDetails" for <TextEquiv>. Refinement for “dataType”, 
+	e.g. a regular expression
+	- String, optional
+
+*	Changes for usage of <TextEquiv> element (sub-element of text region, text line, 
+	word and glyph):
+	- Can now occur multiple times to reflect OCR / text variants
+	- Additional “index” attribute can be used to order the variants 
+	  (lowest index is used as main text content)
+	- Additional “comments” attribute (explanations, e.g. if different OCRs are used 
+	  or an annotated version of the text content is entered)
+	- “conf” (OCR confidence) is attached to “TextEquiv” as before
+
+*	Added attributes "primaryScript" and "secondaryScript" to <TextLine> and <Word>
+
+*	New attribute "script" for <Glyph> element. Same constraints as "primaryScript" 
+	for <TextRegion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

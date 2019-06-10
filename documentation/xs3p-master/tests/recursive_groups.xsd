@@ -1,0 +1,25 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- XML Schema to test xs3p's handling of recursive groups
+     Submitted by Martin Beran -->
+
+<xsd:element name="ping">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:group ref="g"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
+
+<xsd:group name="g">
+    <xsd:sequence>
+        <xsd:element name="G">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:group ref="g"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:sequence>
+</xsd:group>
+
+</xsd:schema>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd"  
+        xmlns="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd"  xmlns:IGT="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd"  
+        elementFormDefault="qualified" attributeFormDefault="unqualified">
+     
+    <xs:annotation>
+        <xs:documentation xml:lang="en">Schema for representing Impact Ground Truth. Used as a guideline for service provider.</xs:documentation>
+    </xs:annotation> 
+    
+    <!-- root element -->
+    <xs:element name="Impact" type="ImpactGTType" />
+    
+    
+    <!-- ImpactGT Type -->
+    <xs:complexType name="ImpactGTType">
+        <xs:annotation>
+            <xs:documentation>The root element</xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="1">
+            
+            <xs:element name="Identifier" maxOccurs="unbounded" minOccurs="1" type="DescriptionType"/>
+            <xs:element name="Layout" maxOccurs="1" minOccurs="1" type="LayoutType"/>
+            </xs:sequence>
+           <!--    <xs:element name="Filename" maxOccurs="1" minOccurs="1" type="xs:string"/>
+            
+              
+             
+           -->
+    </xs:complexType>
+    
+    <xs:complexType name="DescriptionType">
+        <xs:sequence maxOccurs="1">  
+            <xs:element name="Type" type="xs:string" minOccurs="0"/>
+            <xs:element name="Id" type="xs:string" minOccurs="0"/> 
+        </xs:sequence>
+  
+    </xs:complexType>
+    
+    <xs:complexType name="LayoutType">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Page"  maxOccurs="unbounded" type="PageType"/> 
+        </xs:sequence>     
+    </xs:complexType>
+    
+    
+    
+    <!-- PAGE TYPE -->
+    <xs:complexType name="PageType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="BlockGroup"/>
+        </xs:sequence> 
+    </xs:complexType>
+      
+    <!-- GROUP OF BLOCKS -->   
+    <xs:group name="BlockGroup">
+        <xs:annotation>
+            <xs:documentation>Group of available block types. These types are : Text, Illustration, Table and Unknown</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element name="TextBlock" type="TextBlockType">
+                <xs:annotation>
+                    <xs:documentation>A block of text.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+              <xs:element name="IllustrationBlock" type="SimpleBlockType">
+                <xs:annotation>
+                    <xs:documentation>A picture or image.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+              
+            <xs:element name="TableBlock" type="TableBlockType">
+                <xs:annotation>
+                    <xs:documentation>A block in tableform.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+                  
+            <xs:element name="UnknownBlock" type="SimpleBlockType">
+                <xs:annotation>
+                    <xs:documentation>A block which can not be identified</xs:documentation>
+                </xs:annotation>
+                </xs:element> 
+        </xs:choice>
+    </xs:group>
+    
+      
+    <!-- BLOCK TYPE (Plain Block) -->  
+    <xs:complexType name="BlockType" >
+        <xs:annotation>
+            <xs:documentation>Base type for any kind of block on the page.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="number" type="xs:integer" use="required"/>
+        <xs:attribute name="x" type="xs:integer" use="required"/>
+        <xs:attribute name="y" type="xs:integer" use="required"/>
+        <xs:attribute name="w" type="xs:integer" use="required"/>
+        <xs:attribute name="h" type="xs:integer" use="required"/>
+        <xs:attribute name="orientation" default="horizontal" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="vertical"/>
+                    <xs:enumeration value="horizontal"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        
+       
+    </xs:complexType>
+    
+ 
+ 
+   <!--  TEXT BLOCK EXTENDS BLOCK -->
+    <xs:complexType name="TextBlockType">
+        <xs:annotation>
+            <xs:documentation>A block of text.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BlockType">       
+                    <xs:annotation>
+                        <xs:documentation>A textblock within a page</xs:documentation>
+                    </xs:annotation>
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:group ref="LogicalElementsGroup"/>
+                    </xs:sequence> 
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!--  TEXT BLOCK EXTENDS BLOCK -->
+    <xs:complexType name="SimpleBlockType">
+        <xs:annotation>
+            <xs:documentation>A simple Blocktype with a textnode</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent mixed="true">
+            <xs:extension base="BlockType">       
+                <xs:annotation>
+                    <xs:documentation>A textblock within a page</xs:documentation>
+                </xs:annotation>           
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!--  TABLE BLOCK EXTENDS BLOCK -->
+    <xs:complexType name="TableBlockType">
+        <xs:annotation>
+            <xs:documentation>A block of text.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BlockType">       
+                <xs:annotation>
+                    <xs:documentation>A table within a page consisting of some cells</xs:documentation>
+                </xs:annotation>
+                <xs:sequence>
+                    <xs:element name="Cell" minOccurs="1" maxOccurs="unbounded" type="xs:anyType"/>
+                </xs:sequence> 
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!--  GROUP OF LOGICAL ELEMENTS -->
+    <xs:group name="LogicalElementsGroup">
+        <xs:annotation>
+            <xs:documentation>Group of available logical elements</xs:documentation>
+        </xs:annotation>
+        <xs:choice >
+            <xs:element name="Paragraph" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>A text paragraph</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="Pagenumber" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>The pagenumber</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="Running_Title" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>the running title on top of the page.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="Headline" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>A headline.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="Marginalia" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>A marginalia</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="Footnote" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>A footnote.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="UnknownElement" type="LogicalElementType">
+                <xs:annotation>
+                    <xs:documentation>None of the other logical elements</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:choice>
+    </xs:group>
+    
+    <!-- LOGICAL ELEMENT TYPE -->
+    <xs:complexType name="LogicalElementType">
+        <xs:annotation>
+            <xs:documentation>Base type for any kind of block on the page.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="TextStyle" type="TextStyleType"/>
+          </xs:sequence>   
+    </xs:complexType>
+       
+    <!-- TEXT STYLE TYPE -->   
+    <xs:complexType name="TextStyleType">
+        <xs:annotation> 
+            <xs:documentation>Different kind of Textstyles</xs:documentation>
+        </xs:annotation>
+        
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="italic" default="false" use="optional" type="xs:boolean"/>
+                <xs:attribute name="bold" default="false" use="optional" type="xs:boolean"/>
+                <xs:attribute name="superscript" default="false" use="optional" type="xs:boolean"/>
+                <xs:attribute name="unknown" default="false" use="optional" type="xs:boolean"/> 
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+ 
+    
+</xs:schema>

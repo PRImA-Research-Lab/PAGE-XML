@@ -1,0 +1,6 @@
+
+2019-07-15
+
+ - Added ReadingOrderGroupWeights element
+ - Added 'group' to layout object types
+ 

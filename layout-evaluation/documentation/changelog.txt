@@ -1,0 +1,72 @@
+PRImA Page Analysis and Ground-truth Elements (PAGE) Format - Layout Evaluation Schema
+
+
+2013-07-15 clc c.clausner@primaresearch.org
+
+*	New attribute "name" for element "Profile"
+
+*	New region types (in accordance with new pagecontent schema):
+		"advert"
+		"chem"
+		"music"
+
+*	Discarded region type "frame" (in accordance with new pagecontent schema)
+
+*	Rectangles for error areas are now stored within attribute "rects" as a list of 
+	coordinates instead of individual elements for each rectangle. List format:
+		"left1,top1,right1,bottom1 left2,top2,right2,bottom2 ..."
+
+*	Page object type (or level) now stored as string instead of int:
+		"region" 	(before 1)
+		"text-line"	(before 2)
+		"word"		(before 3)
+		"glyph"		(before 4)
+
+*	Region type now stored as string instead of int:
+		"text"		(before 1)
+		"image"		(before 2)
+		"graphic"	(before 4)
+		"line-drawing"	(before 8)
+		"chart"		(before 16)
+		"separator"	(before 32)
+		"table"		(before 64)
+		"maths"		(before 128)
+		"noise"		(before 512)
+		"unknown"	(before 1024)
+		"advert"	(new)
+		"chem"		(new)
+		"music"		(new)
+		"all"		
+
+*	Error type now stored as string instead of int:
+		"split"			(before 1)
+		"merge"			(before 2)
+		"miss"			(before 3)
+		"partial-miss"		(before 4)
+		"misclassification"	(before 5)
+		"false-detection"	(before 6)
+
+*	Reading order relations now stored as string instead of int:
+		"before-directly"		(before 1)
+		"after-directly"		(before 2)
+		"unordered"			(before 3)
+		"unknown"			(before 4)
+		"unrelated"			(before 5)
+		"not-defined"			(before 6)
+		"before-unordered"		(before 7)
+		"after-unordered"		(before 8)
+
+*	Element "EvalData":
+		- Changed child element "Results" to "PageObjectResults"
+		- Added new child element "BorderResults" with attributes:
+			"includedBackgroundSuccessRate" (double)
+			"excludedForegroundSuccessRate" (double)
+			"missingRegionAreaSuccessRate" (double)
+			"overallSuccessRate" (double)
+
+
+2019-07-15
+
+ - Added ReadingOrderGroupWeights element
+ - Added 'group' to layout object types
+ 

@@ -1,0 +1,34 @@
+PAGEtoSVG Viewer/Converter
+Copyright 2010-2014 Stefan Pletschacher, Christian Clausner, PRImA Research Group,
+University of Salford, UK
+
+This software in its entirety, including all stylesheets and scripts,
+must not be copied, distributed or used without permission from the author(s).
+
+Under no circumstances will the author(s) be liable in any way for any
+content or for any loss or damage of any kind incurred as a result
+of the use of this software.
+
+This version of the PAGEtoSVG converter/viewer has been developed for and
+tested with Mozilla Firefox 3.6 only. Other browsers/viewers might work
+but are not supported! 
+
+Support for older as well as future versions of the PAGE format
+is achieved by individual, namespace-depended xslt stylesheets. 
+
+How to use:
+1. Generate a jpg for the input tif image, keeping the same file name
+	(apart from the extension)
+2. Generate svg from input PAGE file using PAGEtoSVG.xsl and an XSLT processor
+	of your choice, optional parameters:
+	mode=[static|interactive] default: interactive
+	embed=[true|false] default: true
+	level=[all|border|printspace|regions|textlines|words|glyphs] default: all
+	fbgimg=<path/filename> to an image, can be used to force a specific
+					background image. If not set, the one given in the PAGE file
+					is used.
+	fcss=<path/filename> to a css file, can be used to force a specific
+					css file. If not set, style.css will be used.
+3. Open resulting svg file in Mozilla Firefox 3.6
+
+###

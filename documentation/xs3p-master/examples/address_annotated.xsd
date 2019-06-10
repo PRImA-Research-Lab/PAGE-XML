@@ -1,0 +1,99 @@
+<schema targetNamespace="http://www.example.com/IPO"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:ipo="http://www.example.com/IPO">
+
+ <annotation>
+  <documentation xml:lang="en">
+   **Addresses for International Purchase order schema
+   Copyright 2000 Example.com. All rights reserved.**
+
+   This version of the schema has enhanced documentation to
+   demonstrate the new capabilities of the xs3p doc tool:
+
+    * Display of `&lt;annotation&gt;` info with _markdown_ support
+    * UTF-8 output
+
+   The _markdown_ syntax is documented on the [Markdown homepage](https://daringfireball.net/projects/markdown/ "Markdown homepage").
+  </documentation>
+ </annotation>
+
+ <complexType name="Address">
+  <annotation>
+   <documentation>
+    The generic base type for all country-specific addresses.
+
+    This type could be used for addresses that don't have distinct type,
+    but then it would have poor validation. Just to demonstrate UTF-8 and
+    a markdown `&lt;pre&gt;` block, here is an example german address:
+
+
+        &lt;name&gt;Conrad Hoffmann&lt;/name&gt;
+        &lt;street&gt;Beispielstraße 23&lt;/street&gt;
+        &lt;city&gt;D-12345 Berlin&lt;/city&gt;
+
+    **Note:** Whenever possible, a distinct subtype should be specified.
+
+    Also, note how you can click the _i_ next to the `name` element in the
+    _XML Instance Representation_ below to see the documentation for this
+    element.
+   </documentation>
+  </annotation>
+  <sequence>
+   <element name="name"   type="string">
+    <annotation>
+     <documentation>
+      This should be the full name of the addressee, including, if appropriate:
+
+       * Academic titles
+       * Titles of nobility
+       * maybe more...
+     </documentation>
+    </annotation>
+   </element>
+   <element name="street" type="string"/>
+   <element name="city"   type="string"/>
+  </sequence>
+ </complexType>
+
+ <complexType name="USAddress">
+  <annotation>
+   <documentation>
+    Address subtype for United States addresses.
+
+    The state comes from a list defined [below](#type_USState "Definition of type USState").
+   </documentation>
+  </annotation>
+  <complexContent>
+   <extension base="ipo:Address">
+    <sequence>
+     <element name="state" type="ipo:USState"/>
+     <element name="zip"   type="positiveInteger"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+
+ <!-- other Address derivations for more countries -->
+
+ <simpleType name="USState">
+  <annotation>
+   <documentation>
+     The list of states of the USA.
+
+     Standard markdown does not support tables, which would have been
+     a nice way to present those. Testing integration with other
+     markdown processors, like [snuownd](https://github.com/gamefreak/snuownd "snuownd Github page")
+     might be worth a try in the future.
+   </documentation>
+  </annotation>
+  <restriction base="string">
+   <enumeration value="AK"/>
+   <enumeration value="AL"/>
+   <enumeration value="AR"/>
+   <!-- and so on ... -->
+  </restriction>
+ </simpleType>
+
+ <!-- simple type definition for UKPostcode -->
+
+</schema>

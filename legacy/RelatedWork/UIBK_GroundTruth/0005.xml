@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IGT:Impact xmlns:IGT="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd http://www.uibk.ac.at/ulb/dea/schemas/impactgt.xsd">
+<IGT:Identifier>
+<IGT:Type>filename</IGT:Type>
+<IGT:Id>dpo_35_0005</IGT:Id>
+</IGT:Identifier>
+<IGT:Layout>
+<IGT:Page>
+<IGT:TextBlock number="1" x="757" y="230" h="77" w="350">
+<IGT:Headline>
+<IGT:TextStyle bold="true">AAN</IGT:TextStyle>
+</IGT:Headline></IGT:TextBlock>
+<IGT:TextBlock number="2" x="230" y="415" h="445" w="1385">
+<IGT:Headline>
+<IGT:TextStyle bold="true">ANTON REINHARD,
+EGBERTA ANGELIQUE,</IGT:TextStyle>
+</IGT:Headline></IGT:TextBlock>
+<IGT:TextBlock number="3" x="827" y="942" h="170" w="257">
+<IGT:Headline>
+<IGT:TextStyle bold="true">EN</IGT:TextStyle>
+</IGT:Headline></IGT:TextBlock>
+<IGT:TextBlock number="4" x="330" y="1172" h="162" w="1260">
+<IGT:Headline>
+<IGT:TextStyle bold="true">AMELIA KAROLINA FALCK.</IGT:TextStyle>
+</IGT:Headline></IGT:TextBlock>
+<IGT:TextBlock number="5" x="272" y="1410" h="822" w="1322">
+<IGT:Paragraph>
+<IGT:TextStyle>Wie helpt niet gaarne Kinders, van eenen aan-
+valligen aart, van zoete en zagte zeden, van eene
+bekoorende leergierigheid, op de baan dier Weeten-
+schappen, welken voor hun, by het toeneemen der
+jaaren van geen gering belang zullen weezen? Ik
+kom tot U met dit kleen geschenk, het eerste,
+dat ik tot U dat einde kan aanbieden. Het ge-</IGT:TextStyle>
+</IGT:Paragraph></IGT:TextBlock>
+<IGT:TextBlock number="6" x="1377" y="2240" h="97" w="237">
+<IGT:Paragraph>
+<IGT:TextStyle>lei-</IGT:TextStyle>
+</IGT:Paragraph>
+</IGT:TextBlock>
+</IGT:Page>
+</IGT:Layout>
+</IGT:Impact>

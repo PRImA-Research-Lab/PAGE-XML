@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15/pagecontent.xsd" pcGtsId="pc-RegionTypesID">
+	<Metadata>
+	<Creator>PRImA Research Group
+&amp;
+BLA</Creator>
+	<Created>2010-02-02T12:28:49</Created>
+	<LastChange>2014-07-08T11:24:37</LastChange>
+	<Comments>AAA
+&amp;
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).</Comments></Metadata>
+	<Page imageFilename="RegionTypes.tif" imageWidth="700" imageHeight="800">
+	<Border>
+	<Coords points="14,9 218,7 253,3 293,10 354,6 443,6 664,9 691,3 691,189 679,229 692,481 680,664 692,787 603,792 530,787 332,795 185,786 69,793 3,785 10,358 13,119"/></Border>
+	<PrintSpace>
+	<Coords points="21,13 21,781 671,781 671,13"/></PrintSpace>
+	<ReadingOrder>
+	<OrderedGroup id="ro357564684568544579089">
+	<RegionRefIndexed regionRef="r3" index="0"/>
+	<RegionRefIndexed regionRef="r84" index="1"/></OrderedGroup></ReadingOrder>
+	<TextRegion id="r3" readingDirection="left-to-right" type="paragraph" primaryLanguage="English" primaryScript="Latin">
+	<Coords points="32,100 34,100 34,32 32,32 32,31 95,31 95,36 142,36 142,31 184,31 184,36 233,36 233,31 236,31 236,36 278,36 278,86 275,86 275,82 148,82 148,132 163,132 163,145 169,145 169,146 130,146 130,151 86,151 86,146 32,146"/>
+	<TextLine id="r5">
+	<Coords points="32,31 95,31 95,36 142,36 142,31 184,31 184,36 233,36 233,31 236,31 236,36 264,36 264,37 265,37 265,39 266,39 266,49 273,49 273,50 230,50 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,50 38,50 38,32 32,32"/>
+	<Word id="r15">
+	<Coords points="32,31 67,31 67,36 78,36 78,37 80,37 80,39 81,39 81,45 82,45 82,47 81,47 81,48 80,48 80,49 79,49 79,50 38,50 38,32 32,32"/>
+	<Glyph id="r115" ligature="true">
+	<Coords points="32,31 47,31 47,32 41,32 41,50 38,50 38,32 32,32"/>
+	<TextEquiv>
+	<PlainText>T</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r116">
+	<Coords points="49,31 52,31 52,36 59,36 59,37 60,37 60,39 61,39 61,50 49,50"/>
+	<TextEquiv>
+	<PlainText>h</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r117">
+	<Coords points="64,31 67,31 67,50 64,50"/>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r118">
+	<Coords points="72,36 78,36 78,37 80,37 80,39 81,39 81,45 82,45 82,47 81,47 81,48 80,48 80,49 79,49 79,50 72,50 72,49 71,49 71,48 70,48 70,46 69,46 70,46 70,38 71,38 71,37 72,37"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>This</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r17">
+	<Coords points="92,31 95,31 95,36 106,36 106,37 108,37 108,39 109,39 109,45 110,45 110,47 109,47 109,48 108,48 108,49 107,49 107,50 92,50"/>
+	<Glyph id="r119">
+	<Coords points="92,31 95,31 95,50 92,50"/>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r120">
+	<Coords points="100,36 106,36 106,37 108,37 108,39 109,39 109,45 110,45 110,47 109,47 109,48 108,48 108,49 107,49 107,50 100,50 100,49 99,49 99,48 98,48 98,46 97,46 98,46 98,38 99,38 99,37 100,37"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>is</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r20">
+	<Coords points="123,36 130,36 130,37 131,37 131,38 132,38 132,50 122,50 122,49 120,49 120,47 119,47 119,45 120,45 120,38 121,38 121,37 123,37"/>
+	<Glyph id="r121">
+	<Coords points="123,36 130,36 130,37 131,37 131,38 132,38 132,50 122,50 122,49 120,49 120,47 119,47 119,45 120,45 120,38 121,38 121,37 123,37"/>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r21">
+	<Coords points="146,31 182,31 182,36 184,36 184,50 145,50 145,49 144,49 144,37 142,37 142,36 144,36 144,32 146,32"/>
+	<Glyph id="r122">
+	<Coords points="146,31 147,31 147,36 149,36 149,50 145,50 145,49 144,49 144,37 142,37 142,36 144,36 144,32 146,32"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r123">
+	<Coords points="154,36 160,36 160,37 162,37 162,39 163,39 163,41 164,41 164,43 163,43 163,48 162,48 162,49 160,49 160,50 154,50 154,49 153,49 153,48 152,48 152,47 151,47 151,45 150,45 150,41 151,41 151,39 152,39 152,38 153,38 153,37 154,37"/>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r127">
+	<Coords points="181,31 182,31 182,36 184,36 184,50 180,50 180,49 179,49 179,37 177,37 177,36 179,36 179,32 181,32"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r128">
+	<Coords points="165,36 176,36 176,50 165,50"/>
+	<TextEquiv>
+	<PlainText>x</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>text</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r22">
+	<Coords points="233,31 236,31 236,36 264,36 264,37 265,37 265,39 266,39 266,49 273,49 273,50 230,50 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,50 194,50 194,36 233,36"/>
+	<Glyph id="r129">
+	<Coords points="194,36 202,36 202,37 201,37 201,38 198,38 198,39 197,39 197,50 194,50"/>
+	<TextEquiv>
+	<PlainText>r</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r131">
+	<Coords points="206,36 212,36 212,37 214,37 214,39 215,39 215,41 216,41 216,43 215,43 215,48 214,48 214,49 212,49 212,50 206,50 206,49 205,49 205,48 204,48 204,47 203,47 203,45 202,45 202,41 203,41 203,39 204,39 204,38 205,38 205,37 206,37"/>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r132">
+	<Coords points="221,36 230,36 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,46 217,46 217,40 219,40 219,37 221,37"/>
+	<TextEquiv>
+	<PlainText>g</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r133">
+	<Coords points="233,31 236,31 236,50 233,50"/>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r172">
+	<Coords points="242,36 248,36 248,37 249,37 249,38 250,38 250,39 251,39 251,41 252,41 252,45 251,45 251,47 250,47 250,48 249,48 249,49 248,49 248,50 242,50 242,49 241,49 241,48 240,48 240,47 239,47 239,45 238,45 238,41 239,41 239,39 240,39 240,38 241,38 241,37 242,37"/>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r175">
+	<Coords points="254,36 264,36 264,37 265,37 265,39 266,39 266,50 254,50"/>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r176">
+	<Coords points="270,49 273,49 273,50 270,50"/>
+	<TextEquiv>
+	<PlainText>.</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>region.</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>This is a text region.</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r7">
+	<Coords points="34,63 227,63 227,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,81 278,81 278,85 277,85 277,86 275,86 275,82 34,82"/>
+	<Word id="r23">
+	<Coords points="34,63 45,63 45,68 47,68 47,82 34,82"/>
+	<Glyph id="r136">
+	<Coords points="34,63 37,63 37,82 34,82"/>
+	<TextEquiv>
+	<PlainText>I</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r137">
+	<Coords points="44,63 45,63 45,68 47,68 47,82 43,82 43,81 42,81 42,69 40,69 40,68 42,68 42,64 44,64"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>It</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r25">
+	<Coords points="104,63 127,63 127,68 153,68 153,69 155,69 155,71 156,71 156,77 157,77 157,79 156,79 156,80 155,80 155,81 154,81 154,82 60,82 60,81 58,81 58,79 57,79 57,76 56,76 56,74 57,74 57,71 58,71 58,69 60,69 60,68 102,68 102,64 104,64"/>
+	<Glyph id="r138">
+	<Coords points="60,68 65,68 65,69 67,69 67,71 68,71 68,79 67,79 67,81 65,81 65,82 60,82 60,81 58,81 58,79 57,79 57,76 56,76 56,74 57,74 57,71 58,71 58,69 60,69"/>
+	<TextEquiv>
+	<PlainText>c</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r139">
+	<Coords points="74,68 80,68 80,69 81,69 81,70 82,70 82,71 83,71 83,73 84,73 84,77 83,77 83,79 82,79 82,80 81,80 81,81 80,81 80,82 74,82 74,81 73,81 73,80 72,80 72,79 71,79 71,77 70,77 70,73 71,73 71,71 72,71 72,70 73,70 73,69 74,69"/>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r140">
+	<Coords points="86,68 96,68 96,69 97,69 97,71 98,71 98,82 86,82"/>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r141">
+	<Coords points="104,63 105,63 105,68 107,68 107,82 103,82 103,81 102,81 102,69 100,69 100,68 102,68 102,64 104,64"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r142">
+	<Coords points="112,68 119,68 119,69 120,69 120,70 121,70 121,82 111,82 111,81 109,81 109,79 108,79 108,77 109,77 109,70 110,70 110,69 112,69"/>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r143">
+	<Coords points="124,63 127,63 127,82 124,82"/>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r144">
+	<Coords points="130,68 140,68 140,69 141,69 141,71 142,71 142,82 130,82"/>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r145">
+	<Coords points="147,68 153,68 153,69 155,69 155,71 156,71 156,77 157,77 157,79 156,79 156,80 155,80 155,81 154,81 154,82 147,82 147,81 146,81 146,80 145,80 145,78 144,78 145,78 145,70 146,70 146,69 147,69"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>contains</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r27">
+	<Coords points="170,63 206,63 206,68 208,68 208,82 169,82 169,81 168,81 168,69 166,69 166,68 168,68 168,64 170,64"/>
+	<Glyph id="r146">
+	<Coords points="170,63 171,63 171,68 173,68 173,82 169,82 169,81 168,81 168,69 166,69 166,68 168,68 168,64 170,64"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r147">
+	<Coords points="178,68 184,68 184,69 186,69 186,71 187,71 187,73 188,73 188,75 187,75 187,80 186,80 186,81 184,81 184,82 178,82 178,81 177,81 177,80 176,80 176,79 175,79 175,77 174,77 174,73 175,73 175,71 176,71 176,70 177,70 177,69 178,69"/>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r149">
+	<Coords points="205,63 206,63 206,68 208,68 208,82 204,82 204,81 203,81 203,69 201,69 201,68 203,68 203,64 205,64"/>
+	<TextEquiv>
+	<PlainText>t</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r150">
+	<Coords points="189,68 199,68 199,81 200,81 200,82 189,82"/>
+	<TextEquiv>
+	<PlainText>x</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>text</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r28">
+	<Coords points="218,63 227,63 227,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,81 278,81 278,85 277,85 277,86 275,86 275,82 218,82"/>
+	<Glyph id="r151">
+	<Coords points="218,63 221,63 221,82 218,82"/>
+	<TextEquiv>
+	<PlainText>l</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r152">
+	<Coords points="224,63 227,63 227,82 224,82"/>
+	<TextEquiv>
+	<PlainText>i</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r155">
+	<Coords points="248,68 254,68 254,69 256,69 256,71 257,71 257,73 258,73 258,75 257,75 257,80 256,80 256,81 254,81 254,82 248,82 248,81 247,81 247,80 246,80 246,79 245,79 245,77 244,77 244,73 245,73 245,71 246,71 246,70 247,70 247,69 248,69"/>
+	<TextEquiv>
+	<PlainText>e</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r156">
+	<Coords points="262,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,80 270,80 270,81 269,81 269,82 262,82 262,81 261,81 261,80 260,80 260,78 259,78 260,78 260,70 261,70 261,69 262,69"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r157">
+	<Coords points="275,81 278,81 278,85 277,85 277,86 275,86"/>
+	<TextEquiv>
+	<PlainText>,</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r173">
+	<Coords points="230,68 240,68 240,69 241,69 241,71 242,71 242,82 230,82"/>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>lines,</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>It contains text lines,</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r9">
+	<Coords points="85,95 88,95 88,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103 32,100 85,100"/>
+	<Word id="r13">
+	<Coords points="85,95 88,95 88,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103 32,100 85,100"/>
+	<Glyph id="r158">
+	<Coords points="32,100 50,100 50,103 49,103 49,106 48,106 48,110 47,110 47,113 46,113 46,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103"/>
+	<TextEquiv>
+	<PlainText>w</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r159">
+	<Coords points="55,100 61,100 61,101 62,101 62,102 63,102 63,103 64,103 64,105 65,105 65,109 64,109 64,111 63,111 63,112 62,112 62,113 61,113 61,114 55,114 55,113 54,113 54,112 53,112 53,111 52,111 52,109 51,109 51,105 52,105 52,103 53,103 53,102 54,102 54,101 55,101"/>
+	<TextEquiv>
+	<PlainText>o</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r160">
+	<Coords points="67,100 75,100 75,101 74,101 74,102 71,102 71,103 70,103 70,114 67,114"/>
+	<TextEquiv>
+	<PlainText>r</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r161">
+	<Coords points="85,95 88,95 88,114 79,114 79,113 77,113 77,111 76,111 76,109 75,109 75,105 76,105 76,103 77,103 77,101 79,101 79,100 85,100"/>
+	<TextEquiv>
+	<PlainText>d</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r162">
+	<Coords points="93,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 93,114 93,113 92,113 92,112 91,112 91,110 90,110 91,110 91,102 92,102 92,101 93,101"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>words</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>words</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextLine id="r10">
+	<Coords points="72,127 139,127 139,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,145 169,145 169,146 124,146 124,151 88,151 88,150 87,150 87,149 86,149 86,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133 36,132 72,132"/>
+	<Word id="r29">
+	<Coords points="72,127 75,127 75,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133 36,132 72,132"/>
+	<Glyph id="r163">
+	<Coords points="36,132 43,132 43,133 44,133 44,134 45,134 45,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133"/>
+	<TextEquiv>
+	<PlainText>a</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r164">
+	<Coords points="48,132 58,132 58,133 59,133 59,135 60,135 60,146 48,146"/>
+	<TextEquiv>
+	<PlainText>n</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r165">
+	<Coords points="72,127 75,127 75,146 66,146 66,145 64,145 64,143 63,143 63,141 62,141 62,137 63,137 63,135 64,135 64,133 66,133 66,132 72,132"/>
+	<TextEquiv>
+	<PlainText>d</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>and</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<Word id="r30">
+	<Coords points="101,127 139,127 139,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,145 169,145 169,146 124,146 124,151 88,151 88,150 87,150 87,149 86,149 86,141 85,141 85,137 86,137 86,135 87,135 87,133 89,133 89,132 101,132"/>
+	<Glyph id="r166">
+	<Coords points="89,132 98,132 98,147 97,147 97,149 96,149 96,150 94,150 94,151 88,151 88,150 87,150 87,149 86,149 86,141 85,141 85,137 86,137 86,135 87,135 87,133 89,133"/>
+	<TextEquiv>
+	<PlainText>g</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r167">
+	<Coords points="101,127 104,127 104,146 101,146"/>
+	<TextEquiv>
+	<PlainText>l</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r168">
+	<Coords points="106,132 119,132 119,134 118,134 118,136 117,136 117,139 116,139 116,141 115,141 115,144 114,144 114,147 113,147 113,149 112,149 112,150 111,150 111,151 107,151 107,133 106,133"/>
+	<TextEquiv>
+	<PlainText>y</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r169">
+	<Coords points="121,132 130,132 130,133 132,133 132,134 133,134 133,136 134,136 134,141 133,141 133,144 132,144 132,145 130,145 130,146 124,146 124,151 121,151"/>
+	<TextEquiv>
+	<PlainText>p</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r170">
+	<Coords points="136,127 139,127 139,132 146,132 146,133 147,133 147,135 148,135 148,146 136,146"/>
+	<TextEquiv>
+	<PlainText>h</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r179">
+	<Coords points="153,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,144 161,144 161,145 160,145 160,146 153,146 153,145 152,145 152,144 151,144 151,142 150,142 151,142 151,134 152,134 152,133 153,133"/>
+	<TextEquiv>
+	<PlainText>s</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<Glyph id="r180">
+	<Coords points="166,145 169,145 169,146 166,146"/>
+	<TextEquiv>
+	<PlainText>.</PlainText>
+	<Unicode></Unicode></TextEquiv></Glyph>
+	<TextEquiv>
+	<PlainText>glyphs.</PlainText>
+	<Unicode></Unicode></TextEquiv></Word>
+	<TextEquiv>
+	<PlainText>and glyphs.</PlainText>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextEquiv>
+	<PlainText>This is a text region. It contains text lines, words and glyphs.
+	Enter
+	New line...</PlainText>
+	<Unicode>Line 1
+Line 2
+Tab from here	end
+&gt;&lt; !"#$%&amp;'()*
+EOF</Unicode></TextEquiv>
+	<TextStyle textColour="black" bgColour="white"/></TextRegion>
+	<ImageRegion id="r181">
+	<Coords points="335,28 531,28 531,145 335,145"/></ImageRegion>
+	<LineDrawingRegion id="r182">
+	<Coords points="28,193 224,193 224,310 28,310"/></LineDrawingRegion>
+	<GraphicRegion id="r183">
+	<Coords points="335,194 531,194 531,311 335,311"/></GraphicRegion>
+	<TableRegion id="r184">
+	<Coords points="27,345 223,345 223,462 27,462"/></TableRegion>
+	<ChartRegion id="r185">
+	<Coords points="338,344 534,344 534,461 338,461"/></ChartRegion>
+	<SeparatorRegion id="r186">
+	<Coords points="29,506 225,506 225,623 29,623"/></SeparatorRegion>
+	<MathsRegion id="r187">
+	<Coords points="339,504 535,504 535,621 339,621"/></MathsRegion>
+	<NoiseRegion id="r188">
+	<Coords points="31,658 227,658 227,775 31,775"/></NoiseRegion>
+	<UnknownRegion id="r189">
+	<Coords points="339,654 535,654 535,771 339,771"/></UnknownRegion>
+	<TextRegion id="r84">
+	<Coords points="588,28 660,28 660,771 588,771"/>
+	<TextEquiv>
+	<Unicode>Text
+½æÆàÀãÃäÄçÇ
+☞</Unicode></TextEquiv>
+	<TextStyle textColour="violet" underlined="true"/></TextRegion>
+	<MusicRegion id="r87">
+	<Coords points="245,188 245,777 312,777 312,188"/></MusicRegion>
+	<ChemRegion id="r82">
+	<Coords points="208,111 208,163 305,163 305,111"/>
+	<AdvertRegion id="r83">
+	<Coords points="219,122 219,155 299,155 299,122"/></AdvertRegion></ChemRegion></Page></PcGts>

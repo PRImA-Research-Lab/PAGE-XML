@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/binarisation/2009-03-16"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:bn="http://schema.primaresearch.org/PAGE/gts/binarisation/2009-03-16">
+
+
+    <element name="BnGts" type="bn:BnGtsType">
+    	<annotation>
+    		<documentation>Binarisation - Ground Truth and Storage</documentation>
+    	</annotation>
+    </element>
+
+    <complexType name="BnGtsType">
+    	<sequence>
+    		<element name="Metadata" type="bn:MetadataType"></element>
+    		<choice>
+    			<element name="Page" type="bn:PageType"></element>
+    			<element name="Patches" type="bn:PatchesType">
+    			</element>
+    		</choice>
+    	</sequence>
+
+    	<attribute name="bnGtsId" type="ID" use="required"></attribute>
+    </complexType>
+    <complexType name="LinkedResourcesType">
+		<sequence>
+			<element name="Local" type="bn:LocalType" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="Online" type="bn:OnlineType" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="LocalType">
+		<sequence>
+			<element name="Folder" type="string">
+				<annotation>
+					<documentation>linked resource folder
+This should be a relative path, starting from the directory in which the current file is located in.
+A trailing slash is not required as any software reading this should ensure a correct assembly of path and file name.</documentation>
+				</annotation></element>
+			<element name="FileName" type="string">
+				<annotation>
+					<documentation>linked resource file name
+The name of the linked file without any path information.</documentation>
+				</annotation></element>
+		</sequence>
+	</complexType>
+	<complexType name="OnlineType">
+		<sequence>
+			<element name="Url" type="anyURI">
+				<annotation>
+					<documentation>linked resource URL
+A complete URL pointing to the linked file. This includes also the used protocol!
+(e.g. http://uvw.xyz/123.tif)
+</documentation>
+				</annotation></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="MetadataType">
+		<sequence>
+			<element name="Creator" type="string"></element>
+			<element name="Created" type="dateTime"></element>
+			<element name="LastChange" type="dateTime"></element>
+			<element name="Comments" type="string" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="PageType">
+		<sequence>
+			<element name="PageImage" type="bn:LinkedResourcesType"></element>
+			<element name="PageSkeleton" type="bn:LinkedResourcesType" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="PatchType">
+		<sequence>
+			<element name="PosX" type="int">
+				<annotation>
+					<documentation>
+						Coordinates of the top left corner
+					</documentation>
+				</annotation>
+			</element>
+			<element name="PosY" type="int">
+				<annotation>
+					<documentation>
+						Coordinates of the top left corner
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Width" type="int"></element>
+			<element name="Height" type="int"></element>
+			<element name="PatchImage"
+				type="bn:LinkedResourcesType">
+			</element>
+			<element name="PatchSkeleton" type="bn:LinkedResourcesType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="PatchesType">
+		<sequence>
+			<element name="Patch" type="bn:PatchType" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+</schema>

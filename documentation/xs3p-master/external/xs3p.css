@@ -1,0 +1,121 @@
+/* XS3P specific CSS */
+body {
+	background-color: #FFF;
+	padding-top: 50px;
+}
+
+.nav > li.active {
+	background-color: #FFF;
+}
+.nav > li > a:hover {
+	background-color: #CCC;
+}
+
+code {
+	color: #333;
+}
+
+.container-fluid {
+	padding: 15px 15px;
+}
+
+.nav-sub-item > a {
+	padding-left: 30px !important;
+}
+
+a.name {
+	padding-top: 65px;
+}
+
+h3.xs3p-subsection-heading {
+	margin-bottom: 30px;
+}
+
+section, #top {
+	margin-top: -65px;
+	padding-top: 65px;
+}
+
+pre {
+	padding: 5px;
+}
+
+.xs3p-sidenav {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #EEE;
+	border-radius: 10px;
+}
+.xs3p-navbar-title {
+	color: #FFF !important;
+	font-weight: bold;
+}
+.xs3p-in-panel-table {
+	margin-bottom: 0px;
+}
+.xs3p-sidebar {
+	position: static;
+}
+.xs3p-collapse-button {
+	font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+	font-family: 'Glyphicons Halflings';
+	content: "\e114";
+	float: left;
+	color: grey;
+	margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+	content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+	color: white;
+}
+.xs3p-panel-help {
+	color: #CCCCCC;
+	cursor: pointer;
+}
+
+.panel-group {
+	margin-bottom: 20px;
+}
+
+.btn-doc {
+	padding: 0px;
+	border: 0px none;
+	background: none repeat scroll 0% 0% transparent;
+	line-height: 1;
+	font-size: 12px;
+}
+
+.unpre {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	white-space: normal;
+	word-break: normal;
+	word-wrap: normal;
+}
+
+.popover {
+	max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+@media (min-width: 992px) {
+	.xs3p-sidebar {
+		position: fixed;
+		top: 65px;
+		width: 22%;
+	}
+}

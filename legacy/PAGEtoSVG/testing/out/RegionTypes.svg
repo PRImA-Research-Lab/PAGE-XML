@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" id="SVGRootID" onload="init()" width="1024" height="810">
+    <style type="text/css"><![CDATA[
+/* Copyright PRImA Research 2010, Stefan Pletschacher */
+
+.svgroot { background: #F1F1F1; margin: 0; padding: 0px; font: 0.9em Verdana;}   
+.docInfo_body    { background-color: #F1F1F1; width: 1000px;}
+.docInfo_topBox  { width: 1000px; height: 90px; margin: 0px;  border: 1px solid #7382BD; }
+.docInfo_leftCol       { float: left; width: 350px; height: 90px; padding: 3px; border-right: 1px solid #7382BD; }
+.docInfo_rightCol      { float: left; width: 600px; height: 90px; padding: 3px; }
+
+.docInfo_leftCol_row1  { float: left; width: 350px; padding: 1px; background: #F1F1F1; }
+.docInfo_leftCol_row2  { float: left; width: 350px; padding: 1px; background: #DBDBDB; }
+.docInfo_leftCol_head  { float: left; width: 150px; }
+.docInfo_leftCol_body  { float: left; width: 200px; }
+
+.docInfo_rightCol_versionHead 	{ float: left; width: 640px; }
+.docInfo_rightCol_versionBody 	{ float: left; width: 640px; }
+.docInfo_rightCol_commentsHead	{ float: left; width: 640px; }
+.docInfo_rightCol_commentsBody	{ float: left; width: 640px; height: 40px; overflow:auto; }
+
+.regInfo_body   { background-color:#F1F1F1; width: 350px; }
+.regInfo_topBox { width: 340px; height: 700px; margin: 0px; border: 1px solid #7382BD; }
+.regInfo_msg    { float: left; width: 340px; padding: 10px; }
+.regInfo_row1   { float: left; width: 320px; padding: 3px; background: #F1F1F1; }
+.regInfo_row2   { float: left; width: 320px; padding: 3px; background: #DBDBDB; }
+.regInfo_rowHead{ float: left; width: 150px; }
+.regInfo_rowBody{ float: left; width: 100px; }
+
+.TextRegion       { stroke: blue; stroke-width:2; fill: blue; fill-opacity:0.1; }
+.TextLine         { stroke: limegreen; stroke-width:2; fill: limegreen; fill-opacity:0.0; }
+.Word             { stroke: firebrick; stroke-width:2; fill: firebrick; fill-opacity:0.0; }
+.Glyph            { stroke: seagreen; stroke-width:2; fill: seagreen; fill-opacity:0.0; }
+.ImageRegion      { stroke: darkturquoise; stroke-width:2; fill: darkturquoise; fill-opacity:0.1; }
+.LineDrawingRegion{ stroke: darkgoldenrod; stroke-width:2; fill: darkgoldenrod; fill-opacity:0.1; }
+.GraphicRegion    { stroke: green; stroke-width:2; fill: green; fill-opacity:0.1; }
+.TableRegion      { stroke: saddlebrown; stroke-width:2; fill: saddlebrown; fill-opacity:0.1; }
+.ChartRegion      { stroke: purple; stroke-width:2; fill: purple; fill-opacity:0.1; }
+.SeparatorRegion  { stroke: magenta; stroke-width:2; fill: magenta; fill-opacity:0.1; }
+.MathsRegion      { stroke: deepskyblue; stroke-width:2; fill: deepskyblue; fill-opacity:0.1; }
+.NoiseRegion      { stroke: red; stroke-width:2; fill: red; fill-opacity:0.1; }
+.FrameRegion      { stroke: slategrey; stroke-width:2; fill: slategrey; fill-opacity:0.1; }
+.UnknownRegion    { stroke: grey; stroke-width:2; fill: grey; fill-opacity:0.1; }
+
+polygon:HOVER     {                  stroke-width:2;                fill-opacity:0.3; }
+
+.Border           { stroke: tomato;   stroke-width:2; fill: none; }
+.Border:HOVER     {                  stroke-width:5; }
+
+.PrintSpace       { stroke: darkgreen; stroke-width:2; fill: none; }
+.PrintSpace:HOVER {                  stroke-width:5; }
+
+.Black            { stroke: #000000; stroke-width:2; fill: #000000; fill-opacity:1.0; }
+.Black:HOVER      { stroke: #888888;                 fill: #888888; fill-opacity:1.0; }
+
+/*
+.Pan		{ stroke: coral; fill: blue; fill-opacity: 0.2; }
+.Pan:HOVER	{ stroke-width: 3; fill-opacity: 0.0; }
+
+.Zoom 		{ stroke: coral; fill: blue; fill-opacity:0.2; }
+.Zoom:HOVER	{ stroke-width:3; fill-opacity:0.0; }
+*/
+
+.Pan		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Pan:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+
+.Zoom 		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Zoom:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+]]></style>
+    <script type="text/ecmascript"><![CDATA[
+/* Copyright PRImA Research 2010-2011, Stefan Pletschacher */
+
+function init() {
+	regionClicked('init');
+}
+
+function panAndZoom(param) {
+	var bgImage = document.getElementById("BgImageID");
+	var docWidth = bgImage.getAttribute("width");
+	var docHeight = bgImage.getAttribute("height");
+	var ContentBox = document.getElementById("ContentBoxID");
+	var ControlBox = document.getElementById("ControlBoxID");
+	var viewBox = ContentBox.getAttribute("viewBox"); 
+	var viewBoxArray = viewBox.split(" ");
+	var newViewBox;
+	var panByFactor = 20;
+	var zoomFactor = 1.3;
+	var panBy = (Math.round(Math.log(docWidth/viewBoxArray[2]) / Math.log(zoomFactor))+1) * -1 * panByFactor;
+	
+	switch(param) {
+	case "resetPan":
+		viewBoxArray[0] = 0;
+		viewBoxArray[1] = 0;
+		break;
+	case "left":
+		viewBoxArray[0] = parseInt(viewBoxArray[0]) + panBy;
+		break;
+	case "right":
+		viewBoxArray[0] = parseInt(viewBoxArray[0]) - panBy;
+		break;
+	case "up":
+		viewBoxArray[1] = parseInt(viewBoxArray[1]) + panBy;
+		break;
+	case "down":
+		viewBoxArray[1] = parseInt(viewBoxArray[1]) - panBy;
+		break;
+	case "resetZoom":
+		viewBoxArray[2] = docWidth;
+		viewBoxArray[3] = docHeight;
+		break;
+	case "in":
+		if (parseInt(viewBoxArray[2]) < 10 || parseInt(viewBoxArray[3]) < 10) {
+			alert("Maximum zoom level reached!");
+		} else {
+			viewBoxArray[2] = Math.round(parseInt(viewBoxArray[2])/zoomFactor);
+			viewBoxArray[3] = Math.round(parseInt(viewBoxArray[3])/zoomFactor);
+		}
+		break;
+	case "out":
+		if (parseInt(viewBoxArray[2]) > (docWidth * 10) || parseInt(viewBoxArray[3]) > (docHeight * 10)) {
+			alert("Maximum zoom level reached!");
+		} else {
+			viewBoxArray[2] = Math.round(parseInt(viewBoxArray[2])*zoomFactor);
+			viewBoxArray[3] = Math.round(parseInt(viewBoxArray[3])*zoomFactor);
+		}
+		break;
+	default:
+		alert("Not defined parameter: " + param);
+	}
+
+	// delete ContentBox temporarily to get around a redraw issue of Chrome (browser) 
+	var parentNode = ContentBox.parentNode;
+	var temp = ContentBox.cloneNode(true)
+	parentNode.removeChild(ContentBox);
+
+	newViewBox = viewBoxArray[0] + " " +
+			viewBoxArray[1] + " " +
+			viewBoxArray[2] + " " +
+			viewBoxArray[3];
+	temp.setAttributeNS(null,"viewBox",newViewBox);
+	parentNode.appendChild(temp);
+
+	// make sure that ControlBox is on top of everything (currently there is no support for z-index in SVG)
+	ControlBox.parentNode.appendChild(ControlBox);
+
+}
+
+function tokenToName(input){
+	switch (input) {
+		case 'Afrikaans':             return 'Afrikaans';             break;
+		case 'Albanian':              return 'Albanian';              break;
+		case 'Amharic':               return 'Amharic';               break;
+		case 'Arabic':                return 'Arabic';                break;
+		case 'bar':                   return 'Bar';                   break;
+		case 'Basque':                return 'Basque';                break;
+		case 'Bengali':               return 'Bengali';               break;
+		case 'bgColour':              return 'Background';            break;
+		case 'bilevel':               return 'Bilevel';               break;
+		case 'black':                 return 'Black';                 break;
+		case 'blue':                  return 'Blue';                  break;
+		case 'borderPresent':         return 'Border';                break;
+		case 'bottom-to-top':         return 'Bottom to top';         break;
+		case 'brown':                 return 'Brown';                 break;
+		case 'Bulgarian':             return 'Bulgarian';             break;
+		case 'Cambodian':             return 'Cambodian';             break;
+		case 'Cantonese':             return 'Cantonese';             break;
+		case 'caption':               return 'Caption';               break;
+		case 'ChartRegion':           return 'Chart';                 break;
+		case 'Chinese':               return 'Chinese';               break;
+		case 'Chinese-simplified':    return 'Chinese (simplified)';  break;
+		case 'Chinese-traditional':   return 'Chinese (traditional)'; break;
+		case 'colour':                return 'Colour';                break;
+		case 'colourDepth':           return 'Colour depth';          break;
+		case 'columns':               return 'Num of columns';        break;
+		case 'credit':                return 'Credit';                break;
+		case 'cyan':                  return 'Cyan';                  break;
+		case 'Cyrillic':              return 'Cyrillic';              break;
+		case 'Czech':                 return 'Czech';                 break;
+		case 'Danish':                return 'Danish';                break;
+		case 'Devangari':             return 'Devangari';             break;
+		case 'drop-capital':          return 'Drop capital';          break;
+		case 'Dutch':                 return 'Dutch';                 break;
+		case 'embText':               return 'Embedded text';         break;
+		case 'English':               return 'English';               break;
+		case 'Estonian':              return 'Estonian';              break;
+		case 'Ethiopic':              return 'Ethiopic';              break;
+		case 'false':                 return 'No';                    break;
+		case 'Finnish':               return 'Finnish';               break;
+		case 'floating':              return 'Floating';              break;
+		case 'fontSize':              return 'Font size';             break;
+		case 'footer':                return 'Footer';                break;
+		case 'FrameRegion':           return 'Frame';                 break;
+		case 'French':                return 'French';                break;
+		case 'Gaelic':                return 'Gaelic';                break;
+		case 'German':                return 'German';                break;
+		case 'GraphicRegion':         return 'Graphic';               break;
+		case 'Greek':                 return 'Greek';                 break;
+		case 'green':                 return 'Green';                 break;
+		case 'grey':                  return 'Grey';                  break;
+		case 'greyscale':             return 'Greyscale';             break;
+		case 'Gujarati':              return 'Gujarati';              break;
+		case 'Gurmukhi':              return 'Gurmukhi';              break;
+		case 'handwritten-annotation':return 'Handwritten annotation';break;
+		case 'header':                return 'Header';                break;
+		case 'heading':               return 'Heading';               break;
+		case 'Hebrew':                return 'Hebrew';                break;
+		case 'Hindi':                 return 'Hindi';                 break;
+		case 'Hungarian':             return 'Hungarian';             break;
+		case 'Icelandic':             return 'Icelandic';             break;
+		case 'id':                    return 'ID';                    break;
+		case 'ImageRegion':           return 'Image';                 break;
+		case 'indented':              return 'Indented';              break;
+		case 'indigo':                return 'Indigo';                break;
+		case 'Italian':               return 'Italian';               break;
+		case 'Japanese':              return 'Japanese';              break;
+		case 'kerning':               return 'Kerning';               break;
+		case 'Korean':                return 'Korean';                break;
+		case 'Latin':                 return 'Latin';                 break;
+		case 'Latvian':               return 'Latvian';               break;
+		case 'leading':               return 'Leading';               break;
+		case 'left-to-right':         return 'Left to right';         break;
+		case 'letterhead':            return 'Letterhead';            break;
+		case 'line':                  return 'Line';                  break;
+		case 'lineColour':            return 'Line colour';           break;
+		case 'LineDrawingRegion':     return 'Line drawing';          break;
+		case 'lineSeparators':        return 'Line separators';       break;
+		case 'logo':                  return 'Logo';                  break;
+		case 'magenta':               return 'Magenta';               break;
+		case 'Malay':                 return 'Malay';                 break;
+		case 'MathsRegion':           return 'Maths';                 break;
+		case 'NoiseRegion':           return 'Noise';                 break;
+		case 'Norwegian':             return 'Norwegian';             break;
+		case 'numColours':            return 'Num of colours';        break;
+		case 'orange':                return 'Orange';                break;
+		case 'orientation':           return 'Orientation';           break;
+		case 'other':                 return 'Other';                 break;
+		case 'page-number':           return 'Page number';           break;
+		case 'paper-grow':            return 'Paper grow';            break;
+		case 'paragraph':             return 'Paragraph';             break;
+		case 'penColour':             return 'Pen colour';            break;
+		case 'pie':                   return 'Pie';                   break;
+		case 'pink':                  return 'Pink';                  break;
+		case 'Polish':                return 'Polish';                break;
+		case 'Portuguese':            return 'Portuguese';            break;
+		case 'primaryLanguage':       return 'Primary language';      break;
+		case 'primaryScript':         return 'Primary script';        break;
+		case 'punch-hole':            return 'Punch hole';            break;
+		case 'Punjabi':               return 'Punjabi';               break;
+		case 'readingDirection':      return 'Reading direction';     break;
+		case 'readingOrientation':    return 'Reading Orientation';   break;
+		case 'red':                   return 'Red';                   break;
+		case 'reverseVideo':          return 'Reverse video';         break;
+		case 'right-to-left':         return 'Right to left';         break;
+		case 'rows':                  return 'Num of rows';           break;
+		case 'Russian':               return 'Russian';               break;
+		case 'scatter':               return 'Scatter';               break;
+		case 'secondaryLanguage':     return 'Secondary language';    break;
+		case 'secondaryScript':       return 'Secondary script';      break;
+		case 'SeparatorRegion':       return 'Separator';             break;
+		case 'signature':             return 'Signature';             break;
+		case 'Spanish':               return 'Spanish';               break;
+		case 'stamp':                 return 'Stamp';                 break;
+		case 'surface':               return 'Surface';               break;
+		case 'Swedish':               return 'Swedish';               break;
+		case 'TableRegion':           return 'Table';                 break;
+		case 'textColour':            return 'Text colour';           break;
+		case 'TextRegion':            return 'Text';                  break;
+		case 'Thai':                  return 'Thai';                  break;
+		case 'top-to-bottom':         return 'Top to bottom';         break;
+		case 'true':                  return 'Yes';                   break;
+		case 'Turkish':               return 'Turkish';               break;
+		case 'turquoise':             return 'Turquoise';             break;
+		case 'type':                  return 'Type';                  break;
+		case 'UnknownRegion':         return 'Unknown';               break;
+		case 'Urdu':                  return 'Urdu';                  break;
+		case 'violet':                return 'Violet';                break;
+		case 'Welsh':                 return 'Welsh';                 break;
+		case 'white':                 return 'White';                 break;
+		case 'yellow':                return 'Yellow';                break;
+		default: return input;
+	}
+}
+
+function escapeStr(inp){
+	// generate escape sequence for special characters
+	var out = "";
+	for (var i = 0; i < inp.length; i++){
+		var c = inp.charAt(i);
+		if (c < "(" || c > "~" || c == "<" || c == ">"){
+			c = "&#" + c.charCodeAt() + ";";
+		}
+		out += c;
+	}
+	return out;
+}
+
+function nl2br4escStr(inp){
+	out=inp.replace(/(&#13;&#10;)|(&#13;)|(&#10;)/g,"<br />");
+    return out;
+}
+
+function regionClicked(evt){
+	// lookup used namespace
+	var usedNamespace;
+	var metadataList=document.getElementById("DocMetadataID");
+	for (i=0; i<metadataList.childNodes.length; i++){
+		if (metadataList.childNodes[i].nodeType==1) {
+			usedNamespace=metadataList.childNodes[i].namespaceURI;
+			break
+		}
+	}
+	//alert(usedNamespace);
+	
+	if (evt!='init') {
+		var targetShape = evt.target;
+		var targetInfo = targetShape.getElementsByTagNameNS(usedNamespace,"RegionInfo")[0]; 
+		var metadataArray = new Array();
+	}
+	var bgImage = document.getElementById("BgImageID");
+	var docMetadata = document.getElementById("DocMetadataID")
+	var ContentBox = document.getElementById("ContentBoxID");
+	var topInfoBox = document.getElementById("TopInfoBoxID");
+	var leftInfoBox = document.getElementById("LeftInfoBoxID");
+	
+	var xOffset = "350";
+	var yOffset = "100";
+	var topInfoBoxWidth = "1024";
+	var leftInfoBoxHeight = "768";
+
+	/* display RegionInfo */
+	var svgNS = "http://www.w3.org/2000/svg";
+    var xhtmlNS = "http://www.w3.org/1999/xhtml";
+
+    // start with removing the old content then add empty groups
+    topInfoBox.parentNode.removeChild(topInfoBox);
+    var newTopInfoBox = document.createElementNS(svgNS,"g");
+    newTopInfoBox.setAttributeNS(null,"id","TopInfoBoxID");
+    document.getElementById("ContentBoxID").parentNode.appendChild(newTopInfoBox);
+    
+    leftInfoBox.parentNode.removeChild(leftInfoBox);
+    var newLeftInfoBox = document.createElementNS(svgNS,"g");
+    newLeftInfoBox.setAttributeNS(null,"id","LeftInfoBoxID");
+    ContentBox.parentNode.appendChild(newLeftInfoBox);
+
+    // top info box    
+    var newForOb = document.createElementNS(svgNS,"foreignObject");
+    newForOb.setAttributeNS(null,"id","FOID1");
+    //newForOb.setAttributeNS(null,"x",evt.clientX);
+    newForOb.setAttributeNS(null,"x","0");
+    newForOb.setAttributeNS(null,"y","0");
+    newForOb.setAttributeNS(null,"width",topInfoBoxWidth);
+    newForOb.setAttributeNS(null,"height",yOffset);
+    document.getElementById("TopInfoBoxID").appendChild(newForOb);
+
+    var newBody = document.createElementNS(xhtmlNS,"body");
+    newBody.setAttributeNS(null,"id","BodyID");
+    newBody.setAttributeNS(null,"style","background-color:white;" +
+    		"font-family:helvetica,sans-serif;font-size:0.8em;");
+    // get data for top info box
+    var documentId;
+	if (docMetadata.getElementsByTagNameNS(usedNamespace,"DocID")[0].firstChild==null) {
+		documentId ="";
+	} else {
+		documentId = docMetadata.getElementsByTagNameNS(usedNamespace,"DocID")[0].firstChild.nodeValue;
+	}
+    var documentCreator;
+	if (docMetadata.getElementsByTagNameNS(usedNamespace,"Creator")[0].firstChild==null) {
+		documentCreator ="";
+	} else {
+		documentCreator = escapeStr(docMetadata.getElementsByTagNameNS(usedNamespace,"Creator")[0].firstChild.nodeValue);
+	}
+    var documentCreated;
+	if (docMetadata.getElementsByTagNameNS(usedNamespace,"Created")[0].firstChild==null) {
+		documentCreated ="";
+	} else {
+		documentCreated = docMetadata.getElementsByTagNameNS(usedNamespace,"Created")[0].firstChild.nodeValue;
+	}
+    var documentLastChange;
+	if (docMetadata.getElementsByTagNameNS(usedNamespace,"LastChange")[0].firstChild==null) {
+		documentLastChange ="";
+	} else {
+		documentLastChange = docMetadata.getElementsByTagNameNS(usedNamespace,"LastChange")[0].firstChild.nodeValue;
+	}
+	var commentText;
+	if (docMetadata.getElementsByTagNameNS(usedNamespace,"Comments").length==0) {
+		commentText ="<i>N/A</i>";
+	} else if (docMetadata.getElementsByTagNameNS(usedNamespace,"Comments")[0].firstChild==null) {
+		commentText ="<i>There are no comments to display</i>";
+	} else {
+		commentText = escapeStr(docMetadata.getElementsByTagNameNS(usedNamespace,"Comments")[0].firstChild.nodeValue);
+	}
+
+	var topInnerHTML = "";
+	topInnerHTML += "\n<div class='docInfo_topBox'>\n";
+		topInnerHTML += "\t<div class='docInfo_leftCol'>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row1'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Document ID</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentId + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row2'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Document Creator</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentCreator + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row1'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Created</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentCreated + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_leftCol_row2'>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_head'><b>Last Change</b></div>\n";
+				topInnerHTML += "\t\t\t<div class='docInfo_leftCol_body'>" + documentLastChange + "</div>\n";
+			topInnerHTML += "\t\t</div>\n";
+		topInnerHTML += "\t</div>\n";
+		topInnerHTML += "\t<div class='docInfo_rightCol'>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_versionHead'><b>Format Version</b></div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_versionBody'>" + usedNamespace + "</div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_commentsHead'><b>Comments</b></div>\n";
+			topInnerHTML += "\t\t<div class='docInfo_rightCol_commentsBody'>" + commentText + "</div>\n";
+		topInnerHTML += "\t</div>\n";
+	topInnerHTML += "</div>\n"; 
+
+    newBody.innerHTML = topInnerHTML;
+    document.getElementById("FOID1").appendChild(newBody);
+
+    // left info box	
+    var newForOb2 = document.createElementNS(svgNS,"foreignObject");
+    newForOb2.setAttributeNS(null,"id","FOID2");
+    newForOb2.setAttributeNS(null,"x","0");
+    newForOb2.setAttributeNS(null,"y",yOffset);
+    newForOb2.setAttributeNS(null,"width",xOffset);
+    newForOb2.setAttributeNS(null,"height",leftInfoBoxHeight);
+    document.getElementById("LeftInfoBoxID").appendChild(newForOb2);
+
+    var newBody2 = document.createElementNS(xhtmlNS,"body");
+    newBody2.setAttributeNS(null,"id","BodyID");
+    newBody2.setAttributeNS(null,"id","BodyID");
+    newBody2.setAttributeNS(null,"style","background-color:white;" +
+    		"font-family:helvetica,sans-serif;font-size:0.8em;");
+
+    
+    // read RegionInfo into metadataArray (Border and PrintSpace don't have such information)
+    if ((evt!='init')&&(targetShape.getAttribute("class")!='Border')&&(targetShape.getAttribute("class")!='PrintSpace')) {
+    	for (i=0; i<targetInfo.attributes.length; i++){
+    		if (targetInfo.attributes[i].nodeName!="xmlns:pc") {
+    			metadataArray[targetInfo.attributes[i].nodeName]=targetInfo.attributes[i].value;
+    		}
+    	}
+    }
+
+	// get text-equivalent if there is any
+    var regionText;
+    if (targetInfo==null) {
+		regionText ="";
+    } else if (targetInfo.getElementsByTagNameNS(usedNamespace,"Text").length==0) {
+		regionText ="";
+	} else if (targetInfo.getElementsByTagNameNS(usedNamespace,"Text")[0].firstChild==null) {
+		//regionText ="<i>n/a</i>";
+		regionText ="";
+	} else {
+		regionText = escapeStr(targetInfo.getElementsByTagNameNS(usedNamespace,"Text")[0].firstChild.nodeValue);
+	}
+    var regionUnicode;
+    if (targetInfo==null) {
+    	regionUnicode ="";
+    } else if (targetInfo.getElementsByTagNameNS(usedNamespace,"Unicode").length==0) {
+		regionUnicode ="";
+	} else if (targetInfo.getElementsByTagNameNS(usedNamespace,"Unicode")[0].firstChild==null) {
+		//regionUnicode ="<i>n/a</i>";
+		regionUnicode ="";
+	} else {
+		regionUnicode = escapeStr(targetInfo.getElementsByTagNameNS(usedNamespace,"Unicode")[0].firstChild.nodeValue);
+	}
+
+	var rowClass = "regInfo_row1";
+	var leftInnerHTML = "";
+	if (evt!='init'){
+		leftInnerHTML += "<div class='regInfo_topBox'>";
+			leftInnerHTML += "<div class='regInfo_msg'>";
+				leftInnerHTML += "<div class='regInfo_row1'>";
+					leftInnerHTML += "<div class='regInfo_rowHead'><b>Region Type</b></div>";
+					leftInnerHTML += "<div class='regInfo_rowBody'>" + tokenToName(targetShape.getAttribute("class")) + "</div>";
+				leftInnerHTML += "</div>";
+				for(var i in metadataArray) {
+						if (rowClass == "regInfo_row1") rowClass = "regInfo_row2"; else rowClass = "regInfo_row1";
+						leftInnerHTML += "<div class='" + rowClass + "'>";
+							leftInnerHTML += "<div class='regInfo_rowHead'><b>" + tokenToName(i.substring(3)) + "</b></div>";
+							leftInnerHTML += "<div class='regInfo_rowBody'>" + tokenToName(metadataArray[i]) + "</div>";
+						leftInnerHTML += "</div>";
+				}
+			leftInnerHTML += "</div>";
+			if (regionUnicode!="") {
+				leftInnerHTML += "<div class='regInfo_msg'>";
+					leftInnerHTML += "<div class='regInfo_row2'><b>Unicode</b></div>";
+					leftInnerHTML += "<div class='regInfo_row1'>" + nl2br4escStr(regionUnicode) + "</div>";
+				leftInnerHTML += "</div>";
+			}
+			if (regionText!="") {
+				leftInnerHTML += "<div class='regInfo_msg'>";
+					leftInnerHTML += "<div class='regInfo_row2'><b>Text</b></div>";
+					leftInnerHTML += "<div class='regInfo_row1'>" + nl2br4escStr(regionText) + "</div>";
+				leftInnerHTML += "</div>";
+			}
+		leftInnerHTML += "</div>";
+	} else {
+		leftInnerHTML = "<div class='regInfo_topBox'><div class='regInfo_msg'><b>Region level metadata will be displayed here when you click on a region.</b></div></div>";
+	}
+    
+    newBody2.innerHTML = leftInnerHTML;
+    document.getElementById("FOID2").appendChild(newBody2);
+}
+]]></script>
+    <metadata id="DocMetadataID">
+        <pc:DocID xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">pc-RegionTypesID</pc:DocID>
+        <pc:Creator xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">PRImA Research Group
+&amp;
+BLA</pc:Creator>
+        <pc:Created xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">2010-02-02T12:28:49</pc:Created>
+        <pc:LastChange xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">2011-06-17T11:13:47</pc:LastChange>
+        <pc:Comments xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19">AAA
+&amp;
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame). This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).
+This is an example for a PAGE page content instance containing all basic region types (apart from Frame).</pc:Comments>
+    </metadata>
+    <g id="TopInfoBoxID"/>
+    <g id="LeftInfoBoxID"/>
+    <svg id="ContentBoxID" x="360" y="110" width="640" height="700" viewBox="0 0 700 800">
+        <image id="BgImageID" x="0" y="0" width="700" height="800" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="RegionTypes.jpg"/>
+        <polygon class="Border" onclick="regionClicked(evt)" points="14,9 218,7 253,3 293,10 354,6 443,6 664,9 691,3 691,189 679,229 692,481 680,664 692,787 603,792 530,787 332,795 185,786 69,793 3,785 10,358 13,119 "/>
+        <polygon class="PrintSpace" onclick="regionClicked(evt)" points="21,13 21,781 671,781 671,13 "/>
+        <polygon class="TextRegion" id="p-r3" onclick="regionClicked(evt)" points="32,100 34,100 34,32 32,32 32,31 95,31 95,36 142,36 142,31 184,31 184,36 233,36 233,31 236,31 236,36 278,36 278,86 275,86 275,82 148,82 148,132 163,132 163,145 169,145 169,146 130,146 130,151 86,151 86,146 32,146 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r3" pc:readingDirection="left-to-right" pc:type="paragraph" pc:textColour="black" pc:primaryLanguage="English" pc:primaryScript="Latin" pc:bgColour="white">
+                    <pc:Text>This is a text region. It contains text lines, words and glyphs.
+	Enter
+	New line...</pc:Text>
+                    <pc:Unicode>Line 1
+Line 2
+Tab from here	end
+&gt;&lt; !"#$%&amp;'()*
+EOF</pc:Unicode>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextLine" id="p-r5" onclick="regionClicked(evt)" points="32,31 95,31 95,36 142,36 142,31 184,31 184,36 233,36 233,31 236,31 236,36 264,36 264,37 265,37 265,39 266,39 266,49 273,49 273,50 230,50 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,50 38,50 38,32 32,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r5">
+                    <pc:Text>This is a text region.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r15" onclick="regionClicked(evt)" points="32,31 67,31 67,36 78,36 78,37 80,37 80,39 81,39 81,45 82,45 82,47 81,47 81,48 80,48 80,49 79,49 79,50 38,50 38,32 32,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r15">
+                    <pc:Text>This</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r115" onclick="regionClicked(evt)" points="32,31 47,31 47,32 41,32 41,50 38,50 38,32 32,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r115" pc:ligature="true">
+                    <pc:Text>T</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r116" onclick="regionClicked(evt)" points="49,31 52,31 52,36 59,36 59,37 60,37 60,39 61,39 61,50 49,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r116">
+                    <pc:Text>h</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r117" onclick="regionClicked(evt)" points="64,31 67,31 67,50 64,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r117">
+                    <pc:Text>i</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r118" onclick="regionClicked(evt)" points="72,36 78,36 78,37 80,37 80,39 81,39 81,45 82,45 82,47 81,47 81,48 80,48 80,49 79,49 79,50 72,50 72,49 71,49 71,48 70,48 70,46 69,46 70,46 70,38 71,38 71,37 72,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r118">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r17" onclick="regionClicked(evt)" points="92,31 95,31 95,36 106,36 106,37 108,37 108,39 109,39 109,45 110,45 110,47 109,47 109,48 108,48 108,49 107,49 107,50 92,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r17">
+                    <pc:Text>is</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r119" onclick="regionClicked(evt)" points="92,31 95,31 95,50 92,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r119">
+                    <pc:Text>i</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r120" onclick="regionClicked(evt)" points="100,36 106,36 106,37 108,37 108,39 109,39 109,45 110,45 110,47 109,47 109,48 108,48 108,49 107,49 107,50 100,50 100,49 99,49 99,48 98,48 98,46 97,46 98,46 98,38 99,38 99,37 100,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r120">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r20" onclick="regionClicked(evt)" points="123,36 130,36 130,37 131,37 131,38 132,38 132,50 122,50 122,49 120,49 120,47 119,47 119,45 120,45 120,38 121,38 121,37 123,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r20">
+                    <pc:Text>a</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r121" onclick="regionClicked(evt)" points="123,36 130,36 130,37 131,37 131,38 132,38 132,50 122,50 122,49 120,49 120,47 119,47 119,45 120,45 120,38 121,38 121,37 123,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r121">
+                    <pc:Text>a</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r21" onclick="regionClicked(evt)" points="146,31 182,31 182,36 184,36 184,50 145,50 145,49 144,49 144,37 142,37 142,36 144,36 144,32 146,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r21">
+                    <pc:Text>text</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r122" onclick="regionClicked(evt)" points="146,31 147,31 147,36 149,36 149,50 145,50 145,49 144,49 144,37 142,37 142,36 144,36 144,32 146,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r122">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r123" onclick="regionClicked(evt)" points="154,36 160,36 160,37 162,37 162,39 163,39 163,41 164,41 164,43 163,43 163,48 162,48 162,49 160,49 160,50 154,50 154,49 153,49 153,48 152,48 152,47 151,47 151,45 150,45 150,41 151,41 151,39 152,39 152,38 153,38 153,37 154,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r123">
+                    <pc:Text>e</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r127" onclick="regionClicked(evt)" points="181,31 182,31 182,36 184,36 184,50 180,50 180,49 179,49 179,37 177,37 177,36 179,36 179,32 181,32 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r127">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r128" onclick="regionClicked(evt)" points="165,36 176,36 176,50 165,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r128">
+                    <pc:Text>x</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r22" onclick="regionClicked(evt)" points="233,31 236,31 236,36 264,36 264,37 265,37 265,39 266,39 266,49 273,49 273,50 230,50 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,50 194,50 194,36 233,36 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r22">
+                    <pc:Text>region.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r129" onclick="regionClicked(evt)" points="194,36 202,36 202,37 201,37 201,38 198,38 198,39 197,39 197,50 194,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r129">
+                    <pc:Text>r</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r131" onclick="regionClicked(evt)" points="206,36 212,36 212,37 214,37 214,39 215,39 215,41 216,41 216,43 215,43 215,48 214,48 214,49 212,49 212,50 206,50 206,49 205,49 205,48 204,48 204,47 203,47 203,45 202,45 202,41 203,41 203,39 204,39 204,38 205,38 205,37 206,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r131">
+                    <pc:Text>e</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r132" onclick="regionClicked(evt)" points="221,36 230,36 230,51 229,51 229,53 228,53 228,54 226,54 226,55 220,55 220,54 219,54 219,53 218,53 218,46 217,46 217,40 219,40 219,37 221,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r132">
+                    <pc:Text>g</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r133" onclick="regionClicked(evt)" points="233,31 236,31 236,50 233,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r133">
+                    <pc:Text>i</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r172" onclick="regionClicked(evt)" points="242,36 248,36 248,37 249,37 249,38 250,38 250,39 251,39 251,41 252,41 252,45 251,45 251,47 250,47 250,48 249,48 249,49 248,49 248,50 242,50 242,49 241,49 241,48 240,48 240,47 239,47 239,45 238,45 238,41 239,41 239,39 240,39 240,38 241,38 241,37 242,37 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r172">
+                    <pc:Text>o</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r175" onclick="regionClicked(evt)" points="254,36 264,36 264,37 265,37 265,39 266,39 266,50 254,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r175">
+                    <pc:Text>n</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r176" onclick="regionClicked(evt)" points="270,49 273,49 273,50 270,50 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r176">
+                    <pc:Text>.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextLine" id="p-r7" onclick="regionClicked(evt)" points="34,63 227,63 227,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,81 278,81 278,85 277,85 277,86 275,86 275,82 34,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r7">
+                    <pc:Text>It contains text lines,</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r23" onclick="regionClicked(evt)" points="34,63 45,63 45,68 47,68 47,82 34,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r23">
+                    <pc:Text>It</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r136" onclick="regionClicked(evt)" points="34,63 37,63 37,82 34,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r136">
+                    <pc:Text>I</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r137" onclick="regionClicked(evt)" points="44,63 45,63 45,68 47,68 47,82 43,82 43,81 42,81 42,69 40,69 40,68 42,68 42,64 44,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r137">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r25" onclick="regionClicked(evt)" points="104,63 127,63 127,68 153,68 153,69 155,69 155,71 156,71 156,77 157,77 157,79 156,79 156,80 155,80 155,81 154,81 154,82 60,82 60,81 58,81 58,79 57,79 57,76 56,76 56,74 57,74 57,71 58,71 58,69 60,69 60,68 102,68 102,64 104,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r25">
+                    <pc:Text>contains</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r138" onclick="regionClicked(evt)" points="60,68 65,68 65,69 67,69 67,71 68,71 68,79 67,79 67,81 65,81 65,82 60,82 60,81 58,81 58,79 57,79 57,76 56,76 56,74 57,74 57,71 58,71 58,69 60,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r138">
+                    <pc:Text>c</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r139" onclick="regionClicked(evt)" points="74,68 80,68 80,69 81,69 81,70 82,70 82,71 83,71 83,73 84,73 84,77 83,77 83,79 82,79 82,80 81,80 81,81 80,81 80,82 74,82 74,81 73,81 73,80 72,80 72,79 71,79 71,77 70,77 70,73 71,73 71,71 72,71 72,70 73,70 73,69 74,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r139">
+                    <pc:Text>o</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r140" onclick="regionClicked(evt)" points="86,68 96,68 96,69 97,69 97,71 98,71 98,82 86,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r140">
+                    <pc:Text>n</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r141" onclick="regionClicked(evt)" points="104,63 105,63 105,68 107,68 107,82 103,82 103,81 102,81 102,69 100,69 100,68 102,68 102,64 104,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r141">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r142" onclick="regionClicked(evt)" points="112,68 119,68 119,69 120,69 120,70 121,70 121,82 111,82 111,81 109,81 109,79 108,79 108,77 109,77 109,70 110,70 110,69 112,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r142">
+                    <pc:Text>a</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r143" onclick="regionClicked(evt)" points="124,63 127,63 127,82 124,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r143">
+                    <pc:Text>i</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r144" onclick="regionClicked(evt)" points="130,68 140,68 140,69 141,69 141,71 142,71 142,82 130,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r144">
+                    <pc:Text>n</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r145" onclick="regionClicked(evt)" points="147,68 153,68 153,69 155,69 155,71 156,71 156,77 157,77 157,79 156,79 156,80 155,80 155,81 154,81 154,82 147,82 147,81 146,81 146,80 145,80 145,78 144,78 145,78 145,70 146,70 146,69 147,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r145">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r27" onclick="regionClicked(evt)" points="170,63 206,63 206,68 208,68 208,82 169,82 169,81 168,81 168,69 166,69 166,68 168,68 168,64 170,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r27">
+                    <pc:Text>text</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r146" onclick="regionClicked(evt)" points="170,63 171,63 171,68 173,68 173,82 169,82 169,81 168,81 168,69 166,69 166,68 168,68 168,64 170,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r146">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r147" onclick="regionClicked(evt)" points="178,68 184,68 184,69 186,69 186,71 187,71 187,73 188,73 188,75 187,75 187,80 186,80 186,81 184,81 184,82 178,82 178,81 177,81 177,80 176,80 176,79 175,79 175,77 174,77 174,73 175,73 175,71 176,71 176,70 177,70 177,69 178,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r147">
+                    <pc:Text>e</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r149" onclick="regionClicked(evt)" points="205,63 206,63 206,68 208,68 208,82 204,82 204,81 203,81 203,69 201,69 201,68 203,68 203,64 205,64 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r149">
+                    <pc:Text>t</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r150" onclick="regionClicked(evt)" points="189,68 199,68 199,81 200,81 200,82 189,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r150">
+                    <pc:Text>x</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r28" onclick="regionClicked(evt)" points="218,63 227,63 227,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,81 278,81 278,85 277,85 277,86 275,86 275,82 218,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r28">
+                    <pc:Text>lines,</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r151" onclick="regionClicked(evt)" points="218,63 221,63 221,82 218,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r151">
+                    <pc:Text>l</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r152" onclick="regionClicked(evt)" points="224,63 227,63 227,82 224,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r152">
+                    <pc:Text>i</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r155" onclick="regionClicked(evt)" points="248,68 254,68 254,69 256,69 256,71 257,71 257,73 258,73 258,75 257,75 257,80 256,80 256,81 254,81 254,82 248,82 248,81 247,81 247,80 246,80 246,79 245,79 245,77 244,77 244,73 245,73 245,71 246,71 246,70 247,70 247,69 248,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r155">
+                    <pc:Text>e</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r156" onclick="regionClicked(evt)" points="262,68 268,68 268,69 270,69 270,71 271,71 271,77 272,77 272,79 271,79 271,80 270,80 270,81 269,81 269,82 262,82 262,81 261,81 261,80 260,80 260,78 259,78 260,78 260,70 261,70 261,69 262,69 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r156">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r157" onclick="regionClicked(evt)" points="275,81 278,81 278,85 277,85 277,86 275,86 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r157">
+                    <pc:Text>,</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r173" onclick="regionClicked(evt)" points="230,68 240,68 240,69 241,69 241,71 242,71 242,82 230,82 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r173">
+                    <pc:Text>n</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextLine" id="p-r9" onclick="regionClicked(evt)" points="85,95 88,95 88,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103 32,100 85,100 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r9">
+                    <pc:Text>words</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r13" onclick="regionClicked(evt)" points="85,95 88,95 88,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103 32,100 85,100 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r13">
+                    <pc:Text>words</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r158" onclick="regionClicked(evt)" points="32,100 50,100 50,103 49,103 49,106 48,106 48,110 47,110 47,113 46,113 46,114 35,114 35,110 34,110 34,107 33,107 33,103 32,103 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r158">
+                    <pc:Text>w</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r159" onclick="regionClicked(evt)" points="55,100 61,100 61,101 62,101 62,102 63,102 63,103 64,103 64,105 65,105 65,109 64,109 64,111 63,111 63,112 62,112 62,113 61,113 61,114 55,114 55,113 54,113 54,112 53,112 53,111 52,111 52,109 51,109 51,105 52,105 52,103 53,103 53,102 54,102 54,101 55,101 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r159">
+                    <pc:Text>o</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r160" onclick="regionClicked(evt)" points="67,100 75,100 75,101 74,101 74,102 71,102 71,103 70,103 70,114 67,114 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r160">
+                    <pc:Text>r</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r161" onclick="regionClicked(evt)" points="85,95 88,95 88,114 79,114 79,113 77,113 77,111 76,111 76,109 75,109 75,105 76,105 76,103 77,103 77,101 79,101 79,100 85,100 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r161">
+                    <pc:Text>d</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r162" onclick="regionClicked(evt)" points="93,100 99,100 99,101 101,101 101,103 102,103 102,109 103,109 103,111 102,111 102,112 101,112 101,113 100,113 100,114 93,114 93,113 92,113 92,112 91,112 91,110 90,110 91,110 91,102 92,102 92,101 93,101 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r162">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="TextLine" id="p-r10" onclick="regionClicked(evt)" points="72,127 139,127 139,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,145 169,145 169,146 124,146 124,151 88,151 88,150 87,150 87,149 86,149 86,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133 36,132 72,132 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r10">
+                    <pc:Text>and glyphs.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r29" onclick="regionClicked(evt)" points="72,127 75,127 75,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133 36,132 72,132 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r29">
+                    <pc:Text>and</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r163" onclick="regionClicked(evt)" points="36,132 43,132 43,133 44,133 44,134 45,134 45,146 35,146 35,145 33,145 33,143 32,143 32,141 33,141 33,134 34,134 34,133 36,133 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r163">
+                    <pc:Text>a</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r164" onclick="regionClicked(evt)" points="48,132 58,132 58,133 59,133 59,135 60,135 60,146 48,146 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r164">
+                    <pc:Text>n</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r165" onclick="regionClicked(evt)" points="72,127 75,127 75,146 66,146 66,145 64,145 64,143 63,143 63,141 62,141 62,137 63,137 63,135 64,135 64,133 66,133 66,132 72,132 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r165">
+                    <pc:Text>d</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Word" id="p-r30" onclick="regionClicked(evt)" points="101,127 139,127 139,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,145 169,145 169,146 124,146 124,151 88,151 88,150 87,150 87,149 86,149 86,141 85,141 85,137 86,137 86,135 87,135 87,133 89,133 89,132 101,132 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r30">
+                    <pc:Text>glyphs.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r166" onclick="regionClicked(evt)" points="89,132 98,132 98,147 97,147 97,149 96,149 96,150 94,150 94,151 88,151 88,150 87,150 87,149 86,149 86,141 85,141 85,137 86,137 86,135 87,135 87,133 89,133 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r166">
+                    <pc:Text>g</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r167" onclick="regionClicked(evt)" points="101,127 104,127 104,146 101,146 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r167">
+                    <pc:Text>l</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r168" onclick="regionClicked(evt)" points="106,132 119,132 119,134 118,134 118,136 117,136 117,139 116,139 116,141 115,141 115,144 114,144 114,147 113,147 113,149 112,149 112,150 111,150 111,151 107,151 107,133 106,133 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r168">
+                    <pc:Text>y</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r169" onclick="regionClicked(evt)" points="121,132 130,132 130,133 132,133 132,134 133,134 133,136 134,136 134,141 133,141 133,144 132,144 132,145 130,145 130,146 124,146 124,151 121,151 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r169">
+                    <pc:Text>p</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r170" onclick="regionClicked(evt)" points="136,127 139,127 139,132 146,132 146,133 147,133 147,135 148,135 148,146 136,146 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r170">
+                    <pc:Text>h</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r179" onclick="regionClicked(evt)" points="153,132 159,132 159,133 161,133 161,135 162,135 162,141 163,141 163,143 162,143 162,144 161,144 161,145 160,145 160,146 153,146 153,145 152,145 152,144 151,144 151,142 150,142 151,142 151,134 152,134 152,133 153,133 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r179">
+                    <pc:Text>s</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="Glyph" id="p-r180" onclick="regionClicked(evt)" points="166,145 169,145 169,146 166,146 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r180">
+                    <pc:Text>.</pc:Text>
+                    <pc:Unicode/>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="ImageRegion" id="p-r181" onclick="regionClicked(evt)" points="335,28 531,28 531,145 335,145 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r181"/>
+            </metadata>
+        </polygon>
+        <polygon class="LineDrawingRegion" id="p-r182" onclick="regionClicked(evt)" points="28,193 224,193 224,310 28,310 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r182"/>
+            </metadata>
+        </polygon>
+        <polygon class="GraphicRegion" id="p-r183" onclick="regionClicked(evt)" points="335,194 531,194 531,311 335,311 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r183"/>
+            </metadata>
+        </polygon>
+        <polygon class="TableRegion" id="p-r184" onclick="regionClicked(evt)" points="27,345 223,345 223,462 27,462 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r184"/>
+            </metadata>
+        </polygon>
+        <polygon class="ChartRegion" id="p-r185" onclick="regionClicked(evt)" points="338,344 534,344 534,461 338,461 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r185"/>
+            </metadata>
+        </polygon>
+        <polygon class="SeparatorRegion" id="p-r186" onclick="regionClicked(evt)" points="29,506 225,506 225,623 29,623 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r186"/>
+            </metadata>
+        </polygon>
+        <polygon class="MathsRegion" id="p-r187" onclick="regionClicked(evt)" points="339,504 535,504 535,621 339,621 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r187"/>
+            </metadata>
+        </polygon>
+        <polygon class="NoiseRegion" id="p-r188" onclick="regionClicked(evt)" points="31,658 227,658 227,775 31,775 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r188"/>
+            </metadata>
+        </polygon>
+        <polygon class="UnknownRegion" id="p-r189" onclick="regionClicked(evt)" points="339,654 535,654 535,771 339,771 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r189"/>
+            </metadata>
+        </polygon>
+        <polygon class="TextRegion" id="p-r84" onclick="regionClicked(evt)" points="588,28 660,28 660,771 588,771 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r84">
+                    <pc:Text/>
+                    <pc:Unicode>Text
+½æÆàÀãÃäÄçÇ
+☞</pc:Unicode>
+                </pc:RegionInfo>
+            </metadata>
+        </polygon>
+        <polygon class="FrameRegion" id="p-r87" onclick="regionClicked(evt)" points="245,188 245,777 312,777 312,188 ">
+            <metadata>
+                <pc:RegionInfo xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-03-19" pc:id="r87" pc:bgColour="grey" pc:borderPresent="false"/>
+            </metadata>
+        </polygon>
+    </svg>
+    <svg id="ControlBoxID" x="360" y="110" width="135" height="60">
+        <polygon class="Pan" id="ArrowLeftID" points="0,7 6,0 6,5 14,4 14,10 6,9 6,14" transform="translate(10 23)" onclick="panAndZoom('left')"/>
+        <polygon class="Pan" id="ResetPanningID" points="0,0 8,0 8,8 0,8" transform="translate(27 26)" onclick="panAndZoom('resetPan')"/>
+        <polygon class="Pan" id="ArrowRightID" points="0,4 8,5 8,0 14,7 8,14 8,9 0,10" transform="translate(38 23)" onclick="panAndZoom('right')"/>
+        <polygon class="Pan" id="ArrowDownID" points="0,8 5,8 4,0 10,0 9,8 14,8 7,14" transform="translate(24 37)" onclick="panAndZoom('down')"/>
+        <polygon class="Pan" id="ArrowUpID" points="0,6 7,0 14,6 9,6 10,14 4,14 5,6" transform="translate(24 9)" onclick="panAndZoom('up')"/>
+        <polygon class="Zoom" id="ZoomInID" points="6,6 6,0 12,0 12,6 18,6 18,12 12,12 12,18 6,18 6,12 0,12 0,6" transform="translate(69 21)" onclick="panAndZoom('in')"/>
+        <polygon class="Zoom" id="ResetZoomID" points="0,0 8,0 8,8 0,8" transform="translate(91 26)" onclick="panAndZoom('resetZoom')"/>
+        <polygon class="Zoom" id="ZoomOutID" points="0,0 18,0 18,6 0,6" transform="translate(103 27)" onclick="panAndZoom('out')"/>
+    </svg>
+</svg>

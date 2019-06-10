@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2017-07-15/pagecontent.xsd">
+	<Metadata>
+	<Creator></Creator>
+	<Created>2017-05-03T10:20:47</Created>
+	<LastChange>2018-01-24T12:14:17</LastChange></Metadata>
+	<Page imageFilename="SimplePage.png" imageWidth="800" imageHeight="600">
+	<ReadingOrder>
+	<OrderedGroup id="ro357564684568544579089">
+	<RegionRefIndexed regionRef="r0" index="0"/>
+	<RegionRefIndexed regionRef="r1" index="1"/>
+	<RegionRefIndexed regionRef="r2" index="2"/></OrderedGroup></ReadingOrder>
+	<TextRegion id="r0" type="heading">
+	<Coords points="25,30 25,55 235,55 235,30"/>
+	<TextLine id="l0">
+	<Coords points="25,30 25,55 235,55 235,30"/>
+	<TextEquiv>
+	<Unicode></Unicode></TextEquiv></TextLine>
+	<TextEquiv>
+	<Unicode>The PAGE Format</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r1" type="paragraph">
+	<Coords points="25,60 25,300 400,300 400,60"/>
+	<TextEquiv>
+	<Unicode>There is a plethora of established and proposed
+document representation formats but none that can
+adequately support individual stages within an entire
+sequence of document image analysis methods
+(from document image enhancement to layout
+analysis to OCR) and their evaluation. This paper
+describes PAGE, a new XML-based page image
+representation framework that records information on
+image characteristics (image borders, geometric
+distortions and corresponding corrections,
+binarisation etc.) in addition to layout structure and
+page content.</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r2" type="paragraph">
+	<Coords points="25,310 25,430 400,430 400,310"/>
+	<TextEquiv>
+	<Unicode>The suitability of the framework to the evaluation
+of entire workflows as well as individual stages has
+been extensively validated by using it in high-profile
+applications such as in public contemporary and
+historical ground-truthed datasets and in the ICDAR
+Page Segmentation competition series.</Unicode></TextEquiv></TextRegion>
+	<TableRegion id="r3" lineSeparators="true">
+	<Coords points="25,475 25,560 400,560 400,475"/>
+	<TextRegion id="r5" type="paragraph">
+	<Coords points="40,485 40,500 120,500 120,485"/>
+	<TextEquiv>
+	<Unicode>Column 1</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r6" type="paragraph">
+	<Coords points="160,485 160,500 240,500 240,485"/>
+	<TextEquiv>
+	<Unicode>Column 2</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r7" type="paragraph">
+	<Coords points="280,485 280,500 360,500 360,485"/>
+	<TextEquiv>
+	<Unicode>Column 3</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r8" type="paragraph">
+	<Coords points="40,505 40,525 85,525 85,505"/>
+	<TextEquiv>
+	<Unicode>Cell 1</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r9" type="paragraph">
+	<Coords points="160,505 160,525 210,525 210,505"/>
+	<TextEquiv>
+	<Unicode>Cell 2</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r10" type="paragraph">
+	<Coords points="280,505 280,525 330,525 330,505"/>
+	<TextEquiv>
+	<Unicode>Cell 3</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r11" type="paragraph">
+	<Coords points="40,530 40,550 85,550 85,530"/>
+	<TextEquiv>
+	<Unicode>Cell 4</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r12" type="paragraph">
+	<Coords points="160,530 160,550 210,550 210,530"/>
+	<TextEquiv>
+	<Unicode>Cell 5</Unicode></TextEquiv></TextRegion>
+	<TextRegion id="r13" type="paragraph">
+	<Coords points="280,530 280,550 330,550 330,530"/>
+	<TextEquiv>
+	<Unicode>Cell 6</Unicode></TextEquiv></TextRegion></TableRegion>
+	<GraphicRegion id="r4">
+	<Coords points="430,60 430,450 765,450 765,60"/></GraphicRegion></Page></PcGts>

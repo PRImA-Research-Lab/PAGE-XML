@@ -1,0 +1,6 @@
+2010-01-12
+*	The number of regions is now 0..unbounded (before it was 1..unbounded)
+	This change was necessary to allow instances only containing border or
+	print space data
+*	In order to reflect this change, the namespace has been updated to
+	http://schema.primaresearch.org/PAGE/gts/pagecontent/2010-01-12

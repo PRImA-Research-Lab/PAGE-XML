@@ -1,0 +1,7 @@
+PRImA Page Analysis and Ground-truth Elements (PAGE) Format - Dewarping Schema
+
+
+2014-08-26 clc c.clausner@primaresearch.org
+
+*	Complete redesign
+

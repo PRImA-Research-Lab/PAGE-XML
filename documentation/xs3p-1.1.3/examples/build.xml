@@ -1,0 +1,40 @@
+<project name="TestAnt" default="all" basedir=".">
+	<description>Script to generate documentation for example schema files using Ant.</description>
+
+	<property name="original-loc" value=".."/>
+	<property name="xslt-file" value="xs3p.xsl"/>
+	<property name="target-dir" value="ant-results"/>
+
+	<target name="all" description="Generates documentation for all *.xsd files.">
+      <xslt basedir="." destdir="${target-dir}"
+       extension=".html" style="${original-loc}/${xslt-file}">
+         <include name="*.xsd"/>
+      </xslt>
+	</target>
+
+	<target name="test-external-links" description="Test linking between schema files.">
+      <!-- Copy xslt file to local dir. -->
+      <copy file="${original-loc}/${xslt-file}" todir="${basedir}"/>
+      <!-- address.xsd -->
+      <xslt in="address.xsd" out="${target-dir}/address.xsd.html" style="${xslt-file}">
+         <param name="searchImportedSchemas" expression="true"/>
+         <param name="searchIncludedSchemas" expression="true"/>
+         <param name="linksFile" expression="links.xml"/>
+      </xslt>
+      <!-- ipo.xsd -->
+      <xslt in="ipo.xsd" out="${target-dir}/ipo.xsd.html" style="${xslt-file}">
+         <param name="searchImportedSchemas" expression="true"/>
+         <param name="searchIncludedSchemas" expression="true"/>
+         <param name="linksFile" expression="links.xml"/>
+      </xslt>
+      <!-- report.xsd -->
+      <xslt in="report.xsd" out="${target-dir}/report.xsd.html" style="${xslt-file}">
+         <param name="searchImportedSchemas" expression="true"/>
+         <param name="searchIncludedSchemas" expression="true"/>
+         <param name="linksFile" expression="links.xml"/>
+      </xslt>
+      <!-- Delete local copy of xslt file. -->
+      <delete file="${basedir}/${xslt-file}"/>
+	</target>
+
+</project>

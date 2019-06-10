@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style type="text/css"><![CDATA[
+/* Copyright PRImA Research 2010, Stefan Pletschacher */
+
+.svgroot { background: #F1F1F1; margin: 0; padding: 0px; font: 0.9em Verdana;}   
+.docInfo_body    { background-color: #F1F1F1; width: 1000px;}
+.docInfo_topBox  { width: 1000px; height: 90px; margin: 0px;  border: 1px solid #7382BD; }
+.docInfo_leftCol       { float: left; width: 350px; height: 90px; padding: 3px; border-right: 1px solid #7382BD; }
+.docInfo_rightCol      { float: left; width: 600px; height: 90px; padding: 3px; }
+
+.docInfo_leftCol_row1  { float: left; width: 350px; padding: 1px; background: #F1F1F1; }
+.docInfo_leftCol_row2  { float: left; width: 350px; padding: 1px; background: #DBDBDB; }
+.docInfo_leftCol_head  { float: left; width: 150px; }
+.docInfo_leftCol_body  { float: left; width: 200px; }
+
+.docInfo_rightCol_versionHead 	{ float: left; width: 640px; }
+.docInfo_rightCol_versionBody 	{ float: left; width: 640px; }
+.docInfo_rightCol_commentsHead	{ float: left; width: 640px; }
+.docInfo_rightCol_commentsBody	{ float: left; width: 640px; height: 40px; overflow:auto; }
+
+.regInfo_body   { background-color:#F1F1F1; width: 350px; }
+.regInfo_topBox { width: 340px; height: 700px; margin: 0px; border: 1px solid #7382BD; }
+.regInfo_msg    { float: left; width: 340px; padding: 10px; }
+.regInfo_row1   { float: left; width: 320px; padding: 3px; background: #F1F1F1; }
+.regInfo_row2   { float: left; width: 320px; padding: 3px; background: #DBDBDB; }
+.regInfo_rowHead{ float: left; width: 150px; }
+.regInfo_rowBody{ float: left; width: 100px; }
+
+.TextRegion       { stroke: blue; stroke-width:2; fill: blue; fill-opacity:0.1; }
+.TextLine         { stroke: limegreen; stroke-width:2; fill: limegreen; fill-opacity:0.0; }
+.Word             { stroke: firebrick; stroke-width:2; fill: firebrick; fill-opacity:0.0; }
+.Glyph            { stroke: seagreen; stroke-width:2; fill: seagreen; fill-opacity:0.0; }
+.ImageRegion      { stroke: darkturquoise; stroke-width:2; fill: darkturquoise; fill-opacity:0.1; }
+.LineDrawingRegion{ stroke: darkgoldenrod; stroke-width:2; fill: darkgoldenrod; fill-opacity:0.1; }
+.GraphicRegion    { stroke: green; stroke-width:2; fill: green; fill-opacity:0.1; }
+.TableRegion      { stroke: saddlebrown; stroke-width:2; fill: saddlebrown; fill-opacity:0.1; }
+.ChartRegion      { stroke: purple; stroke-width:2; fill: purple; fill-opacity:0.1; }
+.SeparatorRegion  { stroke: magenta; stroke-width:2; fill: magenta; fill-opacity:0.1; }
+.MathsRegion      { stroke: deepskyblue; stroke-width:2; fill: deepskyblue; fill-opacity:0.1; }
+.NoiseRegion      { stroke: red; stroke-width:2; fill: red; fill-opacity:0.1; }
+.FrameRegion      { stroke: slategrey; stroke-width:2; fill: slategrey; fill-opacity:0.1; }
+.UnknownRegion    { stroke: grey; stroke-width:2; fill: grey; fill-opacity:0.1; }
+.AdvertRegion     { stroke: steelblue; stroke-width:2; fill: steelblue; fill-opacity:0.1; }
+.MusicRegion      { stroke: darkviolet; stroke-width:2; fill: darkviolet; fill-opacity:0.1; }
+.ChemRegion       { stroke: darkorange; stroke-width:2; fill: darkorange; fill-opacity:0.1; }
+
+polygon:HOVER     {                  stroke-width:2;                fill-opacity:0.3; }
+
+.Border           { stroke: tomato;   stroke-width:2; fill: none; }
+.Border:HOVER     {                  stroke-width:5; }
+
+.PrintSpace       { stroke: darkgreen; stroke-width:2; fill: none; }
+.PrintSpace:HOVER {                  stroke-width:5; }
+
+.Black            { stroke: #000000; stroke-width:2; fill: #000000; fill-opacity:1.0; }
+.Black:HOVER      { stroke: #888888;                 fill: #888888; fill-opacity:1.0; }
+
+/*
+.Pan		{ stroke: coral; fill: blue; fill-opacity: 0.2; }
+.Pan:HOVER	{ stroke-width: 3; fill-opacity: 0.0; }
+
+.Zoom 		{ stroke: coral; fill: blue; fill-opacity:0.2; }
+.Zoom:HOVER	{ stroke-width:3; fill-opacity:0.0; }
+*/
+
+.Pan		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Pan:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+
+.Zoom 		{ stroke: black; stroke-width: 2; fill: gray; fill-opacity: 0.5; }
+.Zoom:HOVER	{ cursor:pointer;                             fill-opacity: 1.0; }
+]]></style>
