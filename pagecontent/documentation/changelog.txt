@@ -215,5 +215,9 @@
 *	Added "AlternativeImage" as optional child element to Region, TextLine, Word, and Glyph. External image for the respective object.
 
 
+2019-07-15
 
+*	Added TextStyle to Page element (default text style for whole page)
+
+*	Added underlineStyle attribute to TextStyleType (valid values: singleLine, doubleLine, other)
 
