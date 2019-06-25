@@ -219,5 +219,7 @@
 
 *	Added TextStyle to Page element (default text style for whole page)
 
+*	Added "orientation" float attribute to Page element (skew for the whole page)
+
 *	Added underlineStyle attribute to TextStyleType (valid values: singleLine, doubleLine, other)
 

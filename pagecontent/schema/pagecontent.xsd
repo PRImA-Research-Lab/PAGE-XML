@@ -272,6 +272,19 @@
 				<documentation>For generic use</documentation>
 			</annotation>
 		</attribute>
+		<attribute name="orientation" type="float">
+			<annotation>
+				<documentation>
+				The angle the rectangle encapsulating the page
+				(or its Border)	has to be rotated in clockwise direction
+				in order to correct the present skew
+				(negative values indicate anti-clockwise rotation).
+				(The rotated image can be further referenced
+				via “AlternativeImage”.)
+				Range: -179.999,180
+				</documentation>
+			</annotation>
+		</attribute>
 		<attribute name="type" type="pc:PageTypeSimpleType">
 			<annotation>
 				<documentation>
@@ -358,10 +371,12 @@
 			<attribute name="orientation" type="float">
 				<annotation>
 					<documentation>
-					The angle the rectangle encapsulating a region
+					The angle the rectangle encapsulating the region
 					has to be rotated in clockwise direction
 					in order to correct the present skew
 					(negative values indicate anti-clockwise rotation).
+					(The rotated image can be further referenced
+					via “AlternativeImage”.)
 					Range: -179.999,180
 					</documentation>
 				</annotation>
@@ -401,11 +416,12 @@
 			<attribute name="readingOrientation" type="float">
 				<annotation>
 					<documentation>
-					The angle the baseline of text within a region
+					The angle the baseline of text within the region
 					has to be rotated (relative to the rectangle
 					encapsulating the region) in clockwise direction
-					in order to correct the present skew (negative values
-					indicate anti-clockwise rotation).
+					in order to correct the present skew,
+					in addition to “orientation”
+					(negative values indicate anti-clockwise rotation).
 					Range: -179.999,180
 					</documentation>
 				</annotation>
