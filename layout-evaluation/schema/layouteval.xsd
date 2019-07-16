@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<schema targetNamespace="http://schema.primaresearch.org/PAGE/eval/layout/2018-07-15" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ev="http://schema.primaresearch.org/PAGE/eval/layout/2018-07-15">
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/eval/layout/2019-07-15" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ev="http://schema.primaresearch.org/PAGE/eval/layout/2019-07-15">
   <element name="Eval" type="ev:EvalType">
     <annotation>
       <documentation>Evaluation - Metadata, Profile and Results</documentation>
@@ -102,6 +102,15 @@
   				<documentation>
   					weights per error type (merge, split, ...) for
   					glyphs
+  				</documentation>
+  			</annotation>
+  		</element>
+  		<element name="ReadingOrderGroupWeights"
+  			type="ev:TextSubStructureWeightsType">
+  			<annotation>
+  				<documentation>
+  					weights per error type (merge, split, ...) for
+  					reading order groups
   				</documentation>
   			</annotation>
   		</element>
@@ -326,11 +335,11 @@
   <complexType name="EvalDataType">
     <sequence>
     	<element name="PageObjectResults"
-    		type="ev:PageObjectResultsType" minOccurs="0" maxOccurs="4">
+    		type="ev:PageObjectResultsType" minOccurs="0" maxOccurs="5">
     		<annotation>
     			<documentation>
     				Results (raw data + metrics) per page object level
-    				(region, text line, word or glyph)
+    				(region, text line, word, glyph, or reading order group)
     			</documentation>
     		</annotation>
     	</element>
@@ -372,7 +381,7 @@
     </sequence>
     <attribute name="type" type="ev:PageObjectTypeSimpleType" use="required">
       <annotation>
-      	<documentation>Page object level (regions, text lines, words or glyphs)</documentation>
+      	<documentation>Page object level (regions, text lines, words, glyphs, or reading order groups)</documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -753,7 +762,7 @@
     </attribute>
     <attribute name="ocrSuccessRate" type="float" use="optional">
       <annotation>
-        <documentation>Overall success rate of OCR (for this level of page elements (region, line, word or glyph))</documentation>
+        <documentation>Overall success rate of OCR (for this level of page elements (region, line, word, glyph, or reading order group))</documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -857,6 +866,7 @@
   		<enumeration value="text-line"></enumeration>
   		<enumeration value="word"></enumeration>
   		<enumeration value="glyph"></enumeration>
+  		<enumeration value="group"></enumeration>
   	</restriction>
   </simpleType>
 
