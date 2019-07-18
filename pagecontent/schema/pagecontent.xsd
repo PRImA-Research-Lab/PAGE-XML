@@ -473,7 +473,15 @@
 	<complexType name="CoordsType">
 		<attribute name="points" type="pc:PointsType" use="required">
 			<annotation>
-				<documentation>Point list with format "x1,y1 x2,y2 ..."</documentation>
+				<documentation>
+				Polygon outline of the element as a path of points.
+				No points may lie outside the outline of its parent,
+				which in the case of Border is the bounding rectangle
+				of the root image. Paths are closed by convention,
+				i.e. the last point logically connects with the first
+				(and at least 3 points are required to span an area).
+				Paths must be planar (i.e. must not self-intersect).
+				</documentation>
 			</annotation>
 		</attribute>
 		<attribute name="conf" type="pc:ConfSimpleType">
@@ -493,7 +501,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Coords" type="pc:CoordsType"></element>
+			<element name="Coords" type="pc:CoordsType"/>
 			<element name="Baseline" type="pc:BaselineType"
 				 minOccurs="0">
 				<annotation>
@@ -587,8 +595,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Coords" type="pc:CoordsType">
-			</element>
+			<element name="Coords" type="pc:CoordsType"/>
 			<element name="Glyph" type="pc:GlyphType" minOccurs="0"
 				maxOccurs="unbounded">
 			</element>
@@ -664,7 +671,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Coords" type="pc:CoordsType"></element>
+			<element name="Coords" type="pc:CoordsType"/>
 			<element name="Graphemes" type="pc:GraphemesType"
 				 minOccurs="0" maxOccurs="1">
 				<annotation>
@@ -1566,7 +1573,7 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="Coords" type="pc:CoordsType"></element>
+			<element name="Coords" type="pc:CoordsType"/>
 		</sequence>
 	</complexType>
 	<simpleType name="ColourSimpleType">
@@ -2096,7 +2103,13 @@
 
 	<simpleType name="PointsType">
 		<annotation>
-			<documentation>Point list with format "x1,y1 x2,y2 ..."</documentation>
+			<documentation>
+			Point list with format "x1,y1 x2,y2 ...", where
+			"x" / "y" refer to the horizontal / vertical
+			pixel positions in a coordinate system which always
+			references the root PageType/@imageFilename, with
+			"0,0" in the upper left corner of the root image and
+			"imageWidth,imageHeight" in the lower right.</documentation>
 		</annotation>
 		<restriction base="string">
 			<pattern value="([0-9]+,[0-9]+ )+([0-9]+,[0-9]+)"></pattern>
