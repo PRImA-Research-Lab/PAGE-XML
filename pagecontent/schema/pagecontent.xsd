@@ -2278,13 +2278,12 @@
 		<attribute name="italic" type="boolean"/>
 		<attribute name="underlined" type="boolean"/>
 		<attribute name="underlineStyle"
-			type="pc:underlineStyleType" use="optional">
+			type="pc:UnderlineStyleSimpleType" use="optional">
 			<annotation>
 				<documentation>Line style details if "underlined" is TRUE
 				</documentation>
 			</annotation>
 		</attribute>
-		<attribute name="doubleUnderlined" type="boolean"/>
 		<attribute name="subscript" type="boolean"/>
 		<attribute name="superscript" type="boolean"/>
 		<attribute name="strikethrough" type="boolean"/>
@@ -2677,7 +2676,7 @@
 			</element>
 		</sequence>
 	</complexType>
-	<simpleType name="underlineStyleType">
+	<simpleType name="UnderlineStyleSimpleType">
 		<restriction base="string">
 			<enumeration value="singleLine" />
 			<enumeration value="doubleLine" />

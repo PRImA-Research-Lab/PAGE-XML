@@ -223,3 +223,4 @@
 
 *	Added underlineStyle attribute to TextStyleType (valid values: singleLine, doubleLine, other)
 
+*	Added "orientation" float attribute to Page element (skew for the whole page)
