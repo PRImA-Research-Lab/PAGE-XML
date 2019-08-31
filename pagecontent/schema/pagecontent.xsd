@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
 	xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
+        version="1.0"
 	elementFormDefault="qualified"
 	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- notes on versioning:
+       PAGE-XML used to be versioned exclusively by changing @targetNamespace
+       (every once per year). With changes often purely additive (non-breaking,
+       backwards compatible), this used to introduce an unnecessary burden on
+       data providers and application programmers alike. They would be forced
+       to update (and both at the same time). Otherwise, if documents were kept,
+       updated applications would not accept them, and if applications were kept,
+       new documents could not be accepted.
+       Starting with 2019-07-15, PAGE-XML will use @targetNamespace only for
+       major versions, and @version for minor versions. In addition, document
+       instances can indicate their minimal compatible version in a new attribute
+       @schemaVersion of the root PcGtsType.
+  -->
   <!-- defaults in XMLSchema:
        attribute use="optional"
        element minOccurs="1" maxOccurs="1" abstract="false" nillable="false"
@@ -20,6 +34,20 @@
 			<element name="Page" type="pc:PageType"></element>
 		</sequence>
 		<attribute name="pcGtsId" type="ID"/>
+		<attribute name="schemaVersion" type="decimal" default="1.0">
+			<annotation>
+				<documentation>
+				Specifies the minimal /schema/@version (minor release)
+				which the schema instance (i.e. document) is compatible
+				with. Applications are required to use at least that
+				version when trying to validate documents. (This implies
+				documents must be pre-parsed, and then re-parsed if the
+				application supports that version or newer ones. Otherwise
+				the application could either report "unsupported", or
+				update itself accordingly.)
+				</documentation>
+			</annotation>
+		</attribute>
 	</complexType>
 	<complexType name="MetadataType">
 		<sequence>
