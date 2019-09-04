@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- defaults in XMLSchema: attribute use="optional" element minOccurs="1" maxOccurs="1" abstract="false" nillable="false" -->
 <schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
 	xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
 	elementFormDefault="qualified"
 	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <!-- defaults in XMLSchema:
-       attribute use="optional"
-       element minOccurs="1" maxOccurs="1" abstract="false" nillable="false"
-  -->
-	
 	<element name="PcGts" type="pc:PcGtsType">
 		<annotation>
 			<documentation>Page Content - Ground Truth and Storage</documentation>
