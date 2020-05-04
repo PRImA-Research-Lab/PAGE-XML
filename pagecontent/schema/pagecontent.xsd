@@ -1321,9 +1321,13 @@
 		<annotation>
 			<documentation>
 			Definition of the reading order within the page.
-			To express a reading order between elements
-			they have to be included in an OrderedGroup.
-			Groups may contain further groups.
+			To express a reading order between regions,
+			they have to be referenced by an OrderedGroup.
+			To express a non-sequential relationship (while still
+			referencing them as part of the overall structural tree),
+			they have to be referenced by an UnorderedGroup.
+			Groups may contain further groups, just as regions may
+			contain further regions.
 			</documentation>
 		</annotation>
 		<choice minOccurs="1" maxOccurs="1">
@@ -1338,7 +1342,7 @@
 	</complexType>
 	<complexType name="RegionRefIndexedType">
 		<annotation>
-			<documentation>Numbered region</documentation>
+			<documentation>Region reference within an OrderedGroup(Indexed)</documentation>
 		</annotation>
 		<attribute name="index" type="int" use="required">
 			<annotation>
@@ -1350,7 +1354,11 @@
 	<complexType name="OrderedGroupIndexedType">
 		<annotation>
 			<documentation>
-			Indexed group containing ordered elements
+			Group containing index-ordered elements within an OrderedGroup(Indexed).
+			Elements must be sorted contiguously according to their @index,
+			regardless of their type. (That is, the sequence of
+			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
+			must start with index zero and each increase by one.)
 			</documentation>
 		</annotation>
 		<sequence>
@@ -1406,7 +1414,10 @@
 	<complexType name="UnorderedGroupIndexedType">
 		<annotation>
 			<documentation>
-			Indexed group containing unordered elements
+			Group containing unordered elements within an OrderedGroup(Indexed)
+			Elements need not be sorted, and may be mixed by type. (That is,
+			the sequence of	OrderedGroup, UnorderedGroup or RegionRef elements
+			may be ordered arbitrarily.)
 			</documentation>
 		</annotation>
 		<sequence>
@@ -1461,12 +1472,19 @@
 		<attribute name="comments" type="string"/>
 	</complexType>
 	<complexType name="RegionRefType">
+		<annotation>
+			<documentation>Region reference in an UnorderedGroup(Indexed)</documentation>
+		</annotation>
 		<attribute name="regionRef" type="IDREF" use="required"/>
 	</complexType>
 	<complexType name="OrderedGroupType">
 		<annotation>
 			<documentation>
-			Numbered group (contains ordered elements)
+			Group containing index-ordered elements within an UnorderedGroup(Indexed)
+			Elements must be sorted contiguously according to their @index,
+			regardless of their type. (That is, the sequence of
+			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
+			must start with index zero and each increase by one.)
 			</documentation>
 		</annotation>
 		<sequence>
@@ -1515,7 +1533,10 @@
 	<complexType name="UnorderedGroupType">
 		<annotation>
 			<documentation>
-			Numbered group (contains unordered elements)
+			Group containing unordered elements within an UnorderedGroup(Indexed)
+			Elements need not be sorted, and may be mixed by type. (That is,
+			the sequence of	OrderedGroup, UnorderedGroup or RegionRef elements
+			may be ordered arbitrarily.)
 			</documentation>
 		</annotation>
 		<sequence>
