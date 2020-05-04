@@ -1340,6 +1340,117 @@
 			</annotation>
 		</attribute>
 	</complexType>
+	<complexType name="RegionRefType">
+		<annotation>
+			<documentation>Region reference in an UnorderedGroup(Indexed)</documentation>
+		</annotation>
+		<attribute name="regionRef" type="IDREF" use="required"/>
+	</complexType>
+	<complexType name="OrderedGroupType">
+		<annotation>
+			<documentation>
+			Group containing index-ordered elements within an UnorderedGroup(Indexed)
+			Elements must be sorted contiguously according to their @index,
+			regardless of their type. (That is, the sequence of
+			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
+			must start with index zero and each increase by one.)
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="UserDefined" type="pc:UserDefinedType"
+				 minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="Labels" type="pc:LabelsType"
+				 minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Semantic labels / tags</documentation>
+				</annotation>
+			</element>
+			<choice minOccurs="1" maxOccurs="unbounded">
+				<element name="RegionRefIndexed" type="pc:RegionRefIndexedType"/>
+				<element name="OrderedGroupIndexed" type="pc:OrderedGroupIndexedType"/>
+				<element name="UnorderedGroupIndexed" type="pc:UnorderedGroupIndexedType"/>
+			</choice>
+		</sequence>
+		<attribute name="id" type="ID" use="required"/>
+		<attribute name="regionRef" type="IDREF">
+			<annotation>
+				<documentation>
+				Optional link to a parent region of nested regions.
+				The parent region doubles as reading order group.
+				Only the nested regions should be allowed as group members.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="caption" type="string"/>
+		<attribute name="type" type="pc:GroupTypeSimpleType"/>
+		<attribute name="continuation" type="boolean">
+			<annotation>
+				<documentation>
+				Is this group a continuation of another group
+				(from previous column or page, for example)?
+				</documentation>
+        		</annotation>
+		</attribute>
+		<attribute name="custom" type="string">
+			<annotation>
+				<documentation>For generic use</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="comments" type="string"/>
+	</complexType>
+	<complexType name="UnorderedGroupType">
+		<annotation>
+			<documentation>
+			Group containing unordered elements within an UnorderedGroup(Indexed)
+			Elements need not be sorted, and may be mixed by type. (That is,
+			the sequence of	OrderedGroup, UnorderedGroup or RegionRef elements
+			may be ordered arbitrarily.)
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="UserDefined" type="pc:UserDefinedType"
+				 minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="Labels" type="pc:LabelsType"
+				 minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Semantic labels / tags</documentation>
+				</annotation>
+			</element>
+			<choice minOccurs="1" maxOccurs="unbounded">
+				<element name="RegionRef" type="pc:RegionRefType"/>
+				<element name="OrderedGroup" type="pc:OrderedGroupType"/>
+				<element name="UnorderedGroup" type="pc:UnorderedGroupType"/>
+			</choice>
+		</sequence>
+		<attribute name="id" type="ID" use="required"/>
+		<attribute name="regionRef" type="IDREF">
+			<annotation>
+				<documentation>
+				Optional link to a parent region of nested regions.
+				The parent region doubles as reading order group.
+				Only the nested regions should be allowed as group members.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="caption" type="string"/>
+		<attribute name="type" type="pc:GroupTypeSimpleType"/>
+		<attribute name="continuation" type="boolean">
+			<annotation>
+				<documentation>
+				Is this group a continuation of another group
+				(from previous column or page, for example)?
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="custom" type="string">
+			<annotation>
+				<documentation>For generic use</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="comments" type="string"/>
+	</complexType>
 	<complexType name="RegionRefIndexedType">
 		<annotation>
 			<documentation>Region reference within an OrderedGroup(Indexed)</documentation>
@@ -1451,117 +1562,6 @@
 				<documentation>
 				Position (order number) of this item within the
 				current hierarchy level.
-				</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="caption" type="string"/>
-		<attribute name="type" type="pc:GroupTypeSimpleType"/>
-		<attribute name="continuation" type="boolean">
-			<annotation>
-				<documentation>
-				Is this group a continuation of another group
-				(from previous column or page, for example)?
-				</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="custom" type="string">
-			<annotation>
-				<documentation>For generic use</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="comments" type="string"/>
-	</complexType>
-	<complexType name="RegionRefType">
-		<annotation>
-			<documentation>Region reference in an UnorderedGroup(Indexed)</documentation>
-		</annotation>
-		<attribute name="regionRef" type="IDREF" use="required"/>
-	</complexType>
-	<complexType name="OrderedGroupType">
-		<annotation>
-			<documentation>
-			Group containing index-ordered elements within an UnorderedGroup(Indexed)
-			Elements must be sorted contiguously according to their @index,
-			regardless of their type. (That is, the sequence of
-			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
-			must start with index zero and each increase by one.)
-			</documentation>
-		</annotation>
-		<sequence>
-			<element name="UserDefined" type="pc:UserDefinedType"
-				 minOccurs="0" maxOccurs="1">
-			</element>
-			<element name="Labels" type="pc:LabelsType"
-				 minOccurs="0" maxOccurs="unbounded">
-				<annotation>
-					<documentation>Semantic labels / tags</documentation>
-				</annotation>
-			</element>
-			<choice minOccurs="1" maxOccurs="unbounded">
-				<element name="RegionRefIndexed" type="pc:RegionRefIndexedType"/>
-				<element name="OrderedGroupIndexed" type="pc:OrderedGroupIndexedType"/>
-				<element name="UnorderedGroupIndexed" type="pc:UnorderedGroupIndexedType"/>
-			</choice>
-		</sequence>
-		<attribute name="id" type="ID" use="required"/>
-		<attribute name="regionRef" type="IDREF">
-			<annotation>
-				<documentation>
-				Optional link to a parent region of nested regions.
-				The parent region doubles as reading order group.
-				Only the nested regions should be allowed as group members.
-				</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="caption" type="string"/>
-		<attribute name="type" type="pc:GroupTypeSimpleType"/>
-		<attribute name="continuation" type="boolean">
-			<annotation>
-				<documentation>
-				Is this group a continuation of another group
-				(from previous column or page, for example)?
-				</documentation>
-        		</annotation>
-		</attribute>
-		<attribute name="custom" type="string">
-			<annotation>
-				<documentation>For generic use</documentation>
-			</annotation>
-		</attribute>
-		<attribute name="comments" type="string"/>
-	</complexType>
-	<complexType name="UnorderedGroupType">
-		<annotation>
-			<documentation>
-			Group containing unordered elements within an UnorderedGroup(Indexed)
-			Elements need not be sorted, and may be mixed by type. (That is,
-			the sequence of	OrderedGroup, UnorderedGroup or RegionRef elements
-			may be ordered arbitrarily.)
-			</documentation>
-		</annotation>
-		<sequence>
-			<element name="UserDefined" type="pc:UserDefinedType"
-				 minOccurs="0" maxOccurs="1">
-			</element>
-			<element name="Labels" type="pc:LabelsType"
-				 minOccurs="0" maxOccurs="unbounded">
-				<annotation>
-					<documentation>Semantic labels / tags</documentation>
-				</annotation>
-			</element>
-			<choice minOccurs="1" maxOccurs="unbounded">
-				<element name="RegionRef" type="pc:RegionRefType"/>
-				<element name="OrderedGroup" type="pc:OrderedGroupType"/>
-				<element name="UnorderedGroup" type="pc:UnorderedGroupType"/>
-			</choice>
-		</sequence>
-		<attribute name="id" type="ID" use="required"/>
-		<attribute name="regionRef" type="IDREF">
-			<annotation>
-				<documentation>
-				Optional link to a parent region of nested regions.
-				The parent region doubles as reading order group.
-				Only the nested regions should be allowed as group members.
 				</documentation>
 			</annotation>
 		</attribute>
