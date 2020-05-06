@@ -1328,6 +1328,9 @@
 			they have to be referenced by an UnorderedGroup.
 			Groups may contain further groups, just as regions may
 			contain further regions.
+			Regions may be referenced only once by any ReadingOrder
+			element. (That is, the @regionRef define an injective
+			mapping from the ReadingOrder tree to the Region tree.)
 			</documentation>
 		</annotation>
 		<choice minOccurs="1" maxOccurs="1">
