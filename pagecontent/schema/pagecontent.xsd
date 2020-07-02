@@ -2349,6 +2349,7 @@
 				<element name="TableRegion" type="pc:TableRegionType"/>
 				<element name="ChartRegion" type="pc:ChartRegionType"/>
 				<element name="SeparatorRegion" type="pc:SeparatorRegionType"/>
+				<element name="MapRegion" type="pc:MapRegionType"/>
 				<element name="MathsRegion" type="pc:MathsRegionType"/>
 				<element name="ChemRegion" type="pc:ChemRegionType"/>
 				<element name="MusicRegion" type="pc:MusicRegionType"/>
