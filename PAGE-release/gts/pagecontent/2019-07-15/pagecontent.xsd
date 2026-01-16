@@ -2324,6 +2324,7 @@
 				<element name="GraphicRegion" type="pc:GraphicRegionType"/>
 				<element name="TableRegion" type="pc:TableRegionType"/>
 				<element name="ChartRegion" type="pc:ChartRegionType"/>
+				<element name="MapRegion" type="pc:MapRegionType"/>
 				<element name="SeparatorRegion" type="pc:SeparatorRegionType"/>
 				<element name="MathsRegion" type="pc:MathsRegionType"/>
 				<element name="ChemRegion" type="pc:ChemRegionType"/>
