@@ -202,6 +202,7 @@
 	- "type" string attribute (optional, one of: author, imageProperties, processingStep, other)
 	- "name" string attribute (optional)
 	- "value" string attribute (required)
+	- "date" dateTime (e.g. 2002-05-30T09:00:00)
 
 *	New "Grid" element for TableRegion (visible or virtual table grid / separators)
 	- "GridPoints" sub element (one row in the points matrix)
@@ -215,11 +216,33 @@
 *	Added "AlternativeImage" as optional child element to Region, TextLine, Word, and Glyph. External image for the respective object.
 
 
+
 2019-07-15
 
 *	Added TextStyle to Page element (default text style for whole page)
 
-*	Added "orientation" float attribute to Page element (skew for the whole page)
-
 *	Added underlineStyle attribute to TextStyleType (valid values: singleLine, doubleLine, other)
+
+2024-7-15
+
+
+*	Added FormRegion
+
+*	New "comments" string attribute for Page
+
+*	New "customLanguages", "customScripts" string attribute for Page, TextRegion, TextLine, Word, Glyph
+
+*	New "mirrored" string attribute for regions, TextLine, Word, Glyph (not-mirrored, horizontally, vertically, other)
+
+*	New "AscentLine", "MeanLine", "DescentLine" elements to complement BaseLine
+
+*	Added "orientation" to TextLine, Word, Glyph
+
+*	Added "secondaryLanguage" to TextLine
+
+*	More flexible table grids: Matrix of grid points defining the table grid on the page. 
+	GridPoints define the main points (corners and intersections). 
+	AddPoints defines points inbetween, where more precision is needed. 
+
+*	MapRegion can now be used recursively (nested in other regions)
 
