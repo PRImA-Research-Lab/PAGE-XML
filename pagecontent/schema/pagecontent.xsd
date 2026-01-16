@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- defaults in XMLSchema: attribute use="optional" element minOccurs="1" maxOccurs="1" abstract="false" nillable="false" -->
-<schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
-	xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
+<schema targetNamespace="http://schema.primaresearch.org/PAGE/gts/pagecontent/2024-07-15"
+	xmlns:pc="http://schema.primaresearch.org/PAGE/gts/pagecontent/2024-07-15"
 	elementFormDefault="qualified"
 	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -215,6 +215,7 @@
 				<element name="ChemRegion" type="pc:ChemRegionType"/>
 				<element name="MusicRegion" type="pc:MusicRegionType"/>
 				<element name="AdvertRegion" type="pc:AdvertRegionType"/>
+				<element name="FormRegion" type="pc:FormRegionType"/>
 				<element name="NoiseRegion" type="pc:NoiseRegionType"/>
 				<element name="UnknownRegion" type="pc:UnknownRegionType"/>
 				<element name="CustomRegion" type="pc:CustomRegionType"/>
@@ -268,6 +269,7 @@
 				<documentation>For generic use</documentation>
 			</annotation>
 		</attribute>
+		<attribute name="comments" type="string"/>
 		<attribute name="orientation" type="float">
 			<annotation>
 				<documentation>
@@ -305,6 +307,15 @@
 				</documentation>
 			</annotation>
 		</attribute>
+		<attribute name="customLanguages" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of languages for page if primary/secondary 
+				not sufficient
+				(lower-level definitions override the page-level definition).
+				</documentation>
+			</annotation>
+		</attribute>
 		<attribute name="primaryScript" type="pc:ScriptSimpleType">
 			<annotation>
 				<documentation>
@@ -317,6 +328,15 @@
 			<annotation>
 				<documentation>
 				The secondary script used in the page
+				(lower-level definitions override the page-level definition).
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customScripts" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of scripts for page if primary/secondary 
+				not sufficient
 				(lower-level definitions override the page-level definition).
 				</documentation>
 			</annotation>
@@ -374,6 +394,13 @@
 					(The rotated image can be further referenced
 					via “AlternativeImage”.)
 					Range: -179.999,180
+					</documentation>
+				</annotation>
+			</attribute>
+			<attribute name="mirrored" type="pc:MirroredSimpleType">
+				<annotation>
+					<documentation>
+					Is the region visually mirrored?
 					</documentation>
 				</annotation>
 			</attribute>
@@ -448,6 +475,15 @@
 					</documentation>
 				</annotation>
 			</attribute>
+			<attribute name="customLanguages" type="string">
+				<annotation>
+					<documentation>
+					Comma-separated list of languages for region if primary/secondary 
+					not sufficient
+					(overrides the page-level definition).
+					</documentation>
+				</annotation>
+			</attribute>
 			<attribute name="primaryScript" type="pc:ScriptSimpleType">
 				<annotation>
 					<documentation>
@@ -459,6 +495,15 @@
 				<annotation>
 					<documentation>
 					The secondary script used in the region
+					</documentation>
+				</annotation>
+			</attribute>
+			<attribute name="customScripts" type="string">
+				<annotation>
+					<documentation>
+					Comma-separated list of scripts for region if primary/secondary 
+					not sufficient
+					(overrides the page-level definition).
 					</documentation>
 				</annotation>
 			</attribute>
@@ -498,12 +543,39 @@
 				</annotation>
 			</element>
 			<element name="Coords" type="pc:CoordsType"/>
-			<element name="Baseline" type="pc:BaselineType"
+			<element name="AscentLine" type="pc:ScriptLineType"
+				 minOccurs="0">
+				<annotation>
+					<documentation>
+					Multiple connected points that mark the line
+					at the top of the ascenders of glyphs
+					</documentation>
+				</annotation>
+			</element>
+			<element name="MeanLine" type="pc:ScriptLineType"
+				 minOccurs="0">
+				<annotation>
+					<documentation>
+					Multiple connected points that mark the line
+					at the top of lower-case glyphs
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Baseline" type="pc:ScriptLineType"
 				 minOccurs="0">
 				<annotation>
 					<documentation>
 					Multiple connected points that mark the baseline
 					of the glyphs
+					</documentation>
+				</annotation>
+			</element>
+			<element name="DescentLine" type="pc:ScriptLineType"
+				 minOccurs="0">
+				<annotation>
+					<documentation>
+					Multiple connected points that mark the line
+					at the bottom of the descenders of glyphs
 					</documentation>
 				</annotation>
 			</element>
@@ -527,11 +599,47 @@
 			</element>			
 		</sequence>
 		<attribute name="id" type="ID" use="required"/>
+		<attribute name="orientation" type="float">
+			<annotation>
+				<documentation>
+				The angle the rectangle encapsulating the line
+				has to be rotated in clockwise direction
+				in order to correct the present skew in relation
+				to the parent region.
+				(negative values indicate anti-clockwise rotation).				
+				Range: -179.999,180
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="mirrored" type="pc:MirroredSimpleType">
+			<annotation>
+				<documentation>
+				Is the text line visually mirrored?
+				</documentation>
+			</annotation>
+		</attribute>
 		<attribute name="primaryLanguage" type="pc:LanguageSimpleType">
 			<annotation>
 				<documentation>
 				Overrides primaryLanguage attribute of parent text
 				region
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="secondaryLanguage" type="pc:LanguageSimpleType">
+			<annotation>
+				<documentation>
+				Overrides secondaryLanguage attribute of parent text
+				region
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customLanguages" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of languages for line if primary/secondary 
+				not sufficient
+				(overrides the region-level definition).
 				</documentation>
 			</annotation>
 		</attribute>
@@ -546,6 +654,15 @@
 			<annotation>
 				<documentation>
 				The secondary script used in the text line 
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customScripts" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of scripts for line if primary/secondary 
+				not sufficient
+				(overrides the region-level definition).
 				</documentation>
 			</annotation>
 		</attribute>
@@ -611,11 +728,39 @@
 			</element>			
 		</sequence>
 		<attribute name="id" type="ID" use="required"/>
+		<attribute name="orientation" type="float">
+			<annotation>
+				<documentation>
+				The angle the rectangle encapsulating the word
+				has to be rotated in clockwise direction
+				in order to correct the present skew in relation
+				to the parent text line.
+				(negative values indicate anti-clockwise rotation).				
+				Range: -179.999,180
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="mirrored" type="pc:MirroredSimpleType">
+			<annotation>
+				<documentation>
+				Is the word visually mirrored?
+				</documentation>
+			</annotation>
+		</attribute>
 		<attribute name="language" type="pc:LanguageSimpleType">
 			<annotation>
 				<documentation>
 				Overrides primaryLanguage attribute of parent line
 				and/or text region
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customLanguages" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of languages for word if language 
+				attribute not sufficient
+				(overrides the line-level definition).
 				</documentation>
 			</annotation>
 		</attribute>
@@ -630,6 +775,15 @@
 			<annotation>
 				<documentation>
 				The secondary script used in the word 
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customScripts" type="string">
+			<annotation>
+				<documentation>
+				Comma-separated list of scripts for word if primary/secondary 
+				not sufficient
+				(overrides the line-level definition).
 				</documentation>
 			</annotation>
 		</attribute>
@@ -694,12 +848,38 @@
 			</element>
 		</sequence>
 		<attribute name="id" type="ID" use="required"/>
+		<attribute name="orientation" type="float">
+			<annotation>
+				<documentation>
+				The angle the rectangle encapsulating the glyph
+				has to be rotated in clockwise direction
+				in order to correct the present skew in relation
+				to the parent word.
+				(negative values indicate anti-clockwise rotation).				
+				Range: -179.999,180
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="mirrored" type="pc:MirroredSimpleType">
+			<annotation>
+				<documentation>
+				Is the glyph visually mirrored?
+				</documentation>
+			</annotation>
+		</attribute>
 		<attribute name="ligature" use="optional" type="boolean"/>
 		<attribute name="symbol" use="optional" type="boolean"/>
 		<attribute name="script" type="pc:ScriptSimpleType">
 			<annotation>
 				<documentation>
 				The script used for the glyph
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="customScript" type="string">
+			<annotation>
+				<documentation>
+				For scripts not supported by the script attribute.
 				</documentation>
 			</annotation>
 		</attribute>
@@ -809,6 +989,13 @@
 						</documentation>
 					</annotation>
 				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
 				<attribute name="colourDepth" type="pc:ColourDepthSimpleType">
 					<annotation>
 						<documentation>
@@ -854,6 +1041,13 @@
 						</documentation>
 					</annotation>
 				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
 				<attribute name="penColour" type="pc:ColourSimpleType">
 					<annotation>
 						<documentation>
@@ -896,6 +1090,13 @@
 						in order to correct the present skew
 						(negative values indicate anti-clockwise rotation).
 						Range: -179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
 						</documentation>
 					</annotation>
 				</attribute>
@@ -954,6 +1155,13 @@
 						</documentation>
 					</annotation>
 				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
 				<attribute name="rows" type="int">
 					<annotation>
 						<documentation>
@@ -1004,6 +1212,8 @@
 		<annotation>
 			<documentation>
 			Matrix of grid points defining the table grid on the page.
+			GridPoints define the main points (corners and intersections).
+			AddPoints defines points inbetween, where more precision is needed.
 			</documentation>
 		</annotation>
 		<sequence>
@@ -1014,6 +1224,17 @@
 					One row in the grid point matrix.
 					Points with x,y coordinates.
 					(note: for a table with n table rows there should be n+1 grid rows)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="AddPoints" type="pc:GridAddPointsType"
+				 minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+					Additional grid line points at one cell location.
+					Points with x,y coordinates.
+					Only left-side and top-side points to avoid redundancy.
+					Points defined in the GridPoints matrix should not be included.
 					</documentation>
 				</annotation>
 			</element>
@@ -1033,6 +1254,27 @@
 		<attribute name="points" type="pc:PointsType"
 			   use="required"/>
 	</complexType>
+	<complexType name="GridAddPointsType">
+		<annotation>
+			<documentation>Points with x,y coordinates.</documentation>
+		</annotation>
+		<attribute name="row" type="int" use="required">
+			<annotation>
+				<documentation>
+				The grid row index
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="col" type="int" use="required">
+			<annotation>
+				<documentation>
+				The grid column index
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="left" type="string"/>
+		<attribute name="top" type="string"/>
+	</complexType>
 	<complexType name="ChartRegionType">
 		<annotation>
 			<documentation>
@@ -1050,6 +1292,13 @@
 						in order to correct the present skew
 						(negative values indicate anti-clockwise rotation).
 						Range: -179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1137,6 +1386,13 @@
 						</documentation>
 					</annotation>
 				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
 				<attribute name="bgColour" type="pc:ColourSimpleType">
 					<annotation>
 						<documentation>
@@ -1164,6 +1420,13 @@
 						skew (negative values indicate
 						anti-clockwise rotation). Range:
 						-179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1197,6 +1460,13 @@
 						</documentation>
 					</annotation>
 				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1216,6 +1486,13 @@
 						in order to correct the present skew
 						(negative values indicate anti-clockwise rotation).
 						Range: -179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1245,6 +1522,49 @@
 						in order to correct the present skew
 						(negative values indicate anti-clockwise rotation).
 						Range: -179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="bgColour" type="pc:ColourSimpleType">
+					<annotation>
+						<documentation>
+						The background colour of the region
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="FormRegionType">
+		<annotation>
+			<documentation>
+			Forms or form-like content.
+			</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="pc:RegionType">
+				<attribute name="orientation" type="float">
+					<annotation>
+						<documentation>
+						The angle the rectangle encapsulating a region
+						has to be rotated in clockwise direction
+						in order to correct the present skew
+						(negative values indicate anti-clockwise rotation).
+						Range: -179.999,180
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="mirrored" type="pc:MirroredSimpleType">
+					<annotation>
+						<documentation>
+						Is the region visually mirrored?
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1286,7 +1606,7 @@
 			Regions containing content that is not covered
 			by the default types (text, graphic, image,
 			line drawing, chart, table, separator, maths,
-			map, music, chem, advert, noise, unknown).
+			map, music, chem, advert, form, noise, unknown).
 			</documentation>
 		</annotation>
 		<complexContent>
@@ -1328,9 +1648,6 @@
 			they have to be referenced by an UnorderedGroup.
 			Groups may contain further groups, just as regions may
 			contain further regions.
-			Regions may be referenced only once by any ReadingOrder
-			element. (That is, the @regionRef define an injective
-			mapping from the ReadingOrder tree to the Region tree.)
 			</documentation>
 		</annotation>
 		<choice minOccurs="1" maxOccurs="1">
@@ -1353,10 +1670,10 @@
 		<annotation>
 			<documentation>
 			Group containing index-ordered elements within an UnorderedGroup(Indexed)
-			Elements must be sorted ascending strictly monotonically according to their
-			@index, regardless of their type. (That is, the index of each two consecutive
+			Elements must be sorted contiguously according to their @index,
+			regardless of their type. (That is, the sequence of
 			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
-			must increase by at least one.)
+			must start with index zero and each increase by one.)
 			</documentation>
 		</annotation>
 		<sequence>
@@ -1469,10 +1786,10 @@
 		<annotation>
 			<documentation>
 			Group containing index-ordered elements within an OrderedGroup(Indexed).
-			Elements must be sorted ascending strictly monotonically according to their
-			@index, regardless of their type. (That is, the index of each two consecutive
+			Elements must be sorted contiguously according to their @index,
+			regardless of their type. (That is, the sequence of
 			OrderedGroupIndexed, UnorderedGroupIndexed or RegionRefIndexed elements
-			must increase by at least one.)
+			must start with index zero and each increase by one.)
 			</documentation>
 		</annotation>
 		<sequence>
@@ -2088,6 +2405,15 @@
 			<enumeration value="other"/>
 		</restriction>
 	</simpleType>
+	<simpleType name="MirroredSimpleType">
+		<restriction base="string">
+			<enumeration value="not-mirrored"/>
+			<enumeration value="horizontally"/>
+			<enumeration value="vertically"/>
+			<enumeration value="other"/>
+		</restriction>
+	</simpleType>
+	
 	<complexType name="LayersType">
 		<annotation>
 			<documentation>
@@ -2110,7 +2436,7 @@
 		<attribute name="caption" type="string"/>
 	</complexType>
 
-	<complexType name="BaselineType">
+	<complexType name="ScriptLineType">
 		<attribute name="points" type="pc:PointsType"
 			   use="required">
 		</attribute>
@@ -2348,12 +2674,13 @@
 				<element name="GraphicRegion" type="pc:GraphicRegionType"/>
 				<element name="TableRegion" type="pc:TableRegionType"/>
 				<element name="ChartRegion" type="pc:ChartRegionType"/>
-				<element name="SeparatorRegion" type="pc:SeparatorRegionType"/>
 				<element name="MapRegion" type="pc:MapRegionType"/>
+				<element name="SeparatorRegion" type="pc:SeparatorRegionType"/>
 				<element name="MathsRegion" type="pc:MathsRegionType"/>
 				<element name="ChemRegion" type="pc:ChemRegionType"/>
 				<element name="MusicRegion" type="pc:MusicRegionType"/>
 				<element name="AdvertRegion" type="pc:AdvertRegionType"/>
+				<element name="FormRegion" type="pc:FormRegionType"/>
 				<element name="NoiseRegion" type="pc:NoiseRegionType"/>
 				<element name="UnknownRegion" type="pc:UnknownRegionType"/>
 				<element name="CustomRegion" type="pc:CustomRegionType"/>
@@ -2375,7 +2702,7 @@
 			</annotation>
 		</attribute>
 	</complexType>
-
+	
 	<complexType name="AlternativeImageType">
 		<attribute name="filename" type="string" use="required"/>
 		<attribute name="comments" type="string"/>
@@ -2484,6 +2811,7 @@
 			</enumeration>
 		</restriction>
 	</simpleType>
+	
 	<complexType name="GraphemesType">
 		<annotation>
 			<documentation>
